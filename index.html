@@ -257,179 +257,252 @@
   </section>
 
 
-  <!--   event   -->
-  <div id="event">
-    <h1 id="headingh">WORKSHOPS CONDUCTED</h1>
+  <!-- ============================================================
+       EVENTS SECTION (SYSTEM EVENT_LOG ARCHIVE — 2-COLUMN GRID)
+       ============================================================ -->
+  <section id="event" class="events-section">
+    <!-- Top Header matching Reference -->
+    <div class="events-top-header" data-aos="fade-up">
+      <div class="terminal-pill-badge"><span class="pulse-dot"></span> SYS.EVENT_LOG // ARCHIVE</div>
+      <div class="events-header-row">
+        <div class="events-title-box">
+          <h1 class="events-main-title">SYSTEM <span class="highlight-cyan">EVENTS</span></h1>
+          <p class="events-main-desc">EXPLORE WHAT WE BUILD, HOST & EXPERIENCE.</p>
+        </div>
+        <div class="system-status-metadata">
+          <span>TOTAL LOGS: <strong>14</strong></span>
+          <span>SECURITY: <strong class="val-cyan">TLS_ACTIVE</strong></span>
+          <span>NETWORK: <strong class="val-green">ONLINE</strong></span>
+        </div>
+      </div>
+    </div>
 
-    <ul class="event-card-grid">
-      <li>
-        <a class="event-card-solo">
-          <img src="images/CYBER_workshop.jpg" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">Cybersecurity</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">Cybersecurity is one of the most crucial domains in today’s digital
-              world. This workshop was focused on explaining the basics of cybersecurity and how different techniques
-              can be used to protect systems, networks, and data from malicious threats and attacks.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/DSA_Workshop.jpg" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">DSA (Data Structures and Algorithms)</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">DSA is the foundation of programming and problem-solving. This
-              workshop was focused on explaining the basics of data structures and algorithms and how they are used to
-              write efficient programs and solve real-world computational problems.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/IOT_Workshop.jpg" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">IoT (Internet of Things)</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">IoT is one of the fastest-growing technologies that connects devices
-              and enables them to communicate with each other. This workshop was focused on explaining the basics of IoT
-              and how smart systems can be built using sensors, actuators, and microcontrollers.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/e-bootstrap.png" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">BOOTSTRAP</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">Bootstrap is a simple and easy-to-use library to apply styles on
-              webpages. This workshop was focused on explaining the basics of the library and showing the
-              power of it.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/e-django.png" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">DJANGO</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">Django is one the most popular framework. This workshop was focused
-              on explaining the basics of Django and how a huge website can be built using it.</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/e-angular.png" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">ANGULAR 5</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">Angular is one the most popular framework. This workshop was
-              focused on explaining the basics of Angular and how a complete full-stack web application
-              can be built
-              using it.</p>
-          </div>
-        </a>
-      </li>
+    <!-- ============================================================
+         3-COLUMN CHRONOLOGICAL EVENT STREAM (MOST RECENT FIRST)
+         ============================================================ -->
+    <div class="events-3col-grid">
 
-      <li>
-        <a class="event-card-solo">
-          <img src="images/e-basicpro.png" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">BASIC PROGRAMMING</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">The most essential part of learning to code is to know how to think
-              logically about the problem. The workshop was focused on guiding the members on how to
-              approach the problem in the most optimal way.</p>
+      <!-- 01: INNOVATION 2026 -->
+      <article class="log-event-card" data-category="flagship" data-aos="fade-up">
+        <div class="log-card-media" onclick="openEventGallery('innovation-2026')">
+          <img src="assets/events/innovation-2026/innovation-2026-pic-1.jpg" alt="Innovation 2026 Presentation" class="log-card-img" loading="lazy" />
+          <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
+          <span class="badge-photo-count"><i class="ri-image-line"></i> 10 Photos</span>
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">INNOVATION 2026</h3>
+          <p class="log-card-desc">
+            INNOVATION 2026 was a national-level project presentation competition by CSI SIESGST, providing a platform for students to showcase innovative projects, research, prototypes, and ideas. The event celebrated creativity, technology, and problem-solving while connecting student innovation with real-world opportunities.
+          </p>
+          <div class="log-card-footer">
+            <button class="btn-log-action" onclick="openEventGallery('innovation-2026')">
+              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
+            </button>
           </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/e-aws.png" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">CLOUD COMPUTING AND FUNDAMENTAL OF AWS</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">The most essential part of learning to code is to know how to think
-              logically about the problem. The workshop was focused on guiding the members on how to
-              approach the problem in the most optimal way.</p>
+        </div>
+      </article>
+
+      <!-- 02: ENIGMA 4.0: CHRONIX -->
+      <article class="log-event-card" data-category="flagship hackathon" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media" onclick="openEventGallery('enigma-4')">
+          <img src="assets/events/enigma-4/enigma-4-pic-1.jpg" alt="Enigma 4.0: Chronix Hackathon" class="log-card-img" loading="lazy" />
+          <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
+          <span class="badge-photo-count"><i class="ri-image-line"></i> 4 Photos</span>
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">ENIGMA 4.0: CHRONIX</h3>
+          <p class="log-card-desc">
+            ENIGMA 4.0 – CHRONIX was a national-level web development hackathon by CSI SIESGST, bringing together innovators to build impactful technology solutions. With the theme “One Event. Infinite Realities.”, participants explored real-world challenges across FinTech and HealthTech through ideation, prototyping, and pitching.
+          </p>
+          <div class="log-card-footer">
+            <button class="btn-log-action" onclick="openEventGallery('enigma-4')">
+              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
+            </button>
           </div>
-        </a>
-      </li>
-      <li>
-        <a class="event-card-solo">
-          <img src="images/e-placement.png" class="event-card-image-solo" alt="" />
-          <div class="event-card-overlay">
-            <div class="event-card-header">
-              <svg class="event-card-arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="event-card-header-text">
-                <h3 class="event-card-title-solo">PLACEMENT GUIDANCE</h3>
-              </div>
-            </div>
-            <p class="event-card-description-solo">The most essential part of learning to code is to know how to think
-              logically about the problem. The workshop was focused on guiding the members on how to
-              approach the problem in the most optimal way.</p>
+        </div>
+      </article>
+
+      <!-- 03: SYNAPSE 1.0 -->
+      <article class="log-event-card" data-category="hackathon" data-aos="fade-up">
+        <div class="log-card-media" onclick="openEventGallery('synapse-1')">
+          <img src="assets/events/synapse-1/synapse-1-pic-1.jpg" alt="Synapse 1.0 Simulation Experience" class="log-card-img" loading="lazy" />
+          <span class="badge-category featured-badge">FEATURED EVENT</span>
+          <span class="badge-photo-count"><i class="ri-image-line"></i> 5 Photos</span>
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">SYNAPSE 1.0</h3>
+          <p class="log-card-desc">
+            SYNAPSE 1.0 was an immersive job-simulation experience where participants stepped into the roles of an AI System Investigator and Product Strategist. Teams analysed a real-world AI system failure, identified its root cause, and redesigned the system through critical thinking, analysis, and decision-making.
+          </p>
+          <div class="log-card-footer">
+            <button class="btn-log-action" onclick="openEventGallery('synapse-1')">
+              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
+            </button>
           </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <!--   /event   -->
-  <!--   counter   -->
-  <div class="container">
+        </div>
+      </article>
+
+      <!-- 04: INNOVATION 2023 -->
+      <article class="log-event-card" data-category="flagship" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media" onclick="openEventGallery('innovation-2023')">
+          <img src="assets/events/innovation-2023/innovation-2023-pic-1.jpg" alt="Innovations 2023 Competition" class="log-card-img" loading="lazy" />
+          <span class="badge-photo-count"><i class="ri-image-line"></i> 11 Photos</span>
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">INNOVATIONS 2023</h3>
+          <p class="log-card-desc">
+            The landmark 2023 national competition that witnessed over 100 abstract submissions from across India in Computer Science, Information Technology, IoT, and Robotics.
+          </p>
+          <div class="log-card-footer">
+            <button class="btn-log-action" onclick="openEventGallery('innovation-2023')">
+              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05: CYBERSECURITY WORKSHOP -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
+        <div class="log-card-media">
+          <img src="assets/events/cybersecurity-workshop/cybersecurity-workshop-pic-1.jpg" alt="Cybersecurity Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Cybersecurity Workshop</h3>
+          <p class="log-card-desc">
+            Explored fundamental cybersecurity concepts, network defense, threat analysis, and practical techniques to protect systems and data from malicious threats and attacks.
+          </p>
+        </div>
+      </article>
+
+      <!-- 06: DSA WORKSHOP -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media">
+          <img src="assets/events/dsa-workshop/dsa-workshop-pic-1.jpg" alt="DSA Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">DSA (Data Structures & Algorithms)</h3>
+          <p class="log-card-desc">
+            Focused on core problem-solving concepts, foundational data structures, algorithmic complexity, and writing efficient computational code.
+          </p>
+        </div>
+      </article>
+
+      <!-- 07: IOT WORKSHOP -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
+        <div class="log-card-media">
+          <img src="assets/events/iot-workshop/iot-workshop-pic-1.jpg" alt="IoT Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">IoT (Internet of Things)</h3>
+          <p class="log-card-desc">
+            A hands-on workshop explaining IoT fundamentals, microcontroller programming, sensor interfacing, and building interconnected smart hardware systems.
+          </p>
+        </div>
+      </article>
+
+      <!-- 08: BOOTSTRAP WORKSHOP -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media">
+          <img src="assets/events/bootstrap-workshop/bootstrap-workshop-pic-1.png" alt="Bootstrap Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Bootstrap Framework</h3>
+          <p class="log-card-desc">
+            Introduced responsive layout grids, flexbox utilities, component styling, and accelerating frontend UI design with modern CSS frameworks.
+          </p>
+        </div>
+      </article>
+
+      <!-- 09: DJANGO FRAMEWORK -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
+        <div class="log-card-media">
+          <img src="assets/events/django-workshop/django-workshop-pic-1.png" alt="Django Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Django Web Framework</h3>
+          <p class="log-card-desc">
+            Explored Python-based full-stack web development, MVT architecture, ORM database modeling, routing, and scalable server-side applications.
+          </p>
+        </div>
+      </article>
+
+      <!-- 10: ANGULAR 5 WORKSHOP -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media">
+          <img src="assets/events/angular-workshop/angular-workshop-pic-1.png" alt="Angular Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Angular 5 Framework</h3>
+          <p class="log-card-desc">
+            Covered single-page application development, component hierarchies, two-way data binding, TypeScript integration, and modular frontend architectures.
+          </p>
+        </div>
+      </article>
+
+      <!-- 11: BASIC PROGRAMMING -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
+        <div class="log-card-media">
+          <img src="assets/events/basic-programming-workshop/basic-programming-workshop-pic-1.png" alt="Basic Programming Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Basic Programming & Logic</h3>
+          <p class="log-card-desc">
+            Focused on establishing logical problem formulation, control structures, functional decomposition, and writing clean, readable code.
+          </p>
+        </div>
+      </article>
+
+      <!-- 12: CLOUD COMPUTING AND AWS -->
+      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media">
+          <img src="assets/events/cloud-aws-workshop/cloud-aws-workshop-pic-1.png" alt="AWS Cloud Computing Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Cloud Computing & AWS Fundamentals</h3>
+          <p class="log-card-desc">
+            Provided a comprehensive overview of cloud architecture, compute instances, storage buckets, security groups, and serverless deployment models on AWS.
+          </p>
+        </div>
+      </article>
+
+      <!-- 13: PLACEMENT GUIDANCE -->
+      <article class="log-event-card" data-category="seminar" data-aos="fade-up">
+        <div class="log-card-media">
+          <img src="assets/events/placement-guidance/placement-guidance-pic-1.png" alt="Placement Guidance Workshop" class="log-card-img" loading="lazy" />
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">Placement Guidance</h3>
+          <p class="log-card-desc">
+            A targeted mentorship session offering students insights into technical interview preparation, coding rounds, system design, and industry hiring standards.
+          </p>
+        </div>
+      </article>
+
+      <!-- 14: CSI OUTREACH PROGRAM -->
+      <article class="log-event-card" data-category="seminar" data-aos="fade-up" data-aos-delay="100">
+        <div class="log-card-media" onclick="openEventGallery('csi-outreach')">
+          <img src="assets/events/csi-outreach/csi-outreach-pic-1.jpg" alt="CSI Outreach Program" class="log-card-img" loading="lazy" />
+          <span class="badge-photo-count"><i class="ri-image-line"></i> 3 Photos</span>
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title">CSI Outreach Program</h3>
+          <p class="log-card-desc">
+            Conducted at SIES School, Matunga, educating school students on digital footprints, cybersecurity awareness, online safety practices, and digital responsibility.
+          </p>
+          <div class="log-card-footer">
+            <button class="btn-log-action" onclick="openEventGallery('csi-outreach')">
+              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+  <!-- /events -->
+
+  <!-- counter -->
+  <div class="container my-5">
     <section class="charts_orb">
       <article class="orb">
         <div class="orb_graphic">
@@ -469,119 +542,10 @@
           COUNCIL <br>MEMBERS
         </div>
       </article>
-
-
-
     </section>
   </div>
-  <!--   /counter   -->
+  <!-- /counter -->
 
-  <!--   /enigma   -->
-  <div class="container">
-    <h1 id="headingh" style="margin-bottom: 3rem;">ENIGMA 2K25 RECAP</h1>
-    <div class="enigma-card-main u-clearfix1">
-      <div class="enigma-inner-card-text">
-        <h2 class="enigma-card-title">2K25 EVENT</h2>
-        <span class="enigma-inner-card-description">The Enigma's main goal is to raise public awareness about digital
-          security scams. Participants can explore various aspects of digital security, including but not limited to
-          online privacy, blockchain, cybersecurity, data protection, and the impact of emerging technologies. CSI
-          SIESGST is holding a Poster presentation competition to raise public awareness and provide a platform for
-          engineers, students, and privacy enthusiasts to present their solutions for the pressing digital security
-          challenges of our day and age.</span>
-        <div class="enigma-runnerup2">
-          <h3 class="enigma-card-winner">Winners</h3>
-          <h6 class="enigma-card-winner">Vaishnavi Parab</h6>
-          <h6 class="enigma-card-winner">Shravani Mankar</h6>
-        </div>
-        <div class="enigma-runnerup">
-          <h3 class="enigma-card-RunnerUp">Runner-Up</h3>
-          <h6 class="enigma-card-RunnerUp">Prathmesh Zingade</h6>
-          <h6 class="enigma-card-RunnerUp">Sayali Chorghe</h6>
-        </div>
-      </div>
-      <div class="slideshow-main">
-        <img class="enigma-slideshow enigma-card-slideshow" src="images/e (1).jpg">
-        <img class="enigma-slideshow enigma-card-slideshow" src="images/e (2).jpg">
-        <img class="enigma-slideshow enigma-card-slideshow" src="images/e (3).jpg">
-        <img class="enigma-slideshow enigma-card-slideshow" src="images/e (4).jpg">
-        <img class="enigma-slideshow enigma-card-slideshow" src="images/e (5).jpg">
-        <script>
-          w3.slideshow(".enigma-slideshow", 2000);
-        </script>
-      </div>
-    </div>
-  </div>
-  <!--   /enigma   -->
-
-
-  <!--   /innovation   -->
-  <div class="container">
-    <h1 id="headingh" style="margin-bottom: 3rem;">INNOVATIONS 2K25 RECAP</h1>
-    <div class="inovation-card-main u-clearfix1">
-      <div class="inovation-inner-card-text">
-        <h2 class="inovation-card-title">2K25 EVENT</h2>
-        <span class="inovation-inner-card-description">INNOVATIONS is a national level project competition conducted
-          annually by the CSI Campus Chapter of SIES Graduate School of Technology. It serves as a platform for
-          young minds to take this window of opportunity and bring forward their innovative ideas in the form of
-          projects. Each year teams from various institutes all over Maharashtra as well as Other States,
-          participate in Innovations at large numbers.Innovations 2019 achieved a milestone when it received over
-          a 100 abstract submissions, a feat never seen before.The projects were from various fields such as
-          Computers, Information Technology, Electronics, Internet of Things, Robotics, Mechanical, etc.
-          Out of the received abstracts,45 projects were selected for the competition after carefully analysing
-          each project based on parameters such as novelty, effectiveness, positive impact on society and
-          scalability.</span>
-      </div>
-      <div class="slideshow-main">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (1).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (2).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (3).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (4).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (5).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (6).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (7).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (8).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (9).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (10).jpg">
-        <img class="inovation-slideshow inovation-card-slideshow" src="images/i (11).jpg">
-        <script>
-          w3.slideshow(".inovation-slideshow", 2000);
-        </script>
-      </div>
-    </div>
-  </div>
-  <!--   /inovation   -->
-
-  <!--   outreach   -->
-  <div class="container">
-    <h1 id="headingh" style="margin-bottom: 3rem;">CSI Outreach program</h1>
-    <div class="inovation-card-main u-clearfix1">
-      <div class="inovation-inner-card-text">
-        <h2 class="inovation-card-title">Outreach program</h2>
-        <span class="inovation-inner-card-description">
-          CSI SIES GST conducted a comprehensive outreach program at SIES School, Matunga,
-          enlightening students about the significance of online presence and cyber security.
-          Members from CSI SIES GST engaged students with informative sessions, emphasizing
-          the importance of managing their digital footprint, while also educating them on
-          the various online threats and practical protection strategies. Interactive workshops
-          and open discussions empowered students with essential knowledge and skills to
-          navigate the online world safely and responsibly, leaving a lasting impact on
-          their digital awareness.
-        </span>
-      </div>
-      <div class="slideshow-main">
-        <img class="out-slideshow inovation-card-slideshow" src="images/ori (1).jpg">
-        <img class="out-slideshow inovation-card-slideshow" src="images/ori (2).jpg">
-        <img class="out-slideshow inovation-card-slideshow" src="images/ori (3).jpg">
-        <script>
-          w3.slideshow(".out-slideshow", 2000);
-        </script>
-      </div>
-    </div>
-  </div>
-  <!--   /outrech   -->
-
-
-  <br><br>
   <!-- partial:index.partial.html -->
   <section id="sponsors">
     <h1
@@ -714,6 +678,42 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       EVENT GALLERY / LIGHTBOX MODAL (CLEAN & MODERN)
+       ============================================================ -->
+  <div id="eventLightboxModal" class="event-lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-dialog">
+      <div class="lightbox-header">
+        <div class="lightbox-title-box">
+          <h3 id="lightboxTitle">Event Gallery</h3>
+          <p id="lightboxSubtitle">CSI SIES GST Event Highlights</p>
+        </div>
+        <button class="lightbox-close-btn" onclick="closeEventLightbox()" aria-label="Close Gallery">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <div class="lightbox-body">
+        <button class="lightbox-nav-btn lightbox-prev" onclick="prevLightboxImage()" aria-label="Previous Photo">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+        <img id="lightboxMainImg" src="images/innovation2026_1.jpg" alt="Event Photo" class="lightbox-main-img" />
+        <button class="lightbox-nav-btn lightbox-next" onclick="nextLightboxImage()" aria-label="Next Photo">
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+      </div>
+
+      <div class="lightbox-footer">
+        <div class="lightbox-counter-strip">
+          <span id="lightboxCounter">Photo 1 of 4</span>
+          <span style="font-size: 0.8rem; color: var(--csi-text-muted);"><i class="ri-keyboard-line"></i> Use arrow keys or swipe</span>
+        </div>
+        <div id="lightboxThumbs" class="lightbox-thumbs">
+          <!-- Thumbnail strip generated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- partial -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
