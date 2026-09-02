@@ -1539,12 +1539,12 @@ buttonm {
   transform: translateZ(0);
 }
 
-/* Dedicated Pure CSI Typography (Super Big & Centered with Orbitron Cyber Font) */
+/* Dedicated Pure CSI Typography (Subtle LED Dot-Matrix Display) */
 .terminal-main-csi-pure {
   font-family: 'Orbitron', sans-serif !important;
   font-size: clamp(6.5rem, 18vw, 16.5rem);
   font-weight: 900;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.35em;
   margin: 0;
   padding-left: 0.22em;
   line-height: 1.0;
@@ -1557,7 +1557,7 @@ buttonm {
 }
 
 /*==================================================
-  INTERACTIVE LED LETTERS (C, S, I) - PURE TYPOGRAPHY
+  INTERACTIVE LED LETTERS (C, S, I) - SUBTLE DOT MATRIX
 ==================================================*/
 
 .led-letter {
@@ -1566,35 +1566,44 @@ buttonm {
   display: inline-block;
   cursor: pointer;
   position: relative;
-  transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.1s ease;
+  transition: transform 0.15s ease, filter 0.2s ease, opacity 0.2s ease;
   user-select: none;
   padding: 0 4px;
   -webkit-font-smoothing: antialiased;
 }
 
 .led-letter:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+
 }
 
 .led-letter:active {
   transform: scale(0.96);
 }
 
-/* LED STATE: ACTIVE (ON) - Pure #495796 Tone Glow */
+/* LED STATE: ACTIVE (ON) - Pure White High-Intensity LED Dot Matrix */
 .led-letter.active {
+  background-image:
+    radial-gradient(circle 2.6px at center, #ffffff 85%, rgba(255, 255, 255, 0.9) 95%, transparent 100%),
+    radial-gradient(circle 3.2px at center, rgba(255, 255, 255, 0.6) 0%, transparent 85%);
+  background-size: 7px 7px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: #ffffff;
-  text-shadow:
-    0 0 4px rgba(255, 255, 255, 0.9),
-    0 0 8px #ffffff,
-    0 0 1px rgba(255, 255, 255, 0.65);
+  filter:
+    drop-shadow(0 0 0px #ffffff) drop-shadow(0 0 1px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.75));
   animation: led-flicker-on 0.18s ease-out;
 }
 
-/* LED STATE: INACTIVE (OFF) */
+/* LED STATE: INACTIVE (OFF) - Unlit Diode Matrix Grid */
 .led-letter.off {
+  background-image:
+    radial-gradient(circle 1.8px at center, rgba(255, 255, 255, 0.18) 75%, transparent 100%);
+  background-size: 7px 7px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: rgba(255, 255, 255, 0.12);
-  text-shadow: none;
-  filter: grayscale(1);
+  filter: none;
 }
 
 /* Turn-ON Flicker */
@@ -1624,31 +1633,31 @@ buttonm {
 @keyframes led-flicker-off {
   0% {
     color: #ffffff;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.9), 0 0 16px #495796;
+    filter: drop-shadow(0 0 4px #ffffff) drop-shadow(0 0 16px rgba(255, 255, 255, 0.9));
     opacity: 1;
   }
 
   25% {
     color: rgba(255, 255, 255, 0.15);
-    text-shadow: none;
+    filter: none;
     opacity: 0.2;
   }
 
   55% {
     color: #ffffff;
-    text-shadow: 0 0 10px #495796;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
     opacity: 0.75;
   }
 
   80% {
     color: rgba(255, 255, 255, 0.12);
-    text-shadow: none;
+    filter: none;
     opacity: 0.1;
   }
 
   100% {
     color: rgba(255, 255, 255, 0.12);
-    text-shadow: none;
+    filter: none;
     opacity: 1;
   }
 }
@@ -1758,7 +1767,7 @@ buttonm {
   display: block;
 }
 
-/* Main window fixed navbar visibility (Hidden above screen until zoomed in) */
+/* Main window fixed navbar (Hidden above screen until monitor is entirely zoomed in) */
 .main-window-nav {
   display: flex !important;
   opacity: 0;
@@ -1772,7 +1781,7 @@ buttonm {
   z-index: 99999;
 }
 
-/* Slides smoothly down from top when zoomed in */
+/* Slides smoothly down ONLY when monitor is entirely zoomed in */
 .main-window-nav.nav-visible {
   opacity: 1;
   visibility: visible;
@@ -1780,7 +1789,7 @@ buttonm {
   pointer-events: all;
 }
 
-/* Hide monitor nav until zoom so screen remains clean */
+/* Ensure monitor navbar is completely hidden so nothing shows during partial zoom */
 .terminal-monitor-nav {
   display: none !important;
 }
@@ -1822,7 +1831,7 @@ buttonm {
   padding: 140px 0 160px;
   color: #e2e8f0;
   overflow: hidden;
-  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .modern-section-container,
@@ -1847,14 +1856,14 @@ buttonm {
 
 .section-tag-num,
 .cyber-section-index .index-badge {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12.5px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #60a5fa;
-  padding: 4px 12px;
-  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #00f0ff;
+  padding: 3px 10px;
+  border: 1px solid rgba(0, 240, 255, 0.4);
   border-radius: 4px;
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(0, 240, 255, 0.08);
   letter-spacing: 0.1em;
 }
 
@@ -1862,35 +1871,35 @@ buttonm {
 .cyber-section-index .index-line {
   width: 40px;
   height: 1px;
-  background: rgba(96, 165, 250, 0.35);
+  background: rgba(0, 240, 255, 0.35);
 }
 
 .section-tag-name,
 .cyber-section-index .index-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  color: #94a3b8;
-  font-weight: 600;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: #00f0ff;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .modern-section-title,
 .cyber-about-hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   font-weight: 800;
   letter-spacing: 0.02em;
   line-height: 1.25;
   color: #ffffff;
   margin-bottom: 16px;
-  text-shadow: 0 0 35px rgba(96, 165, 250, 0.2);
+  text-shadow: 0 0 35px rgba(0, 240, 255, 0.18);
 }
 
 .modern-section-sub,
 .cyber-about-hero-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(0.98rem, 1.25vw, 1.18rem);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   font-weight: 400;
   color: #94a3b8;
   line-height: 1.75;
@@ -1917,18 +1926,18 @@ buttonm {
 }
 
 .modern-card-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11.5px;
-  letter-spacing: 0.22em;
-  color: #60a5fa;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: #00f0ff;
   font-weight: 700;
   display: block;
   margin-bottom: 12px;
 }
 
 .modern-card-heading {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.65rem, 2.6vw, 2.3rem);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(1.8rem, 2.6vw, 2.3rem);
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.02em;
@@ -1937,7 +1946,7 @@ buttonm {
 }
 
 .modern-body-lead {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.05rem;
   line-height: 1.8;
   color: #cbd5e1;
@@ -1945,9 +1954,9 @@ buttonm {
 }
 
 .modern-body-text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.75;
   color: #94a3b8;
   margin-bottom: 24px;
 }
@@ -1966,8 +1975,8 @@ buttonm {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.93rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   color: #cbd5e1;
   line-height: 1.65;
 }
@@ -1976,8 +1985,8 @@ buttonm {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #60a5fa;
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.9);
+  background: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.9);
   margin-top: 8px;
   flex-shrink: 0;
 }
@@ -1987,24 +1996,24 @@ buttonm {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #030712 !important;
   background: #ffffff;
   padding: 13px 28px;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15);
 }
 
 .modern-action-btn:hover {
-  background: #60a5fa;
+  background: #00f0ff;
   color: #030712 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(96, 165, 250, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 240, 255, 0.4);
 }
 
 .modern-action-btn i {
@@ -2144,7 +2153,7 @@ buttonm {
   justify-content: space-between;
   gap: 20px;
   z-index: 5;
- 
+
 }
 
 .team-caption-left {
@@ -2157,13 +2166,13 @@ buttonm {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #60a5fa;
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(96, 165, 250, 0.35);
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.35);
   padding: 4px 10px;
   border-radius: 4px;
   width: fit-content;
@@ -2173,13 +2182,13 @@ buttonm {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #60a5fa;
-  box-shadow: 0 0 8px #60a5fa;
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
   animation: pulse-dot 2s infinite ease-in-out;
 }
 
 .team-caption-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.1rem);
   font-weight: 800;
   color: #ffffff;
@@ -2189,15 +2198,15 @@ buttonm {
 }
 
 .team-year-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
   letter-spacing: 0.18em;
-  color: #94a3b8;
+  color: #00f0ff;
   padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.3);
   border-radius: 4px;
-  background: rgba(10, 14, 26, 0.7);
+  background: rgba(0, 240, 255, 0.08);
   white-space: nowrap;
 }
 
@@ -2205,7 +2214,7 @@ buttonm {
 .section-internal-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(96, 165, 250, 0.25) 30%, rgba(96, 165, 250, 0.25) 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.25) 30%, rgba(0, 240, 255, 0.25) 70%, transparent 100%);
   margin: 70px 0 80px;
   opacity: 0.7;
 }
@@ -2220,17 +2229,17 @@ buttonm {
 }
 
 .story-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  color: #60a5fa;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: #00f0ff;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .story-heading {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: clamp(2.2rem, 3.2vw, 2.8rem);
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.02em;
@@ -2239,8 +2248,8 @@ buttonm {
 }
 
 .story-heading .highlight-cyan {
-  color: #93c5fd;
-  text-shadow: 0 0 20px rgba(147, 197, 253, 0.4);
+  color: #00f0ff;
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 
 /* CSI Emblem Showcase Glass Card (No Pills) */
@@ -2272,7 +2281,7 @@ buttonm {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, transparent 70%);
   pointer-events: none;
   filter: blur(25px);
 }
@@ -2285,17 +2294,17 @@ buttonm {
   align-items: center;
   justify-content: center;
   background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(96, 165, 250, 0.3);
+  border: 1px solid rgba(0, 240, 255, 0.35);
   border-radius: 50%;
   padding: 16px;
-  box-shadow: 0 0 25px rgba(96, 165, 250, 0.2);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .csi-emblem-showcase-card:hover .emblem-icon-wrapper {
   transform: scale(1.08) rotate(4deg);
-  border-color: #60a5fa;
-  box-shadow: 0 0 35px rgba(96, 165, 250, 0.4);
+  border-color: #00f0ff;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
 }
 
 .csi-emblem-svg {
@@ -2305,17 +2314,17 @@ buttonm {
 }
 
 .emblem-card-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.15rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.25rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: #ffffff;
   margin-bottom: 6px;
 }
 
 .emblem-card-sub {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.88rem;
   color: #94a3b8;
   margin-bottom: 24px;
 }
@@ -2331,8 +2340,8 @@ buttonm {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   color: #cbd5e1;
   transition: all 0.25s ease;
 }
@@ -2340,6 +2349,83 @@ buttonm {
 .emblem-point-row:hover {
   color: #ffffff;
   transform: translateX(3px);
+}
+
+/* Chapter Photo Showcase Card in Who Are We */
+.csi-photo-showcase-card {
+  position: relative;
+  background: rgba(4, 7, 14, 0.4);
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.csi-photo-showcase-card:hover {
+  background: rgba(15, 28, 58, 0.35);
+  border-color: rgba(96, 165, 250, 0.38);
+  transform: translateY(-3px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.12);
+}
+
+.csi-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #020408;
+}
+
+.csi-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.csi-photo-showcase-card:hover .csi-photo-img {
+  transform: scale(1.05);
+}
+
+.csi-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(4, 7, 14, 0.9) 100%);
+  pointer-events: none;
+}
+
+.csi-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 22px;
+  z-index: 3;
+}
+
+.csi-photo-tag {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #00f0ff;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.csi-photo-title {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
 }
 
 /* 3. Interactive What We Do - Top Display Window & Horizontal Dock */
@@ -2369,17 +2455,17 @@ buttonm {
 }
 
 .stage-category-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
   letter-spacing: 0.2em;
-  color: #60a5fa;
+  color: #00f0ff;
   font-weight: 700;
   margin-bottom: 10px;
   display: block;
 }
 
 .stage-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: clamp(1.8rem, 2.8vw, 2.5rem);
   font-weight: 800;
   color: #ffffff;
@@ -2388,8 +2474,8 @@ buttonm {
 }
 
 .stage-desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.96rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   line-height: 1.75;
   color: #cbd5e1;
   margin-bottom: 20px;
@@ -2408,8 +2494,8 @@ buttonm {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   color: #94a3b8;
   line-height: 1.55;
 }
@@ -2450,14 +2536,14 @@ buttonm {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #ffffff;
+  color: #00f0ff;
   background: rgba(6, 8, 16, 0.88);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 240, 255, 0.35);
   padding: 4px 10px;
   border-radius: 4px;
   z-index: 4;
@@ -2467,8 +2553,8 @@ buttonm {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11.5px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #030712 !important;
@@ -2481,10 +2567,10 @@ buttonm {
 }
 
 .preview-action-btn:hover {
-  background: #60a5fa;
+  background: #00f0ff;
   color: #030712 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
 }
 
 .preview-action-btn i {
@@ -2545,15 +2631,15 @@ buttonm {
 }
 
 .dock-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #60a5fa;
+  color: #00f0ff;
   letter-spacing: 0.1em;
   padding: 2px 6px;
-  border: 1px solid rgba(96, 165, 250, 0.3);
+  border: 1px solid rgba(0, 240, 255, 0.35);
   border-radius: 3px;
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(0, 240, 255, 0.08);
 }
 
 .dock-arrow {
@@ -2564,14 +2650,14 @@ buttonm {
 
 .dock-card-item:hover .dock-arrow,
 .dock-card-item.active .dock-arrow {
-  color: #60a5fa;
+  color: #00f0ff;
   transform: translate(2px, -2px);
 }
 
 .dock-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.04em;
   margin-bottom: 4px;
@@ -2579,12 +2665,12 @@ buttonm {
 }
 
 .dock-card-item.active .dock-title {
-  color: #93c5fd;
+  color: #00f0ff;
 }
 
 .dock-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.78rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.82rem;
   color: #94a3b8;
   margin: 0;
   line-height: 1.35;
@@ -2601,8 +2687,8 @@ buttonm {
 }
 
 .dock-card-item.active .dock-active-indicator {
-  background: #60a5fa;
-  box-shadow: 0 0 10px #60a5fa;
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
 }
 
 /* Minimalist Sculpted Stats */
@@ -2622,20 +2708,20 @@ buttonm {
 }
 
 .cyber-stat-num {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: clamp(1.8rem, 2.6vw, 2.4rem);
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 0 16px rgba(96, 165, 250, 0.35);
+  text-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
   line-height: 1.1;
 }
 
 .cyber-stat-caption {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
-  color: #94a3b8;
-  font-weight: 600;
+  color: #00f0ff;
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -2686,16 +2772,16 @@ buttonm {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #ffffff;
+  color: #00f0ff;
   background: rgba(6, 8, 16, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 4px 10px;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  padding: 3px 8px;
   border-radius: 4px;
 }
 
@@ -2707,16 +2793,16 @@ buttonm {
 }
 
 .workshop-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
   margin-bottom: 12px;
 }
 
 .workshop-desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   line-height: 1.65;
   color: #94a3b8;
   margin-bottom: 18px;
@@ -2732,8 +2818,8 @@ buttonm {
 }
 
 .workshop-floating-points li {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   color: #cbd5e1;
   display: flex;
   align-items: center;
@@ -2744,8 +2830,8 @@ buttonm {
 .modern-stat-card {
   position: relative;
   overflow: hidden;
-  background: rgba(8, 12, 22, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 7, 14, 0.4);
+  border: 1px solid rgba(96, 165, 250, 0.15);
   border-radius: 18px;
   padding: 44px 32px;
   text-align: center;
@@ -2756,34 +2842,35 @@ buttonm {
 }
 
 .modern-stat-card:hover {
-  border-color: rgba(147, 197, 253, 0.28);
+  background: rgba(15, 28, 58, 0.35);
+  border-color: rgba(96, 165, 250, 0.35);
   transform: translateY(-4px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(96, 165, 250, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(59, 130, 246, 0.1);
 }
 
 .stat-big-number {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: clamp(2.8rem, 4vw, 3.8rem);
   font-weight: 800;
   color: #ffffff;
   display: block;
   line-height: 1;
   margin-bottom: 16px;
-  text-shadow: 0 0 25px rgba(96, 165, 250, 0.3);
+  text-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
 }
 
 .stat-card-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #60a5fa;
+  color: #00f0ff;
   margin-bottom: 12px;
 }
 
 .stat-card-desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
   line-height: 1.65;
   color: #94a3b8;
   margin: 0;
@@ -2791,21 +2878,22 @@ buttonm {
 
 /* Winner & Runner-Up Spotlight Cards */
 .winner-award-card {
-  background: rgba(15, 20, 38, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 7, 14, 0.4);
+  border: 1px solid rgba(96, 165, 250, 0.15);
   border-radius: 12px;
   padding: 18px 20px;
   transition: all 0.25s ease;
 }
 
 .winner-award-card:hover {
-  border-color: rgba(147, 197, 253, 0.25);
+  background: rgba(15, 28, 58, 0.35);
+  border-color: rgba(96, 165, 250, 0.35);
   transform: translateY(-2px);
 }
 
 .award-badge.gold {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   color: #fbbf24;
@@ -2816,11 +2904,11 @@ buttonm {
 }
 
 .award-badge.silver {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #94a3b8;
+  color: #dee995;
   margin-bottom: 10px;
   display: inline-flex;
   align-items: center;
@@ -2828,9 +2916,9 @@ buttonm {
 }
 
 .award-names {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
   color: #ffffff;
   margin-bottom: 4px;
 }
@@ -2841,8 +2929,8 @@ buttonm {
 }
 
 .sponsors-group-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: #94a3b8;

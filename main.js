@@ -272,8 +272,8 @@ $('.count').each(function () {
       }
     }
 
-    // Nav handoff: when fully zoomed in (progress >= 0.95), reveal mainNav sliding down from top
-    if (progress >= 0.95) {
+    // Nav handoff: ONLY when monitor screen is ENTIRELY zoomed in (progress >= 0.98), reveal mainNav sliding down from top
+    if (progress >= 0.98) {
       screenInner.classList.remove('unzoomed-locked');
       if (mainNav) {
         mainNav.classList.add('nav-visible');
@@ -562,7 +562,7 @@ function initWhatWeDoSpotlight() {
       link: '#enigma'
     },
     megabyte: {
-      img: 'images/cd1.jpg',
+      img: 'images/magzine.jpg',
       badge: 'FLAGSHIP PUBLICATION',
       cat: '// STUDENT RESEARCH & EDITORIAL',
       title: 'MEGABYTE MAGAZINE',
@@ -572,7 +572,7 @@ function initWhatWeDoSpotlight() {
       link: '#magzine'
     },
     hackathons: {
-      img: 'images/w9.jpg',
+      img: 'images/H (1).jpg',
       badge: 'RAPID PROTOTYPING',
       cat: '// 36-HOUR CODE SPRINT',
       title: 'HACKATHONS & CODE SPRINTS',
@@ -582,7 +582,7 @@ function initWhatWeDoSpotlight() {
       link: '#event'
     },
     workshops: {
-      img: 'images/w2.jpg',
+      img: 'images/CYBER_workshop.jpg',
       badge: 'HANDS-ON MASTERCLASSES',
       cat: '// TECHNICAL SKILL DEVELOPMENT',
       title: 'DOMAIN MASTERCLASSES',
