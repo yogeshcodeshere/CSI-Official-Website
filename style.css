@@ -29,9 +29,19 @@
   margin-bottom: 50px;
 }
 
+/* Show only the default section (Faculty) until script.js applies the filter.
+   Without this the browser begins downloading every team's photos while parsing,
+   even though the filter hides them a moment later. The :not() keeps this ahead
+   of the 576px rule below, and script.js still overrides it with inline styles. */
+.store-product:not(.Faculty) {
+  display: none;
+}
+
 .bg {
-  background: #131B24;
-  background: linear-gradient(#000000, #103054);
+  background-color: #000000;
+  background-image: url('images/cyber-dots-bg.svg');
+  background-size: 120px 120px;
+  background-attachment: fixed;
 }
 
 /*       our team           */
@@ -126,26 +136,28 @@
   opacity: 1;
 }
 
-.title{
+.title {
   color: aliceblue;
 }
 
-.goback{
-    position: absolute;
-    top: 6%;
-    left: 3%;
-    background-color: #dee995;
-    color: #13182a;
-    border-radius: 0.5rem;
-    font-weight: 700;
-    font-size: larger;
-    padding: 0.3% 0.7%;
+.goback {
+  position: absolute;
+  top: 6%;
+  left: 3%;
+  background-color: #dee995;
+  color: #13182a;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: larger;
+  padding: 0.3% 0.7%;
 }
-.goback svg{
+
+.goback svg {
   margin-right: 8px;
   margin-bottom: 4px;
 }
-.goback a{
+
+.goback a {
   text-decoration: none;
   color: #13182a;
 }
@@ -184,10 +196,12 @@
     max-width: 10rem;
     display: flex;
   }
+
   /* Hide Go Back text on mobile, show only icon */
   .goback a {
     font-size: 0;
   }
+
   .goback a svg {
     font-size: 23px;
     margin-right: 0;
@@ -243,7 +257,7 @@
   filter: saturate(1);
 }
 
-.team_member-info{
+.team_member-info {
   text-align: center;
   margin-top: 1.4rem;
   color: #9fa5b5;
@@ -302,38 +316,44 @@
   }
 } */
 
-@media screen and (max-width: 1400px){
-  .team_member{
+@media screen and (max-width: 1400px) {
+  .team_member {
     height: 402px;
   }
-  .team_member-image{
+
+  .team_member-image {
     height: 200px;
   }
 }
 
 
-@media screen and (max-width: 768px){
-  .team_member{
+@media screen and (max-width: 768px) {
+  .team_member {
     height: 350px;
   }
-  .team_member-image{
+
+  .team_member-image {
     height: 150px;
   }
 }
 
-@media screen and (max-width: 520px){
-  .team_member{
+@media screen and (max-width: 520px) {
+  .team_member {
     height: 295px;
   }
-  .team_member-image{
+
+  .team_member-image {
     height: 80px;
   }
-  .team_member-info h4{
+
+  .team_member-info h4 {
     font-size: medium;
   }
-  .team_member-info p{
+
+  .team_member-info p {
     font-size: medium;
   }
+
   .team_member:hover .team_member-socials {
     top: 88.5%;
     /* transition: 0.3s; */

@@ -1,7 +1,11 @@
 body {
   margin: 0;
-  padding: 0 5%; /* changed from 113px to % for better responsiveness */
-  background-color: #04042c;
+  padding: 0 5%;
+  /* changed from 113px to % for better responsiveness */
+  background-color: #000000;
+  background-image: url('images/cyber-dots-bg.svg');
+  background-size: 120px 120px;
+  background-attachment: fixed;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: rgb(193, 193, 193);
   font-size: 18px;
@@ -13,17 +17,20 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: 13px;
-  flex-wrap: wrap; /* allow wrapping on small screens */
+  flex-wrap: wrap;
+  /* allow wrapping on small screens */
 }
 
 #navbar img {
   height: 5rem;
-  max-width: 100%; /* prevents overflow */
+  max-width: 100%;
+  /* prevents overflow */
 }
 
 #navbar p {
   color: white;
-  font-size: clamp(1.5rem, 4vw, 3rem); /* responsive font */
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  /* responsive font */
   margin: 0 auto;
   font-weight: 700;
   text-align: center;
@@ -44,7 +51,8 @@ button {
   border-radius: 2px 10px;
   margin-top: 1rem;
   width: 10rem;
-  max-width: 100%; /* keeps button inside screen */
+  max-width: 100%;
+  /* keeps button inside screen */
   height: 50px;
   text-decoration: none;
   font-size: 1rem;
@@ -61,7 +69,8 @@ button {
   position: relative;
   transition: transform 1s ease;
   animation: border-animate 1.5s linear infinite;
-  padding: 20px; /* small padding for spacing */
+  padding: 20px;
+  /* small padding for spacing */
 }
 
 #CSI-info:hover {
@@ -69,16 +78,31 @@ button {
 }
 
 @keyframes border-animate {
-  0% { border-top: 3px solid #dee995; }
-  25% { border-right: 3px solid #dee995; }
-  50% { border-bottom: 3px solid #dee995; }
-  75% { border-left: 3px solid #dee995; }
-  100% { border-top: 3px solid #f0db4f; }
+  0% {
+    border-top: 3px solid #dee995;
+  }
+
+  25% {
+    border-right: 3px solid #dee995;
+  }
+
+  50% {
+    border-bottom: 3px solid #dee995;
+  }
+
+  75% {
+    border-left: 3px solid #dee995;
+  }
+
+  100% {
+    border-top: 3px solid #f0db4f;
+  }
 }
 
 #CSI-info div div {
   display: flex;
-  flex-wrap: wrap; /* stack on smaller screens */
+  flex-wrap: wrap;
+  /* stack on smaller screens */
   justify-content: center;
   gap: 20px;
 }
@@ -114,7 +138,8 @@ button {
 .year-benefit h2 {
   color: #20c997;
   margin: 17px 0 8px 0;
-  font-size: 1.5rem; /* consistent size */
+  font-size: 1.5rem;
+  /* consistent size */
   border-bottom: 2px solid #20c997;
   padding-bottom: 8px;
   font-weight: 600;
@@ -171,25 +196,33 @@ button {
 }
 
 @media (max-width: 480px) {
-button {
-  width: 60%;                /* slightly wider for balance */
-  height: 38px;              /* a bit taller for better tap area */
-  font-size: 0.9rem;         /* more readable */
-  font-weight: 600;          /* makes text stand out */
-  border-radius: 10px;       /* smooth rounded edges */
-  border: none;              /* cleaner look */
-  background-color: #dee995; 
-  color: #000;               
-  cursor: pointer;           
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
-  transition: all 0.3s ease; 
-}
+  button {
+    width: 60%;
+    /* slightly wider for balance */
+    height: 38px;
+    /* a bit taller for better tap area */
+    font-size: 0.9rem;
+    /* more readable */
+    font-weight: 600;
+    /* makes text stand out */
+    border-radius: 10px;
+    /* smooth rounded edges */
+    border: none;
+    /* cleaner look */
+    background-color: #dee995;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
 
-button:hover {
-  background-color: #cbd87c; /* darker shade */
-  transform: scale(1.05);    /* slight zoom */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+  button:hover {
+    background-color: #cbd87c;
+    /* darker shade */
+    transform: scale(1.05);
+    /* slight zoom */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
 
   .year-benefit h2 {
     font-size: 1.2rem;

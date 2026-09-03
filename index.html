@@ -9,6 +9,10 @@
   <link rel="shortcut icon" href="./final-image1/CSI new Logo Crest Trans White.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
   <link rel="shortcut icon" href="./assets/CSI (WHITE) LOGO.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
@@ -23,658 +27,1104 @@
 </head>
 
 <body>
-  <!-- NAVBAR STARTS -->
-  <div class="body-image">
-    <div id="particles-js"> </div>
-    <div class="myContent">
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-          <div class="navbar-brand">
-            <img src="./assets/CSI (WHITE) LOGO.png" alt="csi logo" />
+  <!-- MAIN WINDOW NAVBAR (Centered Navigation) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top main-window-nav terminal-nav-unified" id="main-window-nav">
+    <div class="container-fluid justify-content-center px-3 px-md-4">
+      <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMain"
+        aria-controls="navbarNavMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNavMain">
+        <ul class="navbar-nav mx-auto terminal-nav-links justify-content-center align-items-center" id="mainNavOuter">
+          <li class="nav-item">
+            <a class="nav-link" href="#cm">[ABOUT US]</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#magzine">[MAGAZINE]</a>
+          </li>
+          <li class="nav-item nav-item-logo">
+            <a class="nav-link nav-logo-link" href="#top" id="nav-brand-logo" title="Back to CSI Screen">
+              <img src="images/csi-emblem.svg" alt="CSI Logo" class="nav-center-emblem" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#event">[EVENTS]</a>
+          </li>
+          <li class="nav-item" id="underline">
+            <a class="nav-link" href="team.html">[TEAM]</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PHYSICAL MONITOR ZOOM STAGE (Fixed Viewport Stage) -->
+  <div class="hero-sticky-stage" id="hero-sticky-stage">
+    <!-- Interactive Background Dots Canvas (Behind monitor) -->
+    <canvas id="hero-bg-dots-canvas" class="hero-bg-dots-canvas"></canvas>
+
+    <div class="hero-zoom-container" id="hero-zoom-container">
+      <div class="monitor-stage-box" id="monitor-stage-box">
+
+        <!-- SCREEN VIEWPORT (Clipped inside monitor display area on desktop, full screen on mobile) -->
+        <div class="monitor-screen-viewport" id="monitor-screen-viewport">
+          <div class="monitor-screen-inner unzoomed-locked" id="monitor-screen-inner">
+            <div class="terminal-stage">
+              <!-- Interactive Repulsion Dot Grid Canvas (Inside monitor) -->
+              <canvas id="terminal-dots-canvas" class="terminal-dots-canvas"></canvas>
+
+              <!-- Monitor Screen Top Centered Status Bar / Navbar (Exact Identical Markup) -->
+              <nav class="navbar navbar-expand-lg navbar-dark terminal-monitor-nav terminal-nav-unified"
+                id="terminal-monitor-nav">
+                <div class="container-fluid justify-content-center px-3 px-md-4">
+                  <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavInner" aria-controls="navbarNavInner" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNavInner">
+                    <ul class="navbar-nav mx-auto terminal-nav-links justify-content-center align-items-center"
+                      id="mainNav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#cm">[ABOUT US]</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#magzine">[MAGAZINE]</a>
+                      </li>
+                      <li class="nav-item nav-item-logo">
+                        <a class="nav-link nav-logo-link" href="#top" title="Back to CSI Screen">
+                          <img src="images/csi-emblem.svg" alt="CSI Logo" class="nav-center-emblem" />
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#event">[EVENTS]</a>
+                      </li>
+                      <li class="nav-item" id="underline-inner">
+                        <a class="nav-link" href="team.html">[TEAM]</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+              <!-- TERMINAL HERO MAIN CONTENT (Pure Massive CSI Centered) -->
+              <div class="terminal-hero-container">
+                <div class="terminal-hero-center">
+
+                  <!-- Pure Massive Centered CSI with Interactive LED Letters -->
+                  <h1 class="terminal-main-csi-pure">
+                    <span class="led-letter active" id="led-c" data-letter="C" title="">C</span><span
+                      class="led-letter active" id="led-s" data-letter="S" title="">S</span><span
+                      class="led-letter active" id="led-i" data-letter="I" title="">I</span>
+                  </h1>
+
+                </div>
+
+                <!-- Minimal Scroll / Click To Enter Indicator at Bottom of Screen -->
+                <div class="terminal-scroll-hint" id="terminal-enter-trigger" role="button" tabindex="0"
+                  title="Click or scroll to enter">
+                  <span class="hint-arrow">&darr;</span> <span class="hint-text">SCROLL TO ENTER</span>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto" id="#mainNav">
-              <li class="nav-item">
-                <a class="nav-link" href="#cm">ABOUT US</a>
+        </div>
+
+        <!-- PHYSICAL MONITOR DESK SCENE OVERLAY (Image from assets/hero-desk-clean.png) -->
+        <img src="./images/hero-desk-clean.png" alt="Physical Monitor Desk Scene" class="hero-desk-frame-img"
+          id="hero-desk-frame-img" />
+
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SCROLL TRACK (Creates the scroll height for camera zoom interaction) -->
+  <div id="hero-scroll-track" class="hero-scroll-track"></div>
+
+  <!-- ABOUT US SECTION (Cinematic Team Showcase, Who Are We & Top Window / Horizontal Cards Spotlight) -->
+  <section id="cm" class="terminal-about-section">
+    <div class="container terminal-about-container">
+
+      <!-- Section Header -->
+      <div class="cyber-about-header" data-aos="fade-up">
+        <div class="cyber-section-index">
+          <span class="index-badge">01</span>
+          <span class="index-line"></span>
+          <span class="index-label">ABOUT US &bull; SIES GST CHAPTER</span>
+        </div>
+        <h2 class="cyber-about-hero-title">
+          THE ARCHITECTS OF INNOVATION
+        </h2>
+        <p class="cyber-about-hero-subtitle">
+          Computer Society of India &bull; SIES Graduate School of Technology Student Chapter
+        </p>
+      </div>
+
+      <!-- 1. CINEMATIC TEAM GROUP PHOTO SHOWCASE (HUGE) -->
+      <div class="team-showcase-container" data-aos="fade-up">
+        <div class="team-photo-frame">
+          <img src="images/csi-team-group.jpg" alt="CSI SIES GST Student Council" class="team-photo-img" />
+          <div class="team-photo-overlay"></div>
+
+          <!-- Modern Floating Caption Badge (No Pills - Minimalist Architecture) -->
+          <div class="team-caption-bar">
+            <div class="team-caption-left">
+              <div class="team-badge-tag">
+                <span class="pulse-indicator"></span>
+                <span>CSI SIES GST COUNCIL</span>
+              </div>
+              <h3 class="team-caption-title">The team that made it happen</h3>
+            </div>
+            <div class="team-caption-right">
+              <span class="team-year-tag">ACADEMIC YEAR 2025 &ndash; 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Super Thin Faint Divider -->
+      <div class="section-internal-divider"></div>
+
+      <!-- 2. WHO ARE WE (CSI KYA HAI & SIES GST CHAPTER) -->
+      <div class="about-story-block" data-aos="fade-up">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="story-label-wrapper">
+              <span class="story-label">// 01 &bull; WHO ARE WE</span>
+            </div>
+            <h3 class="story-heading">
+              India’s Largest Tech Network, <br class="d-none d-md-inline" />
+              <span class="highlight-cyan">Powered by Students</span>
+            </h3>
+            <p class="modern-body-lead">
+              Founded in <strong class="text-white">1965</strong>, the <strong class="text-white">Computer Society of
+                India (CSI)</strong> is the nation’s pioneer professional body dedicated to advancing computer
+              engineering, data science, and IT research.
+            </p>
+            <p class="modern-body-text">
+              At <strong class="text-white">SIES Graduate School of Technology</strong>, our Student Chapter transforms
+              this national legacy into an electric campus community. We are an elected guild of student developers,
+              designers, open-source hackers, and tech leads committed to bridging the gap between theoretical classroom
+              knowledge and industry-scale engineering.
+            </p>
+
+            <!-- Minimalist Stats Grid -->
+            <div class="cyber-stats-row">
+              <div class="cyber-stat-item">
+                <span class="cyber-stat-num">72</span>
+                <span class="cyber-stat-caption">CHAPTERS ACROSS INDIA</span>
+              </div>
+              <div class="cyber-stat-item">
+                <span class="cyber-stat-num">511</span>
+                <span class="cyber-stat-caption">STUDENT BRANCHES</span>
+              </div>
+              <div class="cyber-stat-item">
+                <span class="cyber-stat-num">100K+</span>
+                <span class="cyber-stat-caption">ACTIVE MEMBERS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row g-4">
+              <!-- Card 1: Modern Glass Emblem Showcase -->
+              <div class="col-md-6">
+                <div class="csi-emblem-showcase-card h-100">
+                  <div class="emblem-card-glow"></div>
+                  <div class="emblem-card-inner text-center">
+                    <div class="emblem-icon-wrapper">
+                      <img src="images/csi-emblem.svg" alt="CSI Emblem" class="csi-emblem-svg" />
+                    </div>
+                    <h4 class="emblem-card-title">CSI NATIONAL</h4>
+                    <p class="emblem-card-sub">Est. 1965 &bull; India's IT Heritage</p>
+                    <div class="emblem-card-points">
+                      <div class="emblem-point-row">
+                        <span class="point-glow-dot"></span>
+                        <span>Student Chapter Guild</span>
+                      </div>
+                      <div class="emblem-point-row">
+                        <span class="point-glow-dot"></span>
+                        <span>National Competitions</span>
+                      </div>
+                      <div class="emblem-point-row">
+                        <span class="point-glow-dot"></span>
+                        <span>Engineering &amp; Labs</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Chapter Activities / Orientation Photo Showcase -->
+              <div class="col-md-6">
+                <div class="csi-photo-showcase-card h-100">
+                  <div class="csi-photo-frame">
+                    <img src="images/ori (1).jpg" alt="CSI Chapter Orientation" class="csi-photo-img" />
+                    <div class="csi-photo-overlay"></div>
+                    <div class="csi-photo-caption">
+                      <span class="csi-photo-tag">// CAMPUS ENGAGEMENT</span>
+                      <h4 class="csi-photo-title">Community &amp; Culture</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Super Thin Faint Divider -->
+      <div class="section-internal-divider"></div>
+
+      <!-- 3. WHAT WE DO (TOP WINDOW DISPLAY + HORIZONTAL CARDS DOCK) -->
+      <div class="about-spotlight-block" id="what-we-do" data-aos="fade-up">
+        <div class="story-label-wrapper">
+          <span class="story-label">// 02 &bull; WHAT WE DO</span>
+        </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
+          <h3 class="story-heading mb-0">
+            Engineering High-Impact <span class="highlight-cyan">Technical Experiences</span>
+          </h3>
+          <p class="modern-body-text mb-0 text-md-end" style="max-width: 420px;">
+            Hover or tap the cards below to reveal event dossiers, photos, and direct access.
+          </p>
+        </div>
+
+        <!-- TOP INTERACTIVE DISPLAY WINDOW -->
+        <div class="spotlight-stage-window" id="spotlight-stage-window">
+          <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-7 order-2 order-lg-1">
+              <div class="stage-info-body">
+                <span class="stage-category-tag" id="spotlight-cat">// FLAGSHIP NATIONAL EXPO</span>
+                <h4 class="stage-title" id="spotlight-title">INNOVATIONS 2K25</h4>
+                <p class="stage-desc" id="spotlight-desc">
+                  SIES GST’s premier national tech platform uniting 100+ project submissions from top engineering
+                  institutes across India to pitch cutting-edge prototypes before industry jury panels.
+                </p>
+                <ul class="stage-highlights-list" id="spotlight-highlights">
+                  <li class="stage-highlight-item">
+                    <span class="point-glow-dot"></span>
+                    <span id="spotlight-h1">100+ Abstract Submissions from institutes across India</span>
+                  </li>
+                  <li class="stage-highlight-item">
+                    <span class="point-glow-dot"></span>
+                    <span id="spotlight-h2">Multi-track tracks in AI/ML, IoT, Cloud &amp; Embedded Systems</span>
+                  </li>
+                </ul>
+                <div class="stage-footer pt-3">
+                  <a href="#innovations" class="preview-action-btn" id="spotlight-link">
+                    <span>EXPLORE INITIATIVE</span>
+                    <i class="ri-arrow-right-line"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5 order-1 order-lg-2">
+              <div class="stage-media-frame">
+                <img src="images/i (1).jpg" alt="Spotlight Preview" class="stage-img" id="spotlight-img" />
+                <div class="stage-gradient-overlay"></div>
+                <div class="stage-tag-badge" id="spotlight-badge">
+                  <span class="badge-dot"></span>
+                  <span id="spotlight-badge-text">NATIONAL LEVEL TECH FEST</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM HORIZONTAL MINIMALIST CARDS DOCK -->
+        <div class="spotlight-horizontal-dock" id="spotlight-triggers">
+          <!-- Card 1: Innovations -->
+          <div class="dock-card-item active" data-spotlight="innovations" tabindex="0">
+            <div class="dock-card-top">
+              <span class="dock-num">01</span>
+              <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
+            </div>
+            <h5 class="dock-title">INNOVATIONS</h5>
+            <p class="dock-subtitle">National Project Expo</p>
+            <div class="dock-active-indicator"></div>
+          </div>
+
+          <!-- Card 2: Enigma -->
+          <div class="dock-card-item" data-spotlight="enigma" tabindex="0">
+            <div class="dock-card-top">
+              <span class="dock-num">02</span>
+              <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
+            </div>
+            <h5 class="dock-title">ENIGMA</h5>
+            <p class="dock-subtitle">Cyber Defense Challenge</p>
+            <div class="dock-active-indicator"></div>
+          </div>
+
+          <!-- Card 3: Megabyte -->
+          <div class="dock-card-item" data-spotlight="megabyte" tabindex="0">
+            <div class="dock-card-top">
+              <span class="dock-num">03</span>
+              <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
+            </div>
+            <h5 class="dock-title">MEGABYTE</h5>
+            <p class="dock-subtitle">Annual Tech Magazine</p>
+            <div class="dock-active-indicator"></div>
+          </div>
+
+          <!-- Card 4: Hackathons -->
+          <div class="dock-card-item" data-spotlight="hackathons" tabindex="0">
+            <div class="dock-card-top">
+              <span class="dock-num">04</span>
+              <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
+            </div>
+            <h5 class="dock-title">HACKATHONS</h5>
+            <p class="dock-subtitle">36-Hr Code Sprints</p>
+            <div class="dock-active-indicator"></div>
+          </div>
+
+          <!-- Card 5: Tech Workshops -->
+          <div class="dock-card-item" data-spotlight="workshops" tabindex="0">
+            <div class="dock-card-top">
+              <span class="dock-num">05</span>
+              <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
+            </div>
+            <h5 class="dock-title">WORKSHOPS</h5>
+            <p class="dock-subtitle">Domain Masterclasses</p>
+            <div class="dock-active-indicator"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- MAGAZINE SECTION (02. ANNUAL PUBLICATION) -->
+  <section id="magzine" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header" data-aos="fade-up">
+        <div class="modern-section-tag">
+          <span class="section-tag-num">02</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">ANNUAL PUBLICATION</span>
+        </div>
+        <h2 class="modern-section-title">MEGABYTE 2K25 EDITION</h2>
+        <p class="modern-section-sub">Official Technical Magazine of CSI Student Chapter &bull; SIES Graduate School of
+          Technology</p>
+      </div>
+
+      <div class="modern-glass-card" data-aos="fade-up">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="modern-card-tag">// RESEARCH &amp; CHRONICLES</span>
+            <h3 class="modern-card-heading">Insightful Tech, Diverse Voices</h3>
+            <p class="modern-body-lead">
+              Welcome to the second edition of <strong class="text-white">MEGABYTE</strong>, the premier annual
+              publication curated by the CSI SIES-GST Editorial Council.
+            </p>
+            <p class="modern-body-text">
+              <strong>MEGABYTE</strong> chronicles breakthrough advancements across the global technology frontier while
+              spotlighting the exceptional projects, research papers, and technical milestones of SIES GST students.
+            </p>
+            <ul class="modern-floating-points">
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Curated deep-dives on Open Source Innovations, Artificial Intelligence &amp;
+                  Next-Gen Computing</span>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#magzine">MAGAZINE</a>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Exclusive interviews and career journeys from distinguished alumni across the
+                  IT sector</span>
               </li>
-              <!-- <li class="nav-item" id="special">
-                <a class="nav-link" href="https://innovations-csi-siesgst.herokuapp.com/">INNOVATIONS 2K22</a>
-              </li> -->
-              <li class="nav-item">
-                <a class="nav-link" href="#event">EVENTS</a>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Peer-reviewed student articles, project case studies, and technological
+                  reviews</span>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="membership.html">MEMBERSHIP</a>
+            </ul>
+            <div class="modern-cta-wrapper mt-4">
+              <a href="https://online.fliphtml5.com/vxsxt/ilcm/" target="_blank" class="modern-action-btn">
+                <span>EXPLORE MAGAZINE</span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center">
+            <div class="modern-media-showcase">
+              <img src="images/magzine.jpg" class="modern-media-cover" alt="Megabyte Magazine Cover" />
+              <div class="modern-edition-badge">
+                <span class="badge-dot"></span>
+                <span>EDITION 2K25 &bull; SIES GST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- HIGHLIGHTS SECTION (03. MOMENTS & ARCHIVES) -->
+  <section id="highlights" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header" data-aos="fade-up">
+        <div class="modern-section-tag">
+          <span class="section-tag-num">03</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">MOMENTS &amp; ARCHIVES</span>
+        </div>
+        <h2 class="modern-section-title">CHAPTER HIGHLIGHTS</h2>
+        <p class="modern-section-sub">A glimpse into our high-octane events, workshops, hackathons, and celebrations.
+        </p>
+      </div>
+
+      <div class="image-slider" data-aos="fade-up">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/H (1).jpg" alt="Highlight 1" /></div>
+            <div class="swiper-slide"><img src="images/H (2).jpg" alt="Highlight 2" /></div>
+            <div class="swiper-slide"><img src="images/H (3).jpg" alt="Highlight 3" /></div>
+            <div class="swiper-slide"><img src="images/H (4).jpg" alt="Highlight 4" /></div>
+            <div class="swiper-slide"><img src="images/H (5).jpg" alt="Highlight 5" /></div>
+            <div class="swiper-slide"><img src="images/H (6).jpg" alt="Highlight 6" /></div>
+            <div class="swiper-slide"><img src="images/H (7).jpg" alt="Highlight 7" /></div>
+            <div class="swiper-slide"><img src="images/H (8).jpg" alt="Highlight 8" /></div>
+            <div class="swiper-slide"><img src="images/H (9).jpeg" alt="Highlight 9" /></div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next buttons"></div>
+          <div class="swiper-button-prev buttons"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- WORKSHOPS CONDUCTED SECTION (04. LEARNING & SKILL SPRINT) -->
+  <section id="event" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header" data-aos="fade-up">
+        <div class="modern-section-tag">
+          <span class="section-tag-num">04</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">LEARNING &amp; SKILL SPRINT</span>
+        </div>
+        <h2 class="modern-section-title">WORKSHOPS CONDUCTED</h2>
+        <p class="modern-section-sub">Hands-on technical masterclasses empowering students with in-demand industry
+          skills.</p>
+      </div>
+
+      <div class="row g-4 modern-workshops-grid">
+        <!-- Workshop 1: Cybersecurity -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/CYBER_workshop.jpg" alt="Cybersecurity Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">CYBER SECURITY</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Cybersecurity</h3>
+              <p class="workshop-desc">
+                Comprehensive training on digital defense, encryption techniques, vulnerability analysis, and modern
+                threat mitigation.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> Network Security &amp; Encryption</li>
+                <li><span class="point-glow-dot"></span> Ethical Hacking Fundamentals</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 2: DSA -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/DSA_Workshop.jpg" alt="DSA Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">DATA STRUCTURES</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">DSA Mastery</h3>
+              <p class="workshop-desc">
+                Mastering core data structures, algorithmic complexity, tree traversals, dynamic programming, and
+                optimal problem-solving.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> Algorithmic Complexity &amp; Trees</li>
+                <li><span class="point-glow-dot"></span> Competitive Coding Strategies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 3: IoT -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/IOT_Workshop.jpg" alt="IoT Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">HARDWARE &amp; IOT</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Internet of Things</h3>
+              <p class="workshop-desc">
+                Building smart connected systems using ESP32, Arduino, sensors, and cloud communication protocols for
+                real-time automation.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> Sensor Interfacing &amp; Microcontrollers</li>
+                <li><span class="point-glow-dot"></span> Cloud IoT Dashboard Integration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 4: Bootstrap -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/e-bootstrap.png" alt="Bootstrap Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">UI &amp; RESPONSIVE WEB</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Bootstrap 5 Design</h3>
+              <p class="workshop-desc">
+                Building fluid, mobile-first responsive web interfaces and modern interactive UI components with speed
+                and precision.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> Responsive Grid &amp; Utility Classes</li>
+                <li><span class="point-glow-dot"></span> Modern Component Systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 5: Django -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/e-django.png" alt="Django Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">BACKEND FRAMEWORKS</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Django Web Architecture</h3>
+              <p class="workshop-desc">
+                Developing robust, secure, and scalable server-side web applications using Python, Django ORM, and
+                RESTful APIs.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> MTV Pattern &amp; Database ORM</li>
+                <li><span class="point-glow-dot"></span> User Authentication &amp; API Routes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 6: Angular -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/e-angular.png" alt="Angular Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">FULL-STACK SPA</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Angular Development</h3>
+              <p class="workshop-desc">
+                Deep dive into enterprise-scale Single Page Applications (SPAs) with TypeScript, reactive services, and
+                modular state.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> TypeScript &amp; Reactive Architecture</li>
+                <li><span class="point-glow-dot"></span> Two-way Data Binding &amp; Routing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 7: Basic Programming -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/e-basicpro.png" alt="Basic Programming Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">CORE COMPUTING</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Logic &amp; Fundamentals</h3>
+              <p class="workshop-desc">
+                Guiding beginner coders through modular programming, structured control flow, and computational problem
+                decomposition.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> Algorithmic Thinking &amp; Flowcharts</li>
+                <li><span class="point-glow-dot"></span> Clean Code Fundamentals</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 8: Cloud & AWS -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/e-aws.png" alt="Cloud & AWS Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">CLOUD &amp; DEVOPS</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Cloud Computing &amp; AWS</h3>
+              <p class="workshop-desc">
+                Hands-on introduction to AWS core services, serverless computing with Lambda, EC2 virtual instances, and
+                S3 storage.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> EC2 Instances, S3 &amp; VPC Basics</li>
+                <li><span class="point-glow-dot"></span> Serverless &amp; Cloud Deployment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop 9: Placement Guidance -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="modern-workshop-card">
+            <div class="workshop-img-frame">
+              <img src="images/e-placement.png" alt="Placement Guidance Workshop" class="workshop-img" />
+              <span class="workshop-domain-badge">CAREER READINESS</span>
+            </div>
+            <div class="workshop-body">
+              <h3 class="workshop-title">Placement &amp; Tech Career Guidance</h3>
+              <p class="workshop-desc">
+                Career mentorship by alumni and industry veterans focusing on technical interview prep, resume design,
+                and coding rounds.
+              </p>
+              <ul class="workshop-floating-points">
+                <li><span class="point-glow-dot"></span> Technical Interview Strategies</li>
+                <li><span class="point-glow-dot"></span> Resume Reviews &amp; Mock Discussions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- COMMUNITY IMPACT / COUNTERS (05. COMMUNITY AT A GLANCE) -->
+  <section id="impact" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header text-center mx-auto" data-aos="fade-up">
+        <div class="modern-section-tag justify-content-center">
+          <span class="section-tag-num">05</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">OUR SCALE &amp; REACH</span>
+        </div>
+        <h2 class="modern-section-title">COMMUNITY IMPACT</h2>
+        <p class="modern-section-sub">Driving technical excellence, mentorship, and active student collaboration year
+          after year.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center" data-aos="fade-up">
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-stat-card">
+            <div class="stat-glow-circle"></div>
+            <span class="stat-big-number count">122</span>
+            <h4 class="stat-card-title">ACTIVE MEMBERS</h4>
+            <p class="stat-card-desc">Passionate students actively engaging in hackathons, seminars, hands-on
+              masterclasses, and project sprints.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-stat-card">
+            <div class="stat-glow-circle"></div>
+            <span class="stat-big-number count">20</span>
+            <h4 class="stat-card-title">STUDENT VOLUNTEERS</h4>
+            <p class="stat-card-desc">Dedicated student volunteers powering national level events, logistics, technical
+              setups, and community reach.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-stat-card">
+            <div class="stat-glow-circle"></div>
+            <span class="stat-big-number count">51</span>
+            <h4 class="stat-card-title">COUNCIL LEADERS</h4>
+            <p class="stat-card-desc">Elected executive council driving innovation, research publications, design, and
+              multi-domain engineering initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- ENIGMA 2K25 RECAP (06. NATIONAL COMPETITION) -->
+  <section id="enigma" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header" data-aos="fade-up">
+        <div class="modern-section-tag">
+          <span class="section-tag-num">06</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">POSTER COMPETITION</span>
+        </div>
+        <h2 class="modern-section-title">ENIGMA 2K25 RECAP</h2>
+        <p class="modern-section-sub">Raising public awareness on digital safety, online privacy, and emerging cyber
+          threat paradigms.</p>
+      </div>
+
+      <div class="modern-glass-card" data-aos="fade-up">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="modern-card-tag">// CYBER DEFENSE ARENA</span>
+            <h3 class="modern-card-heading">Decoding Digital Security</h3>
+            <p class="modern-body-text">
+              Enigma is CSI SIES-GST’s annual competition designed to explore critical issues in digital safety &mdash;
+              from online privacy and data sovereignty to blockchain security and counter-threat engineering.
+            </p>
+            <ul class="modern-floating-points mb-4">
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">In-depth research on privacy frameworks &amp; counter-threat strategies</span>
               </li>
-              <li class="nav-item" id="underline">
-                <a class="nav-link" href="team.html">TEAM</a>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Interactive presentations evaluated by cybersecurity domain experts</span>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#sponsors">SPONSORS & CONTACT US</a>
+            </ul>
+
+            <!-- Winner Spotlight Cards -->
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="winner-award-card">
+                  <div class="award-badge gold"><i class="ri-trophy-fill"></i> WINNERS</div>
+                  <h5 class="award-names">Vaishnavi Parab</h5>
+                  <h5 class="award-names">Shravani Mankar</h5>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="winner-award-card">
+                  <div class="award-badge silver"><i class="ri-medal-fill"></i> RUNNER-UP</div>
+                  <h5 class="award-names">Prathmesh Zingade</h5>
+                  <h5 class="award-names">Sayali Chorghe</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="modern-slideshow-frame">
+              <div class="slideshow-main">
+                <img class="enigma-slideshow modern-slide-img" src="images/e (1).jpg" alt="Enigma 1">
+                <img class="enigma-slideshow modern-slide-img" src="images/e (2).jpg" alt="Enigma 2">
+                <img class="enigma-slideshow modern-slide-img" src="images/e (3).jpg" alt="Enigma 3">
+                <img class="enigma-slideshow modern-slide-img" src="images/e (4).jpg" alt="Enigma 4">
+                <img class="enigma-slideshow modern-slide-img" src="images/e (5).jpg" alt="Enigma 5">
+                <script>
+                  w3.slideshow(".enigma-slideshow", 2000);
+                </script>
+              </div>
+              <div class="modern-edition-badge">
+                <span class="badge-dot"></span>
+                <span>ENIGMA 2K25 &bull; SIES GST</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- INNOVATIONS 2K25 RECAP (07. NATIONAL PROJECT EXPO) -->
+  <section id="innovations" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header" data-aos="fade-up">
+        <div class="modern-section-tag">
+          <span class="section-tag-num">07</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">NATIONAL PROJECT EXPO</span>
+        </div>
+        <h2 class="modern-section-title">INNOVATIONS 2K25 RECAP</h2>
+        <p class="modern-section-sub">National Level Technical Project Competition hosted annually by CSI SIES-GST.</p>
+      </div>
+
+      <div class="modern-glass-card" data-aos="fade-up">
+        <div class="row align-items-center g-5 flex-lg-row-reverse">
+          <div class="col-lg-6">
+            <span class="modern-card-tag">// NATIONAL TECH FEST</span>
+            <h3 class="modern-card-heading">Engineering the Future</h3>
+            <p class="modern-body-text">
+              INNOVATIONS serves as a premier launchpad for student engineers to showcase transformative ideas. Teams
+              from top institutes across Maharashtra and across India compete with working prototypes and applied
+              research.
+            </p>
+            <ul class="modern-floating-points">
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text"><strong>100+ Abstract Submissions</strong> received from engineering colleges
+                  across the nation</span>
               </li>
-              <li>
-                <a href="ar-vr.html"></a>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text"><strong>45 Finalist Projects</strong> selected on novelty, societal impact
+                  &amp; technical scalability</span>
+              </li>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Multidisciplinary tracks spanning AI/ML, IoT, Robotics, Cloud, Embedded &amp;
+                  Mechanical systems</span>
               </li>
             </ul>
           </div>
-        </div>
-      </nav>
 
-      <!-- NAVBAR ENDS -->
-
-      <!-- HERO STARTS -->
-
-      <section id="hero" class="min-vh-100 d-flex align-items-center">
-        <div class="container" id="hero-container">
-          <div class="row" id="hero-row">
-            <div class="col-12" id="hero-col">
-              <h1 data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000"
-                class="text-uppercase text-white fw-semibold display-1" id="hero-h1">
-                CSI - SIESGST
-              </h1>
-              <h5 class="text-white mt-3 mb-4" data-aos="flip-right" data-aos-easing="ease-out-cubic"
-                data-aos-duration="1000" id="hero-h5">
-                The CSI Campus Chapter of SIES-GST is a part of the well <br>
-                established network of student branches across the country<span> .</span>
-              </h5>
-              <div data-aos="zoom-out-right" data-aos-delay="300" class="hero-div">
-                <a href="#cm" class="btn btn-brand me-2">Get Started</a>
-                <a href="team.html" class="btn btn-brand me-2">Our TEAM</a>
+          <div class="col-lg-6">
+            <div class="modern-slideshow-frame">
+              <div class="slideshow-main">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (1).jpg" alt="Innovations 1">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (2).jpg" alt="Innovations 2">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (3).jpg" alt="Innovations 3">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (4).jpg" alt="Innovations 4">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (5).jpg" alt="Innovations 5">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (6).jpg" alt="Innovations 6">
+                <img class="inovation-slideshow modern-slide-img" src="images/i (7).jpg" alt="Innovations 7">
+                <script>
+                  w3.slideshow(".inovation-slideshow", 2000);
+                </script>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="custom-shape-divider-bottom-1660889963">
-          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              class="shape-fill"></path>
-          </svg>
-        </div>
-      </section>
-    </div>
-
-    <!-- HERO ENDS -->
-
-  </div>
-
-  <!---about-->
-
-  <div class="container">
-    <div id="cm" class="inovation-card-main u-clearfix1">
-      <div class="hm">
-        <h2 id="headingm">ABOUT US</h2>
-      </div>
-      <div class="innerdiv">
-
-        <div class="inovation-inner-card-text">
-
-
-          <span id="cdm" class="inovation-inner-card-description">
-            <div class="hm" id="heading1">
-              <h2>WHAT IS CSI ?</h2>
-            </div>
-            <p class="para-box__modifier">
-              The Computer Society of India has come a long way since its foundation in 1965. The founding members felt
-              the need to organize their activities and also wanted to share their knowledge and exchange ideas about
-              the computer sector which was then newly emerging. Today the CSI takes pride in being the largest and most
-              professionally managed association of and for IT professionals in India. It has 72 chapters across India,
-              511 student branches, and 100,000 members. The purpose of the Society are, Scientific and Educational
-              directed towards the advancement of the theory and practice of computer science and IT.
-            </p>
-          </span>
-        </div>
-        <div class="imagem">
-          <video id="v2" class="imgm" width="82%" height=40% autoplay loop muted>
-            <source src="images/1.mp4" type="video/mp4" />
-
-          </video>
-        </div>
-      </div>
-      <div class="innerdiv" id="i2">
-        <div class="imagem">
-          <video id="v2" class="imgm" width="82%" height=auto autoplay loop muted>
-            <source src="images/2.mp4" type="video/mp4" />
-
-          </video>
-        </div>
-
-        <div class="inovation-inner-card-text">
-
-
-          <span id="cdm" class="inovation-inner-card-description">
-            <div class="hm">
-              <h2>WHAT WE DO ?</h2>
-            </div>
-            <p class="para-box__modifier">
-              The CSI Campus Chapter of SIES-GST is a part of the well established network of student branches across
-              the country. The Chapter activities are managed by a committee of elected members. The Chapter annually
-              conducts INNOVATIONS, a National Level Technical Project Competition. Additionally, various workshops,
-              seminars, programming contests, are conducted for the members of the CSI Campus Chapter. The idea is to
-              spread the knowledge, and provide opportunities to as many interested as possible.
-            </p>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- </div>
-  </div>   -->
-
-  <!---magzine-->
-
-  <div id="magzine" class="container" style="max-width: 1250px;">
-    <div id="cm" class="inovation-card-main u-clearfix1">
-      <div class="hm">
-        <h2 id="headingm" style="margin-top: 2%;">MAGAZINE 2K25 EDITION</h2>
-      </div>
-      <div class="inovation-inner-card-text">
-
-
-        <span id="cdm" class="inovation-inner-card-description">
-          <p class="para-box__modifier">
-            Welcome to the second edition of <b>MEGABYTE</b>, the official technical magazine of the <b>CSI Student
-              Chapter of SIES Graduate School of Technology</b>. We
-            stepped into this challenging arena with the motive of learning something
-            new. Putting together a magazine is no cake walk and the finished product
-            that you hold is the result of the efforts put in by the entire Magazine Team.
-            <br>
-            <br>
-            <b>MEGABYTE</b> basically denotes the purpose of the magazine that is to chronicle different technological
-            developments around the world, along with extraordinary achievements of the students of SIES GST.
-            <br>
-            <br>
-            This issue brings to you diverse articles such as open source Technologies,
-            advancements in Indian IT industry, sustainable inventions, etc. In addition
-            to this, we have exclusive interviews with our very own alumni’s working in
-            Technical and Non technical fields. The contributions made by the authors
-            of articles in this Magazine are invaluable. Do keep your eyes on this magazine in the upcoming years.
-            Everything we do derives from its long-standing character, approach and quality – while we continue to
-            produce the further editions with as much love as ever.
-          </p>
-        </span>
-
-      </div>
-      <div class="imagem">
-        <img class="imgm" src="images/magzine.jpg" alt="">
-      </div>
-      <div class="buttonm">
-        <button class="btnm"> <a id="linkm" href="https://online.fliphtml5.com/vxsxt/ilcm/"> Explore Magazine</a>
-        </button>
-        <!-- <button class="btnm"> <a id="linkm" href="https://online.fliphtml5.com/vxsxt/tgql/"> Explore Magazine</a>
-        </button> -->
-      </div>
-    </div>
-  </div>
-
-  <!-- image gallery -->
-
-  <h1 id="headingh">HIGHLIGHTS</h1>
-
-  <section class="image-slider">
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/H (1).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (2).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (3).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (4).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (5).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (6).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (7).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/H (8).jpg">
-        </div>
-        <div class="swiper-slide">
-          <img src="images\H (9).jpeg">
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next buttons"></div>
-      <div class="swiper-button-prev buttons"></div>
-    </div>
-
-  </section>
-
-
-  <!-- ============================================================
-       EVENTS SECTION (SYSTEM EVENT_LOG ARCHIVE — 2-COLUMN GRID)
-       ============================================================ -->
-  <section id="event" class="events-section">
-    <!-- Top Header matching Reference -->
-    <div class="events-top-header" data-aos="fade-up">
-      <div class="terminal-pill-badge"><span class="pulse-dot"></span> SYS.EVENT_LOG // ARCHIVE</div>
-      <div class="events-header-row">
-        <div class="events-title-box">
-          <h1 class="events-main-title">SYSTEM <span class="highlight-cyan">EVENTS</span></h1>
-          <p class="events-main-desc">EXPLORE WHAT WE BUILD, HOST & EXPERIENCE.</p>
-        </div>
-        <div class="system-status-metadata">
-          <span>TOTAL LOGS: <strong>14</strong></span>
-          <span>SECURITY: <strong class="val-cyan">TLS_ACTIVE</strong></span>
-          <span>NETWORK: <strong class="val-green">ONLINE</strong></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================
-         3-COLUMN CHRONOLOGICAL EVENT STREAM (MOST RECENT FIRST)
-         ============================================================ -->
-    <div class="events-3col-grid">
-
-      <!-- 01: INNOVATION 2026 -->
-      <article class="log-event-card" data-category="flagship" data-aos="fade-up">
-        <div class="log-card-media" onclick="openEventGallery('innovation-2026')">
-          <img src="assets/events/innovation-2026/innovation-2026-pic-1.jpg" alt="Innovation 2026 Presentation" class="log-card-img" loading="lazy" />
-          <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
-          <span class="badge-photo-count"><i class="ri-image-line"></i> 10 Photos</span>
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">INNOVATION 2026</h3>
-          <p class="log-card-desc">
-            INNOVATION 2026 was a national-level project presentation competition by CSI SIESGST, providing a platform for students to showcase innovative projects, research, prototypes, and ideas. The event celebrated creativity, technology, and problem-solving while connecting student innovation with real-world opportunities.
-          </p>
-          <div class="log-card-footer">
-            <button class="btn-log-action" onclick="openEventGallery('innovation-2026')">
-              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02: ENIGMA 4.0: CHRONIX -->
-      <article class="log-event-card" data-category="flagship hackathon" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media" onclick="openEventGallery('enigma-4')">
-          <img src="assets/events/enigma-4/enigma-4-pic-1.jpg" alt="Enigma 4.0: Chronix Hackathon" class="log-card-img" loading="lazy" />
-          <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
-          <span class="badge-photo-count"><i class="ri-image-line"></i> 4 Photos</span>
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">ENIGMA 4.0: CHRONIX</h3>
-          <p class="log-card-desc">
-            ENIGMA 4.0 – CHRONIX was a national-level web development hackathon by CSI SIESGST, bringing together innovators to build impactful technology solutions. With the theme “One Event. Infinite Realities.”, participants explored real-world challenges across FinTech and HealthTech through ideation, prototyping, and pitching.
-          </p>
-          <div class="log-card-footer">
-            <button class="btn-log-action" onclick="openEventGallery('enigma-4')">
-              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03: SYNAPSE 1.0 -->
-      <article class="log-event-card" data-category="hackathon" data-aos="fade-up">
-        <div class="log-card-media" onclick="openEventGallery('synapse-1')">
-          <img src="assets/events/synapse-1/synapse-1-pic-1.jpg" alt="Synapse 1.0 Simulation Experience" class="log-card-img" loading="lazy" />
-          <span class="badge-category featured-badge">FEATURED EVENT</span>
-          <span class="badge-photo-count"><i class="ri-image-line"></i> 5 Photos</span>
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">SYNAPSE 1.0</h3>
-          <p class="log-card-desc">
-            SYNAPSE 1.0 was an immersive job-simulation experience where participants stepped into the roles of an AI System Investigator and Product Strategist. Teams analysed a real-world AI system failure, identified its root cause, and redesigned the system through critical thinking, analysis, and decision-making.
-          </p>
-          <div class="log-card-footer">
-            <button class="btn-log-action" onclick="openEventGallery('synapse-1')">
-              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04: INNOVATION 2023 -->
-      <article class="log-event-card" data-category="flagship" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media" onclick="openEventGallery('innovation-2023')">
-          <img src="assets/events/innovation-2023/innovation-2023-pic-1.jpg" alt="Innovations 2023 Competition" class="log-card-img" loading="lazy" />
-          <span class="badge-photo-count"><i class="ri-image-line"></i> 11 Photos</span>
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">INNOVATIONS 2023</h3>
-          <p class="log-card-desc">
-            The landmark 2023 national competition that witnessed over 100 abstract submissions from across India in Computer Science, Information Technology, IoT, and Robotics.
-          </p>
-          <div class="log-card-footer">
-            <button class="btn-log-action" onclick="openEventGallery('innovation-2023')">
-              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- 05: CYBERSECURITY WORKSHOP -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
-        <div class="log-card-media">
-          <img src="assets/events/cybersecurity-workshop/cybersecurity-workshop-pic-1.jpg" alt="Cybersecurity Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Cybersecurity Workshop</h3>
-          <p class="log-card-desc">
-            Explored fundamental cybersecurity concepts, network defense, threat analysis, and practical techniques to protect systems and data from malicious threats and attacks.
-          </p>
-        </div>
-      </article>
-
-      <!-- 06: DSA WORKSHOP -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media">
-          <img src="assets/events/dsa-workshop/dsa-workshop-pic-1.jpg" alt="DSA Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">DSA (Data Structures & Algorithms)</h3>
-          <p class="log-card-desc">
-            Focused on core problem-solving concepts, foundational data structures, algorithmic complexity, and writing efficient computational code.
-          </p>
-        </div>
-      </article>
-
-      <!-- 07: IOT WORKSHOP -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
-        <div class="log-card-media">
-          <img src="assets/events/iot-workshop/iot-workshop-pic-1.jpg" alt="IoT Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">IoT (Internet of Things)</h3>
-          <p class="log-card-desc">
-            A hands-on workshop explaining IoT fundamentals, microcontroller programming, sensor interfacing, and building interconnected smart hardware systems.
-          </p>
-        </div>
-      </article>
-
-      <!-- 08: BOOTSTRAP WORKSHOP -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media">
-          <img src="assets/events/bootstrap-workshop/bootstrap-workshop-pic-1.png" alt="Bootstrap Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Bootstrap Framework</h3>
-          <p class="log-card-desc">
-            Introduced responsive layout grids, flexbox utilities, component styling, and accelerating frontend UI design with modern CSS frameworks.
-          </p>
-        </div>
-      </article>
-
-      <!-- 09: DJANGO FRAMEWORK -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
-        <div class="log-card-media">
-          <img src="assets/events/django-workshop/django-workshop-pic-1.png" alt="Django Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Django Web Framework</h3>
-          <p class="log-card-desc">
-            Explored Python-based full-stack web development, MVT architecture, ORM database modeling, routing, and scalable server-side applications.
-          </p>
-        </div>
-      </article>
-
-      <!-- 10: ANGULAR 5 WORKSHOP -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media">
-          <img src="assets/events/angular-workshop/angular-workshop-pic-1.png" alt="Angular Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Angular 5 Framework</h3>
-          <p class="log-card-desc">
-            Covered single-page application development, component hierarchies, two-way data binding, TypeScript integration, and modular frontend architectures.
-          </p>
-        </div>
-      </article>
-
-      <!-- 11: BASIC PROGRAMMING -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up">
-        <div class="log-card-media">
-          <img src="assets/events/basic-programming-workshop/basic-programming-workshop-pic-1.png" alt="Basic Programming Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Basic Programming & Logic</h3>
-          <p class="log-card-desc">
-            Focused on establishing logical problem formulation, control structures, functional decomposition, and writing clean, readable code.
-          </p>
-        </div>
-      </article>
-
-      <!-- 12: CLOUD COMPUTING AND AWS -->
-      <article class="log-event-card" data-category="workshop" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media">
-          <img src="assets/events/cloud-aws-workshop/cloud-aws-workshop-pic-1.png" alt="AWS Cloud Computing Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Cloud Computing & AWS Fundamentals</h3>
-          <p class="log-card-desc">
-            Provided a comprehensive overview of cloud architecture, compute instances, storage buckets, security groups, and serverless deployment models on AWS.
-          </p>
-        </div>
-      </article>
-
-      <!-- 13: PLACEMENT GUIDANCE -->
-      <article class="log-event-card" data-category="seminar" data-aos="fade-up">
-        <div class="log-card-media">
-          <img src="assets/events/placement-guidance/placement-guidance-pic-1.png" alt="Placement Guidance Workshop" class="log-card-img" loading="lazy" />
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">Placement Guidance</h3>
-          <p class="log-card-desc">
-            A targeted mentorship session offering students insights into technical interview preparation, coding rounds, system design, and industry hiring standards.
-          </p>
-        </div>
-      </article>
-
-      <!-- 14: CSI OUTREACH PROGRAM -->
-      <article class="log-event-card" data-category="seminar" data-aos="fade-up" data-aos-delay="100">
-        <div class="log-card-media" onclick="openEventGallery('csi-outreach')">
-          <img src="assets/events/csi-outreach/csi-outreach-pic-1.jpg" alt="CSI Outreach Program" class="log-card-img" loading="lazy" />
-          <span class="badge-photo-count"><i class="ri-image-line"></i> 3 Photos</span>
-        </div>
-        <div class="log-card-body">
-          <h3 class="log-card-title">CSI Outreach Program</h3>
-          <p class="log-card-desc">
-            Conducted at SIES School, Matunga, educating school students on digital footprints, cybersecurity awareness, online safety practices, and digital responsibility.
-          </p>
-          <div class="log-card-footer">
-            <button class="btn-log-action" onclick="openEventGallery('csi-outreach')">
-              <i class="ri-gallery-line"></i> [ VIEW GALLERY ]
-            </button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-  <!-- /events -->
-
-  <!-- counter -->
-  <div class="container my-5">
-    <section class="charts_orb">
-      <article class="orb">
-        <div class="orb_graphic">
-          <svg>
-            <circle class="fill"></circle>
-            <circle class="progress"></circle>
-          </svg>
-          <div class="orb_value count">122</div>
-        </div>
-        <div class="orb_label">
-          MEMBERS
-        </div>
-      </article>
-
-      <article class="orb">
-        <div class="orb_graphic">
-          <svg>
-            <circle class="fill"></circle>
-            <circle class="progress"></circle>
-          </svg>
-          <div class="orb_value count">20</div>
-        </div>
-        <div class="orb_label">
-          VOLUNTEERS
-        </div>
-      </article>
-
-      <article class="orb">
-        <div class="orb_graphic">
-          <svg>
-            <circle class="fill"></circle>
-            <circle class="progress"></circle>
-          </svg>
-          <div class="orb_value count">51</div>
-        </div>
-        <div class="orb_label">
-          COUNCIL <br>MEMBERS
-        </div>
-      </article>
-    </section>
-  </div>
-  <!-- /counter -->
-
-  <!-- partial:index.partial.html -->
-  <section id="sponsors">
-    <h1
-      style="font-size: xx-large; text-align: center; margin-bottom: 20px;color: aliceblue;text-decoration: underline;">
-      ASSOCIATE SPONSORS
-    </h1>
-    <div class="footer-wrapper">
-      <div class="footer-marquee">
-        <div class="footer-square">
-          <a href="https://www.brainheaters.in/" target="_blank" style="text-decoration: none;"><img
-              class="footer-brain"
-              src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/brain_heaters_tirlmh.png" /></a>
-        </div>
-        <div class="footer-square">
-          <a href="https://teamfullstack.tech/" target="_blank" style="text-decoration: none;"><img
-              class="footer-team_fullstack" style="margin-top: 22px !important"
-              src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/Team_FullStack_kiaodc.png" /></a>
-        </div>
-        <div class="footer-square">
-          <a href="https://deltatheinnovators.com/" target="_blank" style="text-decoration: none;"><img
-              class="footer-DTI"
-              src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/DTI_Cover_gbzbzp.png" /></a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h1
-      style="font-size: xx-large; text-align: center; margin-bottom: 20px;color: aliceblue;text-decoration: underline;">
-      PREVIOUS SPONSORS & COLLABORATORS
-    </h1>
-    <div class="footer-wrapper">
-      <div class="footer-marquee1">
-        <div class="footer-square1">
-          <a href="https://infigon.edumilestones.com/" target="_blank" style="text-decoration: none;"><img
-              class="footer-infi"
-              src="https://res.cloudinary.com/dkdmgncru/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1614703156/CSI%20Files/Sponsors/infigon-logo_j5tzky.jpg" /></a>
-        </div>
-        <div class="footer-square1">
-          <a href="https://www.wolfram.com/" target="_blank" style="text-decoration: none;"><img
-              src="https://res.cloudinary.com/dkdmgncru/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1614703156/CSI%20Files/Sponsors/Wolfram_xpaadh.png" /></a>
-
-        </div>
-        <div class="footer-square1">
-          <a href="https://interviewbuddy.in/" target="_blank" style="text-decoration: none;"><img
-              src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/InterviewBuddy_logo_owzbdh.png" /></a>
-        </div>
-        <div class="footer-square1">
-          <a href="https://www.geeksforgeeks.org/" target="_blank" style="text-decoration: none;">
-            <img class="footer-gfg" src="images/GeeksforGeeks.svg.png" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer-area">
-    <div class="main">
-      <div class="container mb-5">
-        <div class="single-footer">
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.4756649763167!2d73.02088931482145!3d19.04281298710694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3db5e2c85cd%3A0xef26c52d7d73816e!2sSIES%20Graduate%20School%20of%20Technology!5e0!3m2!1sen!2sin!4v1660030845146!5m2!1sen!2sin"
-                style="border: 0" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 my-auto">
-              <div class="footer-social pt-5">
-                <h5 class="mx-auto shardul" style="text-align:left"><a href="tel:9326628860"
-                    style="text-align:left ;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                      fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd"
-                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                    </svg></a>Gouri Huligol<br>
-                  <p style="text-align:left">Chairperson</p>
-                </h5>
-                <h5 style="text-align:left" class="ananya"><a href="tel:8828346544"><svg
-                      xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                      class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd"
-                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                    </svg></a>Sujal Pagere<br>
-                  <p style="text-align:left">Vice Chairperson</p>
-                </h5>
-                <h5 style="text-align:left;" class="shruti"><a href="tel:8779930178"><svg
-                      xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                      class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd"
-                        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                    </svg></a>Nanthini Das<br>
-                  <p style="text-align:left">Vice Chairperson</p>
-                </h5>
-                <a href="mailto:csi-council@siesgst.ac.in" target="_blank">
-                  <svg class="footer-csvg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
-                    class="footer-bi bi-envelope" viewBox="0 0 16 16">
-                    <path
-                      d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                  </svg></a>
-                <a href="https://www.instagram.com/csisiesgst" target="_blank"><svg class="footer-csvg"
-                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
-                    class="footer-bi bi-instagram" viewBox="0 0 16 16">
-                    <path
-                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
-                  </svg></a>
-                <a href="https://www.facebook.com/937406819724072/" target="_blank">
-                  <svg class="footer-csvg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
-                    class="footer-bi bi-facebook" viewBox="0 0 16 16">
-                    <path
-                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                  </svg></a>
-
-                <a href="https://in.linkedin.com/company/csi-siesgst" target="_blank">
-                  <svg class="footer-csvg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white"
-                    class="footer-bi bi-linkedin" viewBox="0 0 16 16">
-                    <path
-                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                  </svg></a>
+              <div class="modern-edition-badge">
+                <span class="badge-dot"></span>
+                <span>INNOVATIONS 2K25 &bull; SIES GST</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="copy pt-4">
-      <p>&copy; 2022 Developed by Technical Team of CSI SIESGST with <svg xmlns="http://www.w3.org/2000/svg" width="16"
-          height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-        </svg></p>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- CSI OUTREACH PROGRAM (08. SOCIAL RESPONSIBILITY) -->
+  <section id="outreach" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header" data-aos="fade-up">
+        <div class="modern-section-tag">
+          <span class="section-tag-num">08</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">SOCIAL INITIATIVE</span>
+        </div>
+        <h2 class="modern-section-title">CSI OUTREACH PROGRAM</h2>
+        <p class="modern-section-sub">Empowering school students with digital literacy, online hygiene, and
+          cybersecurity awareness.</p>
+      </div>
+
+      <div class="modern-glass-card" data-aos="fade-up">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="modern-card-tag">// COMMUNITY ENGAGEMENT</span>
+            <h3 class="modern-card-heading">SIES School Matunga Outreach</h3>
+            <p class="modern-body-text">
+              CSI SIES GST conducted an interactive cybersecurity and digital awareness workshop at SIES School,
+              Matunga. Council mentors engaged young students on recognizing digital threats, understanding online
+              footprints, and adopting safe internet habits.
+            </p>
+            <ul class="modern-floating-points">
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Managing digital footprints and maintaining privacy on social platforms</span>
+              </li>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Identifying phishing, scam links &amp; social engineering vectors</span>
+              </li>
+              <li class="floating-point-item">
+                <span class="point-glow-dot"></span>
+                <span class="point-text">Interactive Q&amp;A sessions and real-world safety demonstrations</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="modern-slideshow-frame">
+              <div class="slideshow-main">
+                <img class="out-slideshow modern-slide-img" src="images/ori (1).jpg" alt="Outreach 1">
+                <img class="out-slideshow modern-slide-img" src="images/ori (2).jpg" alt="Outreach 2">
+                <img class="out-slideshow modern-slide-img" src="images/ori (3).jpg" alt="Outreach 3">
+                <script>
+                  w3.slideshow(".out-slideshow", 2000);
+                </script>
+              </div>
+              <div class="modern-edition-badge">
+                <span class="badge-dot"></span>
+                <span>OUTREACH &bull; MATUNGA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- SPONSORS & COLLABORATORS (09. PARTNERS & SUPPORTERS) -->
+  <section id="sponsors" class="modern-content-section">
+    <div class="container modern-section-container">
+      <div class="modern-section-header text-center mx-auto" data-aos="fade-up">
+        <div class="modern-section-tag justify-content-center">
+          <span class="section-tag-num">09</span>
+          <span class="section-tag-divider"></span>
+          <span class="section-tag-name">PARTNERS &amp; SPONSORS</span>
+        </div>
+        <h2 class="modern-section-title">ASSOCIATE SPONSORS &amp; COLLABORATORS</h2>
+        <p class="modern-section-sub">Valued industry partners supporting student innovation, tech hackathons, and
+          excellence.</p>
+      </div>
+
+      <!-- Associate Sponsors -->
+      <div class="modern-sponsors-group mb-5" data-aos="fade-up">
+        <h4 class="sponsors-group-title">ASSOCIATE SPONSORS</h4>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="https://www.brainheaters.in/" target="_blank" class="modern-sponsor-card">
+              <img
+                src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/brain_heaters_tirlmh.png"
+                alt="Brainheaters" class="sponsor-logo" />
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="https://teamfullstack.tech/" target="_blank" class="modern-sponsor-card">
+              <img
+                src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/Team_FullStack_kiaodc.png"
+                alt="Team FullStack" class="sponsor-logo" />
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <a href="https://deltatheinnovators.com/" target="_blank" class="modern-sponsor-card">
+              <img src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/DTI_Cover_gbzbzp.png"
+                alt="DTI" class="sponsor-logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Previous Sponsors -->
+      <div class="modern-sponsors-group" data-aos="fade-up">
+        <h4 class="sponsors-group-title">PREVIOUS SPONSORS &amp; COLLABORATORS</h4>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="https://infigon.edumilestones.com/" target="_blank" class="modern-sponsor-card">
+              <img
+                src="https://res.cloudinary.com/dkdmgncru/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1614703156/CSI%20Files/Sponsors/infigon-logo_j5tzky.jpg"
+                alt="Infigon" class="sponsor-logo" />
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="https://www.wolfram.com/" target="_blank" class="modern-sponsor-card">
+              <img
+                src="https://res.cloudinary.com/dkdmgncru/image/upload/f_auto,q_auto,dpr_auto,w_auto/v1614703156/CSI%20Files/Sponsors/Wolfram_xpaadh.png"
+                alt="Wolfram" class="sponsor-logo" />
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="https://interviewbuddy.in/" target="_blank" class="modern-sponsor-card">
+              <img
+                src="https://res.cloudinary.com/dghjgfbha/image/upload/v1648320535/csi-website/InterviewBuddy_logo_owzbdh.png"
+                alt="InterviewBuddy" class="sponsor-logo" />
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <a href="https://www.geeksforgeeks.org/" target="_blank" class="modern-sponsor-card">
+              <img src="images/GeeksforGeeks.svg.png" alt="GeeksforGeeks" class="sponsor-logo" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Super Thin Faint Section Divider (35% Opacity) -->
+  <div class="terminal-section-divider"></div>
+
+  <!-- FOOTER (08. CONNECT & DIRECTORY) -->
+  <footer class="modern-footer-area">
+    <div class="container modern-section-container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="modern-map-card">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.4756649763167!2d73.02088931482145!3d19.04281298710694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3db5e2c85cd%3A0xef26c52d7d73816e!2sSIES%20Graduate%20School%20of%20Technology!5e0!3m2!1sen!2sin!4v1660030845146!5m2!1sen!2sin"
+              style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="footer-contacts-wrapper">
+            <span class="modern-card-tag">// CHAPTER LEADERSHIP</span>
+            <h3 class="footer-heading">Connect with CSI SIES GST</h3>
+
+            <div class="council-contact-cards">
+              <a href="tel:9326628860" class="council-contact-item">
+                <div class="contact-icon"><i class="ri-phone-fill"></i></div>
+                <div class="contact-details">
+                  <span class="contact-name">Dev Sharma</span>
+                  <span class="contact-role">Chairperson &bull; +91 93266 28860</span>
+                </div>
+              </a>
+
+              <a href="tel:9322734121" class="council-contact-item">
+                <div class="contact-icon"><i class="ri-phone-fill"></i></div>
+                <div class="contact-details">
+                  <span class="contact-name">Kanishka Jadhav</span>
+                  <span class="contact-role">Secretary &bull; +91 93227 34121</span>
+                </div>
+              </a>
+
+              <a href="tel:9082885761" class="council-contact-item">
+                <div class="contact-icon"><i class="ri-phone-fill"></i></div>
+                <div class="contact-details">
+                  <span class="contact-name">Karthik Mayakrishnan</span>
+                  <span class="contact-role">Treasurer &bull; +91 90828 85761</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="footer-social-links mt-4">
+              <a href="mailto:csi-council@siesgst.ac.in" target="_blank" class="social-circle-btn" title="Email Us">
+                <i class="ri-mail-fill"></i>
+              </a>
+              <a href="https://www.instagram.com/csisiesgst" target="_blank" class="social-circle-btn"
+                title="Instagram">
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a href="https://in.linkedin.com/company/csi-siesgst" target="_blank" class="social-circle-btn"
+                title="LinkedIn">
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <a href="https://www.facebook.com/937406819724072/" target="_blank" class="social-circle-btn"
+                title="Facebook">
+                <i class="ri-facebook-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-copy text-center mt-5 pt-4">
+        <p>&copy; 2025 Computer Society of India &mdash; SIES GST Student Chapter. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

@@ -1,21 +1,34 @@
 const btns = document.querySelectorAll(".bt");
 const storeProducts = document.querySelectorAll(".store-product");
 
+function applyFilter(filter) {
+  storeProducts.forEach((product) => {
+    if (product.classList.contains(filter)) {
+      product.style.display = "block";
+      // Images start out lazy so hidden teams are never downloaded. Chrome will
+      // not fetch a lazy image that began inside a display:none card, so switch
+      // it to eager once the card is actually shown.
+      product.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+        img.loading = "eager";
+      });
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+
 for (i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", (e) => {
       e.preventDefault();
-  
-      const filter = e.target.dataset.filter;
-  
-      storeProducts.forEach((product) => {
-        if (product.classList.contains(filter)) {
-          product.style.display = "block";
-        } else {
-          product.style.display = "none";
-        }
-      });
+      applyFilter(e.target.dataset.filter);
     });
   }
+
+// Show only the pre-selected team on load; without this every team renders at once
+const initialOption = document.querySelector(".menu li.active") || document.querySelector(".menu li");
+if (initialOption) {
+  applyFilter(initialOption.dataset.filter);
+}
 
 const dropdowns=document.querySelectorAll('.team');
 // Loop through all dropdown elements
