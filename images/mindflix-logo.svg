@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 130" width="100%" height="100%">
+  <g transform="translate(10, 5)">
+    <!-- Airplane & Film Reel Icon -->
+    <g transform="translate(110, 0)">
+      <!-- Airplane -->
+      <path d="M 50 5 C 55 5, 58 15, 58 35 L 85 58 L 85 66 L 58 56 L 58 75 L 68 84 L 68 90 L 50 85 L 32 90 L 32 84 L 42 75 L 42 56 L 15 66 L 15 58 L 42 35 C 42 15, 45 5, 50 5 Z" fill="#38BDF8" />
+      <!-- Film Base -->
+      <path d="M 28 88 L 72 88 L 78 96 L 22 96 Z" fill="#0284C7" />
+    </g>
+
+    <!-- Text Mindflix Holidays -->
+    <text x="160" y="106" font-family="'Brush Script MT', 'Georgia', cursive, serif" font-size="28" font-weight="700" fill="#FFFFFF" text-anchor="middle">Mindflix</text>
+    <text x="160" y="122" font-family="'Space Mono', monospace" font-size="11" font-weight="700" fill="#38BDF8" text-anchor="middle" letter-spacing="2px">HOLIDAYS</text>
+  </g>
+</svg>

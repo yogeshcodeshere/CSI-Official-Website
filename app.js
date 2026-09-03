@@ -11,6 +11,7 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
+if (document.getElementById('particles-js')) {
 particlesJS('particles-js',
   
   {
@@ -131,3 +132,4 @@ particlesJS('particles-js',
   }
 
 );
+}

@@ -1,0 +1,8 @@
+# Temporary update / comparison folders
+dhruv-updates/
+mansi-updates/
+sayali-updats/
+
+# OS files
+.DS_Store
+Thumbs.db

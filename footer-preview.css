@@ -1,0 +1,265 @@
+/* ==========================================================================
+   MODERN CYBER FOOTER — STANDALONE PREVIEW CSS
+   Matches reference design with giant outline watermark & minimal grid
+   ========================================================================== */
+
+/* ── Base Reset & Background ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ── Footer Section Container ─────────────────────────────────────────── */
+.modern-cyber-footer {
+  position: relative;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 80px 0 30px;
+  overflow: hidden;
+  border-top: 1px solid rgba(73, 87, 150, 0.2);
+}
+
+.footer-container {
+  max-width: 1240px;
+}
+
+/* ── Top Navigation & Brand Block ─────────────────────────────────────── */
+.footer-top-grid {
+  margin-bottom: 60px;
+}
+
+/* Brand Column (Left) */
+.footer-brand-col {
+  padding-right: 20px;
+}
+
+.footer-tagline {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  font-weight: 400;
+  max-width: 340px;
+  margin-bottom: 24px;
+}
+
+/* Social Icon Buttons Row */
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  background: rgba(0, 240, 255, 0.18);
+  border-color: rgba(0, 240, 255, 0.6);
+  color: #00f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
+}
+
+/* Navigation Columns (Right) */
+.footer-nav-col {
+  position: relative;
+  padding-top: 14px;
+}
+
+/* Thin Top Divider Line above each column */
+.footer-nav-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.footer-column-title {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link-item a {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link-item a:hover {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* Tag/Badge inside link */
+.footer-link-badge {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  color: #00f0ff;
+  text-transform: uppercase;
+}
+
+.footer-link-badge.badge-cyan {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #00f0ff;
+}
+
+/* ── Giant Outlined Watermark Typography ──────────────────────────────── */
+.footer-watermark-wrapper {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0 20px;
+  padding: 10px 0;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+
+.footer-watermark-text {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: clamp(2.8rem, 8.8vw, 8.2rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1;
+  transition: -webkit-text-stroke 0.4s ease, filter 0.4s ease;
+}
+
+.footer-watermark-text:hover {
+  -webkit-text-stroke: 1.5px rgba(0, 240, 255, 0.6);
+  filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.25));
+}
+
+/* ── Bottom Sub-Footer Credits & Legal Bar ────────────────────────────── */
+.footer-bottom-bar {
+  margin-top: 30px;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-copyright {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.footer-copyright .slash-sep {
+  color: #475569;
+  margin: 0 4px;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-legal-link {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-link:hover {
+  color: #00f0ff;
+}
+
+/* ── Responsive Media Queries ─────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .modern-cyber-footer {
+    padding: 60px 0 24px;
+  }
+
+  .footer-top-grid {
+    margin-bottom: 40px;
+  }
+
+  .footer-nav-col {
+    margin-top: 30px;
+  }
+
+  .footer-watermark-text {
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 767px) {
+  .modern-cyber-footer {
+    padding: 45px 0 20px;
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+  }
+
+  .footer-watermark-text {
+    font-size: clamp(1.8rem, 7.5vw, 3.2rem);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-legal-links {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}

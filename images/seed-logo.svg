@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 130" width="100%" height="100%">
+  <g transform="translate(20, 10)">
+    <!-- Graduation Cap Top -->
+    <path d="M 150 12 L 250 42 L 150 72 L 50 42 Z" fill="#F97316" />
+    <path d="M 150 20 L 230 42 L 150 64 L 70 42 Z" fill="#FB923C" />
+    <!-- Cap Base -->
+    <path d="M 90 56 L 90 74 C 90 84, 120 92, 150 92 C 180 92, 210 84, 210 74 L 210 56 C 195 68, 165 74, 150 74 C 135 74, 105 68, 90 56 Z" fill="#EA580C" />
+    <!-- Tassel -->
+    <path d="M 72 45 L 60 70 L 60 88" stroke="#FDBA74" stroke-width="4" stroke-linecap="round" fill="none" />
+    <circle cx="60" cy="90" r="5" fill="#FDBA74" />
+    
+    <!-- SEED Text -->
+    <text x="150" y="104" font-family="'Impact', 'Arial Black', sans-serif" font-size="44" font-weight="900" fill="#0284C7" text-anchor="middle" letter-spacing="4px">SEED</text>
+    <!-- Subtext -->
+    <text x="150" y="118" font-family="'Space Mono', monospace" font-size="9" font-weight="700" fill="#F97316" text-anchor="middle" letter-spacing="4px">GLOBAL EDUCATION</text>
+  </g>
+</svg>

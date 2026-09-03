@@ -1,0 +1,588 @@
+/* ==========================================================================
+   CONTACT SECTION - STANDALONE PREVIEW CSS
+   Matches existing CSI website design system (Sponsors/About sections)
+   ========================================================================== */
+
+/* ── Base Reset & Background ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #000000;
+  background-image: url('images/cyber-dots-bg.svg');
+  background-size: 120px 120px;
+  background-attachment: fixed;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ── Contact Section Container ────────────────────────────────────────── */
+.terminal-contact-section {
+  position: relative;
+  z-index: 10;
+  padding: 100px 0 60px;
+  overflow: hidden;
+}
+
+.terminal-contact-container {
+  max-width: 1240px;
+}
+
+/* ── Section Header (Left-Aligned, matching Sponsors/About) ──────────── */
+.cyber-about-header {
+  margin-bottom: 50px;
+  max-width: 960px;
+}
+
+.cyber-section-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.cyber-section-index .index-badge {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #00f0ff;
+  padding: 4px 10px;
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  border-radius: 2px;
+  background: rgba(0, 240, 255, 0.08);
+  letter-spacing: 0.1em;
+}
+
+.cyber-section-index .index-line {
+  width: 45px;
+  height: 1px;
+  background: rgba(0, 240, 255, 0.4);
+}
+
+.cyber-section-index .index-label {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  color: #dee995;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cyber-about-hero-title {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.22;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
+}
+
+.cyber-about-hero-subtitle {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  line-height: 1.7;
+  max-width: 800px;
+  letter-spacing: 0.01em;
+}
+
+/* ── LEFT COLUMN: Contact Info ─────────────────────────────────────── */
+
+/* Icon Box (Envelope) */
+.contact-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f0ff;
+  margin-bottom: 28px;
+}
+
+/* Contact Heading */
+.contact-main-heading {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+}
+
+/* Contact Subtitle */
+.contact-subtitle {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  line-height: 1.65;
+  max-width: 440px;
+  margin-bottom: 28px;
+}
+
+/* Contact Info Row (email • phone • email) */
+.contact-info-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.contact-info-item {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+.contact-info-item:hover {
+  color: #00f0ff;
+}
+
+.contact-info-separator {
+  color: rgba(148, 163, 184, 0.4);
+  font-size: 10px;
+  user-select: none;
+}
+
+/* Team Members List */
+.contact-team-list {
+  margin-bottom: 36px;
+}
+
+.team-member-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(73, 87, 150, 0.15);
+}
+
+.team-member-row:last-child {
+  border-bottom: none;
+}
+
+.member-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f0ff;
+  flex-shrink: 0;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+}
+
+.member-name {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.member-role {
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.member-phone {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #00f0ff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.member-phone:hover {
+  color: #dee995;
+}
+
+/* Social Links Row */
+.contact-social-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.social-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #00f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Map Container */
+.contact-map-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(73, 87, 150, 0.2);
+  position: relative;
+}
+
+.contact-map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.map-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #00f0ff;
+  letter-spacing: 0.1em;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ── RIGHT COLUMN: Contact Form Panel ──────────────────────────────── */
+.contact-form-panel {
+  background: rgba(12, 17, 30, 0.4);
+  border: 1px solid rgba(73, 87, 150, 0.2);
+  border-radius: 12px;
+  padding: 36px 32px;
+  height: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-panel:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+/* Subtle grid pattern on top-right corner */
+.contact-form-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 60px;
+  background-image:
+    linear-gradient(rgba(73, 87, 150, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73, 87, 150, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
+  -webkit-mask-image: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cyber-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #dee995;
+  letter-spacing: 0.06em;
+}
+
+.cyber-form-input,
+.cyber-form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(10, 15, 28, 0.6);
+  border: 1px solid rgba(73, 87, 150, 0.25);
+  border-radius: 6px;
+  color: #f1f5f9;
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.cyber-form-input::placeholder,
+.cyber-form-textarea::placeholder {
+  color: #4a5568;
+  font-family: 'Gill Sans', Calibri, sans-serif;
+  font-style: normal;
+}
+
+.cyber-form-input:focus,
+.cyber-form-textarea:focus {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.08), 0 0 20px rgba(0, 240, 255, 0.1);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.cyber-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.cyber-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #00f0ff;
+  padding: 14px 28px;
+  border-radius: 6px;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.cyber-submit-btn:hover {
+  background: rgba(0, 240, 255, 0.25);
+  border-color: #00f0ff;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 25px rgba(0, 240, 255, 0.35);
+}
+
+.cyber-submit-btn .btn-arrow {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.cyber-submit-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Thin Section Divider ──────────────────────────────────────────── */
+.terminal-section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(96, 165, 250, 0.35) 50%,
+    transparent 100%
+  );
+}
+
+/* ── Footer / CTA Bar ──────────────────────────────────────────────── */
+.contact-footer-bar {
+  padding: 30px 0 20px;
+}
+
+.sponsors-cta-wrapper {
+  padding: 0;
+}
+
+.sponsors-horizon-arc {
+  display: block;
+  width: 100%;
+  opacity: 0.85;
+}
+
+.sponsors-cta-content {
+  margin-top: 8px;
+}
+
+.cta-question {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #64748b;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.cyber-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #60a5fa;
+  padding: 10px 24px;
+  border-radius: 4px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cyber-cta-btn:hover {
+  background: rgba(96, 165, 250, 0.2);
+  border-color: #60a5fa;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+}
+
+.cta-arrow {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.cyber-cta-btn:hover .cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Terminal Footer Line Bar */
+.sponsors-frame-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  background: transparent;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  user-select: none;
+}
+
+.sponsors-frame-bar-bottom {
+  border-top: 1px solid rgba(73, 87, 150, 0.35);
+  margin-top: 20px;
+  padding-top: 14px;
+}
+
+.terminal-path-text {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.terminal-box-cursor {
+  color: #60a5fa;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .terminal-contact-section {
+    padding: 70px 0 40px;
+  }
+
+  .cyber-about-header {
+    margin-bottom: 36px;
+  }
+
+  .contact-main-heading {
+    font-size: 2rem;
+  }
+
+  .contact-form-panel {
+    padding: 28px 24px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .terminal-contact-section {
+    padding: 50px 0 30px;
+  }
+
+  .cyber-about-header {
+    margin-bottom: 28px;
+  }
+
+  .contact-info-row {
+    gap: 6px;
+  }
+
+  .contact-info-item {
+    font-size: 11px;
+  }
+
+  .team-member-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .member-phone {
+    margin-left: 50px;
+    width: 100%;
+  }
+
+  .contact-map-wrapper {
+    height: 160px;
+  }
+
+  .contact-form-panel {
+    padding: 24px 20px;
+  }
+
+  .contact-social-row {
+    flex-wrap: wrap;
+  }
+
+  .sponsors-frame-bar {
+    font-size: 10px;
+  }
+}
