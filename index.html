@@ -1128,6 +1128,42 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       EVENT GALLERY / LIGHTBOX MODAL (CLEAN & MODERN)
+       ============================================================ -->
+  <div id="eventLightboxModal" class="event-lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-dialog">
+      <div class="lightbox-header">
+        <div class="lightbox-title-box">
+          <h3 id="lightboxTitle">Event Gallery</h3>
+          <p id="lightboxSubtitle">CSI SIES GST Event Highlights</p>
+        </div>
+        <button class="lightbox-close-btn" onclick="closeEventLightbox()" aria-label="Close Gallery">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <div class="lightbox-body">
+        <button class="lightbox-nav-btn lightbox-prev" onclick="prevLightboxImage()" aria-label="Previous Photo">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+        <img id="lightboxMainImg" src="images/innovation2026_1.jpg" alt="Event Photo" class="lightbox-main-img" />
+        <button class="lightbox-nav-btn lightbox-next" onclick="nextLightboxImage()" aria-label="Next Photo">
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+      </div>
+
+      <div class="lightbox-footer">
+        <div class="lightbox-counter-strip">
+          <span id="lightboxCounter">Photo 1 of 4</span>
+          <span style="font-size: 0.8rem; color: var(--csi-text-muted);"><i class="ri-keyboard-line"></i> Use arrow keys or swipe</span>
+        </div>
+        <div id="lightboxThumbs" class="lightbox-thumbs">
+          <!-- Thumbnail strip generated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- partial -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
