@@ -704,13 +704,17 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
     width = stage.clientWidth || window.innerWidth;
     height = stage.clientHeight || window.innerHeight;
 
+    const isPhone = width <= 768;
+    const currentSpacing = isPhone ? 30 : spacing;
+    const dotRadius = isPhone ? 0.6 : 1.15;
+
     canvas.width = Math.floor(width * dpr);
     canvas.height = Math.floor(height * dpr);
     canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
 
-    const cols = Math.ceil(width / spacing) + 1;
-    const rows = Math.ceil(height / spacing) + 1;
+    const cols = Math.ceil(width / currentSpacing) + 1;
+    const rows = Math.ceil(height / currentSpacing) + 1;
 
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
@@ -724,8 +728,8 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
         const skipSeed = Math.abs((Math.sin(i * 91.34 + j * 37.89) * 10000) % 1);
         if (skipSeed > 0.82) continue;
 
-        const ox = i * spacing + rand1 * (spacing * 0.35);
-        const oy = j * spacing + rand2 * (spacing * 0.35);
+        const ox = i * currentSpacing + rand1 * (currentSpacing * 0.35);
+        const oy = j * currentSpacing + rand2 * (currentSpacing * 0.35);
 
         dots.push({
           originX: ox,
@@ -734,7 +738,7 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
           y: oy,
           vx: 0,
           vy: 0,
-          radius: 1.15
+          radius: dotRadius
         });
       }
     }
@@ -819,13 +823,14 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
-        // Faint subtle dots: 30-40% of previous opacity, gentle hover response
+        // Faint subtle dots: smaller and refined on phone
+        const isPhone = width <= 768;
         if (glowFactor > 0.03) {
           ctx.fillStyle = `rgba(147, 197, 253, ${0.22 + glowFactor * 0.22})`;
-          const r = dot.radius + glowFactor * 0.35;
+          const r = dot.radius + glowFactor * (isPhone ? 0.18 : 0.35);
           ctx.fillRect(dot.x - r, dot.y - r, r * 2, r * 2);
         } else {
-          ctx.fillStyle = 'rgba(96, 165, 250, 0.4)';
+          ctx.fillStyle = isPhone ? 'rgba(96, 165, 250, 0.32)' : 'rgba(96, 165, 250, 0.4)';
           ctx.fillRect(dot.x - dot.radius, dot.y - dot.radius, dot.radius * 2, dot.radius * 2);
         }
       }

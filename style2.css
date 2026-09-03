@@ -3150,17 +3150,37 @@ buttonm {
     display: none !important;
   }
 
-  /* Responsive CSI typography on mobile */
+  /* Responsive CSI typography on mobile — BOLD & MASSIVE */
   .terminal-main-csi-pure {
-    font-size: clamp(3.2rem, 16vw, 6.5rem) !important;
-    letter-spacing: 0.22em !important;
-    padding-left: 0.22em !important;
+    font-size: clamp(5.6rem, 26vw, 9.5rem) !important;
+    letter-spacing: 0.12em !important;
+    padding-left: 0.12em !important;
+    line-height: 0.92 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+
+  .terminal-hero-container {
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  .terminal-hero-center {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .led-letter {
+    padding: 0 2px !important;
   }
 
   .terminal-scroll-hint {
-    bottom: 20px !important;
-    font-size: 0.72rem !important;
-    padding: 5px 12px !important;
+    bottom: clamp(24px, 6vh, 44px) !important;
+    font-size: 0.74rem !important;
+    padding: 6px 14px !important;
   }
 
   /* Mobile Navbar Menu styling */
@@ -4041,3 +4061,54 @@ buttonm {
     font-size: 11px;
   }
 }
+
+/* ============================================================
+   PHONE MEDIA QUERIES (<= 768px and <= 480px)
+   - Smaller background dots
+   - Massive, prominent CSI hero text
+   - Optimized container padding and layouts
+   ============================================================ */
+
+@media (max-width: 768px) {
+  body,
+  .bg,
+  .terminal-stage,
+  .terminal-about-section,
+  .terminal-sponsors-section,
+  .terminal-contact-section {
+    background-size: 55px 55px !important;
+  }
+
+  .terminal-main-csi-pure {
+    font-size: clamp(5.2rem, 28vw, 8.8rem) !important;
+    letter-spacing: 0.10em !important;
+    padding-left: 0.10em !important;
+  }
+
+  .led-letter.active {
+    background-size: 5.5px 5.5px !important;
+    filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 6px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 16px rgba(0, 240, 255, 0.4)) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-main-csi-pure {
+    font-size: clamp(4.8rem, 29vw, 7.8rem) !important;
+    letter-spacing: 0.08em !important;
+    padding-left: 0.08em !important;
+  }
+
+  .led-letter.active {
+    background-size: 5px 5px !important;
+  }
+
+  .spotlight-horizontal-dock {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .footer-watermark-text {
+    font-size: clamp(2.2rem, 13vw, 4rem) !important;
+  }
+}
+
