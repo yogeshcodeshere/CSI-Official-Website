@@ -12,19 +12,19 @@
   --glass-bg: rgba(10, 11, 14, 0.85);
   --glass-border: rgba(73, 87, 150, 0.28);
   --glass-blur: 20px;
-  --csi-accent: #495796;
-  --csi-accent-light: #6777b7;
-  --csi-accent-rgb: 73, 87, 150;
-  --csi-accent-light-rgb: 103, 119, 183;
-  --accent-cyan: #495796;
-  --accent-light: #6777b7;
-  --accent-gold: #6777b7;
-  --accent-gradient: linear-gradient(135deg, #495796 0%, #6777b7 50%, #8796d2 100%);
+  --csi-accent: #7b93e6;
+  --csi-accent-light: #9ab0f8;
+  --csi-accent-rgb: 123, 147, 230;
+  --csi-accent-light-rgb: 154, 176, 248;
+  --accent-cyan: #7b93e6;
+  --accent-light: #9ab0f8;
+  --accent-gold: #9ab0f8;
+  --accent-gradient: linear-gradient(135deg, #7b93e6 0%, #9ab0f8 50%, #b8c8fa 100%);
   --text-primary: #f0f4ff;
   --text-secondary: rgba(159, 165, 181, 0.9);
   --deep-space: #000000;
-  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(73, 87, 150, 0.15);
-  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(73, 87, 150, 0.35);
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(73, 87, 150, 0.15);
+  --card-shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 24px rgba(103, 119, 183, 0.4);
   --font-display: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
   --font-body: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
 }
@@ -43,7 +43,7 @@
   background-image: url('images/cyber-dots-bg.svg') !important;
   background-size: 100px 100px !important;
   background-position: center top !important;
-  background-attachment: fixed !important;
+  /* background-attachment removed for scroll perf */
   min-height: 100vh;
 }
 
@@ -53,19 +53,19 @@
   }
 }
 
-/* ---- Section — kill extra padding ---- */
+/* ---- Section — breathing room for fixed cyber navbar ---- */
 #store-products {
-  padding-top: 0 !important;
+  padding-top: 70px !important;
 }
 
-/* ---- Go Back button — minimal frosted circle, just the icon ---- */
+/* ---- Go Back button — minimal frosted circle, positioned cleanly under navbar ---- */
 .goback {
   position: absolute !important;
-  top: 1.2rem !important;
+  top: 5.4rem !important;
   left: 1.5rem !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(40, 40, 40, 0.9) !important;
+  /* backdrop-filter removed for performance */;
+  -webkit-/* backdrop-filter removed for performance */;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 50% !important;
   width: 40px !important;
@@ -185,8 +185,8 @@
   padding: 12px 26px !important;
   position: relative;
   background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* backdrop-filter removed for performance */;
+  -webkit-/* backdrop-filter removed for performance */;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-radius: 100px !important;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -320,7 +320,7 @@
 
 
 
-/* ---- Perspective container on the grid row ---- */
+/* ---- Perspective container on the grid row (panoramic 3D depth) ---- */
 .Facultys,
 .Headss,
 .Apps,
@@ -331,7 +331,8 @@
 .Creatives,
 .Logistics,
 .MGs {
-  perspective: 1200px;
+  perspective: 1400px;
+  perspective-origin: center center;
 }
 
 /* ---- Override old card styles completely ---- */
@@ -341,7 +342,7 @@
   box-sizing: border-box;
 }
 
-/* ---- Flip Card Container ---- */
+/* ---- Flip Card Container with 3D Float ---- */
 .flip-card {
   width: var(--card-width);
   height: var(--card-height);
@@ -350,25 +351,29 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 0, 0);
 }
 
 .flip-card:hover, .flip-card.flipped {
-  z-index: 10;
+  z-index: 15;
+  transform: translateY(-8px) scale(1.02);
 }
 
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform var(--flip-duration) cubic-bezier(0.4, 0.0, 0.2, 1), -webkit-transform var(--flip-duration) cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: transform var(--flip-duration) cubic-bezier(0.34, 1.4, 0.64, 1), -webkit-transform var(--flip-duration) cubic-bezier(0.34, 1.4, 0.64, 1);
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
 }
 
 .flip-card:hover .flip-card-inner,
 .flip-card.flipped .flip-card-inner {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(12px);
+  -webkit-transform: rotateY(180deg) translateZ(12px);
+  will-change: transform;
 }
 
 /* ---- Shared face styles ---- */
@@ -383,8 +388,8 @@
   -webkit-backface-visibility: hidden;
   border-radius: var(--card-radius);
   overflow: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 1px);
+  -webkit-transform: translate3d(0, 0, 1px);
 }
 
 /* ========================================
@@ -397,7 +402,8 @@
   transition: box-shadow 0.4s ease;
 }
 
-.flip-card:hover .flip-card-front {
+.flip-card:hover .flip-card-front,
+.flip-card.flipped .flip-card-front {
   box-shadow: var(--card-shadow-hover);
   pointer-events: none;
 }
@@ -521,11 +527,10 @@
    BACK FACE — Glassmorphic Info Panel
    ======================================== */
 .flip-card-back {
-  transform: rotateY(180deg) translate3d(0,0,0);
-  -webkit-transform: rotateY(180deg) translate3d(0,0,0);
+  transform: rotateY(180deg) translate3d(0, 0, 1px);
+  -webkit-transform: rotateY(180deg) translate3d(0, 0, 1px);
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  /* backdrop-filter removed for performance on 111 cards */
   border: 1px solid var(--glass-border);
   box-shadow: var(--card-shadow);
   display: flex;
@@ -666,7 +671,7 @@
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(40, 40, 40, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-secondary);
   text-decoration: none;

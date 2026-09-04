@@ -5,8 +5,8 @@ body {
   background-color: #000000;
   background-image: url('images/cyber-dots-bg.svg');
   background-size: 120px 120px;
-  background-attachment: fixed;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* background-attachment removed for scroll perf */
+  font-family: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
   color: rgb(193, 193, 193);
   font-size: 18px;
 }
@@ -41,7 +41,7 @@ body {
 
 a {
   text-decoration: none;
-  font-size: 26px;
+  font-size: 1rem;
   font-weight: 600;
   color: black !important;
 }

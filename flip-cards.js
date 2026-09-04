@@ -205,8 +205,8 @@
       // Build new flip card
       const flipCard = buildFlipCard(data);
 
-      // Insert flip card inside the article (after hiding the old contents)
-      article.appendChild(flipCard);
+      // Replace old contents completely — eliminates 111 duplicate <img> tags and saves memory
+      article.replaceChildren(flipCard);
     });
   }
 
@@ -235,15 +235,110 @@
     });
   }
 
+  /* ================================================================
+     SEQUENTIAL 1-BY-1 AUTO-FLIP CONTROLLER FOR TEAM CARDS
+     Flips one card to back, holds for viewing, flips back to OG state,
+     then smoothly proceeds to the next card in sequence.
+     ================================================================ */
+  let autoFlipTimer = null;
+  let currentCardIndex = 0;
+  let activeFlippedCard = null;
+
+  function getVisibleCards() {
+    const cards = [];
+    const products = document.querySelectorAll('.store-product');
+    products.forEach(p => {
+      // Card is visible if display is not explicitly 'none'
+      if (p.style.display !== 'none') {
+        const card = p.querySelector('.flip-card');
+        if (card) cards.push(card);
+      }
+    });
+    return cards;
+  }
+
+  function flipNextCard() {
+    const cards = getVisibleCards();
+    if (!cards.length) return;
+
+    // Reset index if out of range (e.g. after tab filter change)
+    if (currentCardIndex >= cards.length) {
+      currentCardIndex = 0;
+    }
+
+    // Return any previously flipped card back to OG front state
+    if (activeFlippedCard && (!activeFlippedCard.matches || !activeFlippedCard.matches(':hover'))) {
+      activeFlippedCard.classList.remove('flipped');
+    }
+
+    const cardToFlip = cards[currentCardIndex];
+    if (!cardToFlip) return;
+
+    // 1. Flip this specific card to back face
+    cardToFlip.classList.add('flipped');
+    activeFlippedCard = cardToFlip;
+
+    // 2. Keep flipped for 1.8 seconds, then flip back to OG state
+    setTimeout(() => {
+      if (cardToFlip && (!cardToFlip.matches || !cardToFlip.matches(':hover'))) {
+        cardToFlip.classList.remove('flipped');
+      }
+    }, 1800);
+
+    // 3. Move pointer to next card
+    currentCardIndex = (currentCardIndex + 1) % cards.length;
+  }
+
+  function startAutoFlip() {
+    stopAutoFlip();
+    // 2.4s cycle: 1.8s flipped view + 0.6s return to OG state
+    autoFlipTimer = setInterval(flipNextCard, 2400);
+  }
+
+  function stopAutoFlip() {
+    if (autoFlipTimer) {
+      clearInterval(autoFlipTimer);
+      autoFlipTimer = null;
+    }
+  }
+
+  function setupAutoFlip() {
+    // Start initial loop
+    startAutoFlip();
+
+    // When switching department tabs, reset to first card and restart
+    document.querySelectorAll('.bt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTimeout(() => {
+          currentCardIndex = 0;
+          activeFlippedCard = null;
+          document.querySelectorAll('.flip-card.flipped').forEach(c => c.classList.remove('flipped'));
+          startAutoFlip();
+        }, 60);
+      });
+    });
+
+    // Pause when browser tab is hidden to save resources
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoFlip();
+      } else {
+        startAutoFlip();
+      }
+    });
+  }
+
   // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       transformCards();
       setupMobileTap();
+      setupAutoFlip();
     });
   } else {
     transformCards();
     setupMobileTap();
+    setupAutoFlip();
   }
 
 })();

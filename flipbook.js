@@ -13,7 +13,7 @@
     root.innerHTML =
       '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:24px;text-align:center;gap:16px;background:rgba(10,14,30,0.85);border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,0.6);border:1px solid rgba(0,240,255,0.2);">' +
         '<img src="images/magzine.jpg" alt="Megabyte Cover" style="width:160px;height:auto;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.6);border:1px solid rgba(0,240,255,0.3);">' +
-        '<h4 style="color:#ffffff;font-family:\'Outfit\',sans-serif;font-weight:700;font-size:1.2rem;margin:0;">MEGABYTE 2025</h4>' +
+        '<h4 style="color:#ffffff;font-family:\'Outfit\',sans-serif;font-weight:700;font-size:1.2rem;margin:0;">MEGABYTE 2026</h4>' +
         '<p style="color:#94a3b8;font-family:\'Outfit\',sans-serif;font-size:0.85rem;max-width:320px;margin:0;line-height:1.5;">' + (message || 'Read the flagship technical magazine directly or open online.') + '</p>' +
         '<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px;">' +
           '<a href="' + PDF_PATH + '" target="_blank" style="background:#00f0ff;color:#04042c;padding:8px 16px;border-radius:6px;font-family:\'Space Grotesk\',monospace;font-weight:700;font-size:0.8rem;text-decoration:none;transition:transform 0.2s;">OPEN PDF</a>' +
@@ -107,7 +107,7 @@
 
       /* ---- Step 4: Build flipbook DOM ---- */
       root.innerHTML =
-        '<div class="fb-stage">' +
+        '<div class="fb-stage" id="fbStage">' +
           '<div class="fb-book" id="fbBook"></div>' +
           '<div class="fb-controls">' +
             '<button class="fb-arrow fb-arrow--l" id="fbPrev" aria-label="Previous Page">' +
@@ -116,6 +116,12 @@
             '<span class="fb-counter" id="fbCount"></span>' +
             '<button class="fb-arrow fb-arrow--r" id="fbNext" aria-label="Next Page">' +
               '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 6 15 12 9 18"/></svg>' +
+            '</button>' +
+            '<button class="fb-play-pause-btn" id="fbPlayPause" aria-label="Pause Auto-Flip" title="Toggle Auto-Flip">' +
+              '<span class="fb-btn-icon" id="fbPlayPauseIcon">' +
+                '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg>' +
+              '</span>' +
+              '<span class="fb-btn-text" id="fbPlayPauseText">PAUSE</span>' +
             '</button>' +
           '</div>' +
         '</div>';
@@ -182,15 +188,128 @@
 
       var prevBtn = $('fbPrev');
       var nextBtn = $('fbNext');
-      if (prevBtn) prevBtn.addEventListener('click', function () { flipbook.flipPrev(); });
-      if (nextBtn) nextBtn.addEventListener('click', function () { flipbook.flipNext(); });
+      var playPauseBtn = $('fbPlayPause');
+      var playPauseIcon = $('fbPlayPauseIcon');
+      var playPauseText = $('fbPlayPauseText');
+
+      var isAutoPaused = false;
+      var isStageHovered = false;
+      var autoFlipTimer = null;
+      var FLIP_INTERVAL = 2000; // 2 seconds
+
+      function performAutoFlip() {
+        if (isAutoPaused || isStageHovered) return;
+        try {
+          var cur = flipbook.getCurrentPageIndex();
+          if (cur >= numPages - 1) {
+            if (typeof flipbook.flip === 'function') {
+              flipbook.flip(0);
+            } else {
+              flipbook.flipNext();
+            }
+          } else {
+            flipbook.flipNext();
+          }
+        } catch (err) {
+          console.warn('Auto-flip error:', err);
+        }
+      }
+
+      function startAutoFlip() {
+        stopAutoFlip();
+        if (isAutoPaused) return;
+        autoFlipTimer = setInterval(performAutoFlip, FLIP_INTERVAL);
+      }
+
+      function stopAutoFlip() {
+        if (autoFlipTimer) {
+          clearInterval(autoFlipTimer);
+          autoFlipTimer = null;
+        }
+      }
+
+      function updatePlayPauseBtn() {
+        if (!playPauseBtn || !playPauseIcon || !playPauseText) return;
+        if (isAutoPaused) {
+          playPauseBtn.classList.add('paused');
+          playPauseIcon.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>';
+          playPauseText.textContent = 'AUTO-FLIP';
+          playPauseBtn.setAttribute('aria-label', 'Resume Auto-Flip');
+        } else {
+          playPauseBtn.classList.remove('paused');
+          playPauseIcon.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="4" height="16" rx="1"></rect><rect x="15" y="4" width="4" height="16" rx="1"></rect></svg>';
+          playPauseText.textContent = 'PAUSE';
+          playPauseBtn.setAttribute('aria-label', 'Pause Auto-Flip');
+        }
+      }
+
+      if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', function () {
+          isAutoPaused = !isAutoPaused;
+          updatePlayPauseBtn();
+          if (isAutoPaused) {
+            stopAutoFlip();
+          } else {
+            startAutoFlip();
+          }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          flipbook.flipPrev();
+          if (!isAutoPaused) startAutoFlip();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          flipbook.flipNext();
+          if (!isAutoPaused) startAutoFlip();
+        });
+      }
+
+      var stageEl = $('fbStage') || bookEl;
+      if (stageEl) {
+        stageEl.addEventListener('mouseenter', function () {
+          isStageHovered = true;
+        });
+        stageEl.addEventListener('mouseleave', function () {
+          isStageHovered = false;
+        });
+      }
 
       document.addEventListener('keydown', function (e) {
         var rect = root.getBoundingClientRect();
         if (rect.top > window.innerHeight || rect.bottom < 0) return;
-        if (e.key === 'ArrowRight') { e.preventDefault(); flipbook.flipNext(); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); flipbook.flipPrev(); }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          flipbook.flipNext();
+          if (!isAutoPaused) startAutoFlip();
+        }
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          flipbook.flipPrev();
+          if (!isAutoPaused) startAutoFlip();
+        }
       });
+
+      // Observe visibility so auto-flip only runs when user is looking at magazine
+      if ('IntersectionObserver' in window) {
+        var magObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              if (!isAutoPaused) startAutoFlip();
+            } else {
+              stopAutoFlip();
+            }
+          });
+        }, { threshold: 0.15 });
+        var magSection = $('magzine') || root;
+        magObserver.observe(magSection);
+      } else {
+        startAutoFlip();
+      }
 
       /* ---- Step 7: Lazy-render remaining pages in background ---- */
       (async function renderRemainingPages() {

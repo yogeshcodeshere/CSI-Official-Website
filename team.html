@@ -9,15 +9,78 @@
     <link rel="shortcut icon" href="./final-image1/CSI new Logo Crest Trans White.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="flip-cards.css" />
+    <link rel="stylesheet" href="flip-cards.css?v=autoflip" />
 </head>
 
-<body class="bg">
+<body class="bg" id="top">
+    <!-- CYBER TERMINAL NAVBAR (Centered on Desktop, Sticky Mobile Nav with Brand & Animated Hamburger) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top main-window-nav terminal-nav-unified" id="main-window-nav">
+        <div class="container-fluid d-flex justify-content-between justify-content-lg-center align-items-center px-3 px-md-4">
+            <!-- Mobile-only Brand Logo linking to home page -->
+            <a class="navbar-brand mobile-nav-brand d-inline-flex d-lg-none align-items-center" href="index.html" title="Back to CSI Home" aria-label="CSI Home">
+                <img decoding="async" src="images/csi-emblem.svg" alt="CSI Logo" class="mobile-nav-logo-img" />
+            </a>
+
+            <!-- Cyber Animated Hamburger Button (Mobile Only) -->
+            <button class="navbar-toggler cyber-hamburger-btn d-inline-flex d-lg-none collapsed" type="button" id="teamNavToggler" aria-label="Toggle navigation" data-bs-toggle="collapse" data-bs-target="#navbarNavMain" aria-controls="navbarNavMain" aria-expanded="false">
+                <span class="cyber-hamburger-box">
+                    <span class="cyber-hamburger-line line-1"></span>
+                    <span class="cyber-hamburger-line line-2"></span>
+                    <span class="cyber-hamburger-line line-3"></span>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNavMain">
+                <ul class="navbar-nav mx-auto terminal-nav-links justify-content-center align-items-center" id="mainNavOuter">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#cm">
+                            <span class="mobile-nav-num d-lg-none">01</span>
+                            <span class="nav-link-text">ABOUT US</span>
+                            <svg class="mobile-nav-arrow d-lg-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#magzine">
+                            <span class="mobile-nav-num d-lg-none">02</span>
+                            <span class="nav-link-text">MAGAZINE</span>
+                            <svg class="mobile-nav-arrow d-lg-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-logo d-none d-lg-inline-flex">
+                        <a class="nav-link nav-logo-link" href="index.html" id="nav-brand-logo" title="Back to CSI Home">
+                            <img decoding="async" src="images/csi-emblem.svg" alt="CSI Logo" class="nav-center-emblem" />
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#event">
+                            <span class="mobile-nav-num d-lg-none">03</span>
+                            <span class="nav-link-text">EVENTS</span>
+                            <svg class="mobile-nav-arrow d-lg-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </li>
+                    <li class="nav-item active" id="underline">
+                        <a class="nav-link active" href="team.html">
+                            <span class="mobile-nav-num d-lg-none">04</span>
+                            <span class="nav-link-text">TEAM</span>
+                            <svg class="mobile-nav-arrow d-lg-none" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="mobile-nav-footer d-lg-none">
+                    <div class="mobile-nav-status">
+                        <span class="status-dot"></span>
+                        <span class="status-label">CSI SIES GST &bull; 2026-27</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!--------------our team--------------------->
     <section id="store-products">
         <button class="goback" type="submit"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="23"
@@ -47,7 +110,6 @@
                 <div class="team-desc">Meet the Faculty Incharge - guiding and driving CSI forward.</div>
             </div>
         </center>
-        </div>
 
         <!---------------------Faculty card structure--------------------->
 
@@ -137,7 +199,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Dev Sharma_Chairperson.jpg"> 
+                                <img decoding="async" src="./images2026-27/Core Council/Dev Sharma_Chairperson.jpg" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Dev Sharma</h4>
@@ -180,7 +242,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Kanishka Jadhav_Secretary.jpeg"> 
+                                <img decoding="async" src="./images2026-27/Core Council/Kanishka Jadhav_Secretary.jpeg" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Kanishka Jadhav</h4>
@@ -224,7 +286,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Karthik Mayakrishnan_Treasurer_copy.png">
+                                <img decoding="async" src="./images2026-27/Core Council/Karthik Mayakrishnan_Treasurer_copy.png" loading="lazy">
                             </div>
                             <div class="team_member-info">
                                 <h4>Karthik Mayakrishnan</h4>
@@ -269,7 +331,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Shlok Yadav -new image.jpg"> 
+                                <img decoding="async" src="./images2026-27/Core Council/Shlok Yadav -new image.jpg" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Shlok Yadav</h4>
@@ -313,7 +375,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Chinmay Rane_Outreach Coordinator.jpg"> 
+                                <img decoding="async" src="./images2026-27/Core Council/Chinmay Rane_Outreach Coordinator.jpg" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Chinmay Rane</h4>
@@ -357,7 +419,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/niharika.png"> 
+                                <img decoding="async" src="./images2026-27/Core Council/niharika.png" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Niharika</h4>
@@ -402,7 +464,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Aastha Singh_Vice Chairperson.jpg">
+                                <img decoding="async" src="./images2026-27/Core Council/Aastha Singh_Vice Chairperson.jpg" loading="lazy">
                             </div>
                             <div class="team_member-info">
                                 <h4>Aastha Singh</h4>
@@ -447,7 +509,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Venkadesh.jpg">
+                                <img decoding="async" src="./images2026-27/Core Council/Venkadesh.jpg" loading="lazy">
                             </div>
                             <div class="team_member-info">
                                 <h4>Venkadesh Yadav</h4>
@@ -489,7 +551,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Vaishnavi Thorat_Joint Secretary.jpg"> 
+                                <img decoding="async" src="./images2026-27/Core Council/Vaishnavi Thorat_Joint Secretary.jpg" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Vaishnavi Thorat</h4>
@@ -531,7 +593,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Kautilya Singh_Joint Secretary.jpg"> 
+                                <img decoding="async" src="./images2026-27/Core Council/Kautilya Singh_Joint Secretary.jpg" loading="lazy"> 
                             </div>
                             <div class="team_member-info">
                                 <h4>Kautilya Singh</h4>
@@ -576,7 +638,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Siddhi Naikare_joint treasurer.jpg">
+                                <img decoding="async" src="./images2026-27/Core Council/Siddhi Naikare_joint treasurer.jpg" loading="lazy">
                             </div>
                             <div class="team_member-info">
                                 <h4>Siddhi Naikare</h4>
@@ -620,7 +682,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Heads justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="./images2026-27/Core Council/Shreya kanchan.jpg">
+                                <img decoding="async" src="./images2026-27/Core Council/Shreya kanchan.jpg" loading="lazy">
                             </div>
                             <div class="team_member-info">
                                 <h4>Shreya Kanchan</h4>
@@ -1873,7 +1935,7 @@
                     <!-- <div class="col-lg-3 col-md-4 col-sm-6 mt-4 store-product Design justify-content-center">
                         <article class="team_member">
                             <div class="team_member-image">
-                                <img src="images2024/Aariz Dadan_Sr.Design coord.jpg">
+                                <img decoding="async" src="images2024/Aariz Dadan_Sr.Design coord.jpg" loading="lazy">
                             </div>
                             <div class="team_member-info">
                                 <h4>Aariz Dadan</h4>
@@ -4338,7 +4400,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6  mt-4 store-product Logistic justify-content-center">
                             <article class="team_member">
                                 <div class="team_member-image">
-                                    <img
+                                    <img decoding="async"
                                         src="images2026-27/Logistics team/Heramb.jpg" loading="lazy" decoding="async">
                                 </div>
                                 <div class="team_member-info">
@@ -4457,18 +4519,8 @@
         </div>
 
     </section>
-    <script src="flip-cards.js"></script>
+    <script src="flip-cards.js?v=seqflip"></script>
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>
