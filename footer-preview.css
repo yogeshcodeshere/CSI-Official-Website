@@ -277,19 +277,28 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .modern-cyber-footer {
-    padding: 45px 0 20px;
+    padding: 40px 0 20px !important;
+  }
+
+  .footer-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .footer-tagline {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .footer-watermark-text {
-    font-size: clamp(1.8rem, 7.5vw, 3.2rem);
+    font-size: clamp(1.4rem, 6.5vw, 2.5rem) !important;
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em !important;
+    word-break: break-word !important;
   }
 
   .footer-bottom-bar {
