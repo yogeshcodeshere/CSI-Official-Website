@@ -344,18 +344,60 @@ function closeEventLightbox() {
   }
 }
 
-// Event Filter Tabs Logic (2 Categories: Events & Workshops)
-function filterEvents(category, btn) {
+// Event Filter Tabs & 4-Card Layout (3 Normal Cards + 1 Show More Card)
+let eventsExpanded = false;
+let currentEventCategory = 'events';
+
+function updateTabIndicator(btn) {
+  const indicator = document.getElementById('filterTabIndicator');
+  if (!indicator) return;
+  const targetBtn = btn || document.querySelector('.filter-chip-btn.active') || document.getElementById('filterBtnEvents');
+  if (!targetBtn) return;
+  indicator.style.left = targetBtn.offsetLeft + 'px';
+  indicator.style.width = targetBtn.offsetWidth + 'px';
+}
+
+function toggleMoreEvents() {
+  eventsExpanded = !eventsExpanded;
+  const activeBtn = document.querySelector('.filter-chip-btn.active');
+  filterEvents(currentEventCategory, activeBtn, true);
+
+  if (!eventsExpanded) {
+    const eventSec = document.getElementById('event');
+    if (eventSec) {
+      eventSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
+function filterEvents(category, btn, isToggle) {
+  // If user clicked a tab, reset expanded state so it starts in compact 4-card view
+  if (btn && !isToggle) {
+    eventsExpanded = false;
+  }
+
+  if (category) {
+    currentEventCategory = category;
+  } else {
+    category = currentEventCategory;
+  }
+
   document.querySelectorAll(".filter-chip-btn").forEach(b => b.classList.remove("active"));
+  let activeBtn = btn;
   if (btn) {
     btn.classList.add("active");
   } else {
-    // If no btn passed, find button matching category
-    const matchingBtn = document.querySelector(`.filter-chip-btn[onclick*="'${category}'"]`);
-    if (matchingBtn) matchingBtn.classList.add("active");
+    activeBtn = document.querySelector(`.filter-chip-btn[onclick*="'${category}'"]`);
+    if (activeBtn) activeBtn.classList.add("active");
   }
 
-  const cards = document.querySelectorAll(".log-event-card");
+  // Smooth sliding underline indicator (physically impossible to double-flash)
+  updateTabIndicator(activeBtn);
+
+  const cards = document.querySelectorAll(".log-event-card:not(.log-show-more-card)");
+  const showMoreCard = document.getElementById("events-show-more-card");
+  const matchingCards = [];
+
   cards.forEach(card => {
     const cardCat = (card.getAttribute("data-category") || "").toLowerCase();
     let isMatch = false;
@@ -371,8 +413,18 @@ function filterEvents(category, btn) {
     }
 
     if (isMatch) {
+      matchingCards.push(card);
+    } else {
+      card.style.display = "none";
+      card.style.opacity = "0";
+      card.style.visibility = "hidden";
+    }
+  });
+
+  const LIMIT = 2; // 2 normal cards + 1 show more card = 3-card layout
+  matchingCards.forEach((card, index) => {
+    if (eventsExpanded || index < LIMIT) {
       card.style.display = "flex";
-      // Prevent AOS or transitions from keeping card invisible
       card.style.opacity = "1";
       card.style.visibility = "visible";
       card.style.transform = "none";
@@ -384,8 +436,35 @@ function filterEvents(category, btn) {
     }
   });
 
-  if (typeof AOS !== "undefined") {
-    AOS.refresh();
+  if (showMoreCard) {
+    if (matchingCards.length <= LIMIT) {
+      showMoreCard.style.display = "none";
+    } else {
+      showMoreCard.style.display = "flex";
+      showMoreCard.style.opacity = "1";
+      showMoreCard.style.visibility = "visible";
+      showMoreCard.style.transform = "none";
+      showMoreCard.classList.add("aos-animate");
+
+      const remainingCount = matchingCards.length - LIMIT;
+      const countLabel = showMoreCard.querySelector(".show-more-count-label");
+      const titleLabel = showMoreCard.querySelector(".show-more-title");
+      const iconEl = showMoreCard.querySelector(".show-more-icon-center i");
+      const btnIcon = showMoreCard.querySelector(".show-more-btn-icon");
+
+      if (eventsExpanded) {
+        if (titleLabel) titleLabel.textContent = "COLLAPSE ARCHIVES";
+        if (countLabel) countLabel.textContent = "[ - SHOW FEWER ]";
+        if (iconEl) iconEl.className = "ri-subtract-line";
+        if (btnIcon) btnIcon.className = "ri-arrow-up-line show-more-btn-icon";
+      } else {
+        const catName = (category === "workshops" ? "WORKSHOPS" : "EVENTS");
+        if (titleLabel) titleLabel.textContent = "EXPLORE MORE";
+        if (countLabel) countLabel.textContent = `[ + SHOW ${remainingCount} MORE ${catName} ]`;
+        if (iconEl) iconEl.className = "ri-add-line";
+        if (btnIcon) btnIcon.className = "ri-arrow-down-line show-more-btn-icon";
+      }
+    }
   }
 }
 
@@ -1047,6 +1126,7 @@ if (document.readyState === 'loading') {
     initAllDotsCanvases();
     initLightboxListeners();
     filterEvents('events', document.querySelector('.filter-chip-btn.active'));
+    setTimeout(() => updateTabIndicator(), 60);
   });
 } else {
   initLedToggleLetters();

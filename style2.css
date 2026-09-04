@@ -3,12 +3,18 @@
    Change these variables to instantly re-theme the entire website!
    ======================================================== */
 :root {
-  --csi-accent: #495796;                 /* Primary brand accent color */
-  --csi-accent-light: #6777b7;           /* Lighter tint for text highlights & underlines */
-  --csi-accent-rgb: 73, 87, 150;         /* RGB numbers (used for opacity tints) */
-  --csi-accent-border: rgba(var(--csi-accent-rgb), 0.38); /* Standard border tint */
-  --csi-accent-bg: rgba(var(--csi-accent-rgb), 0.10);     /* Soft card & pill background */
-  --csi-accent-glow: rgba(var(--csi-accent-rgb), 0.30);   /* Soft subtle glow */
+  --csi-accent: #495796;
+  /* Primary brand accent color */
+  --csi-accent-light: #6777b7;
+  /* Lighter tint for text highlights & underlines */
+  --csi-accent-rgb: 73, 87, 150;
+  /* RGB numbers (used for opacity tints) */
+  --csi-accent-border: rgba(var(--csi-accent-rgb), 0.38);
+  /* Standard border tint */
+  --csi-accent-bg: rgba(var(--csi-accent-rgb), 0.10);
+  /* Soft card & pill background */
+  --csi-accent-glow: rgba(var(--csi-accent-rgb), 0.30);
+  /* Soft subtle glow */
 }
 
 html,
@@ -1726,9 +1732,12 @@ buttonm {
 }
 
 @keyframes hint-arrow-bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(5px);
   }
@@ -1883,6 +1892,8 @@ buttonm {
   color: #94a3b8;
   line-height: 1.75;
   max-width: 780px;
+  transform: translateX(90px);
+
 }
 
 /* Modern Glass Card with Mild Border */
@@ -3287,6 +3298,7 @@ buttonm {
   z-index: 0;
   opacity: 0.35;
 }
+
 .mag-glow-orb--1 {
   width: 450px;
   height: 450px;
@@ -3294,6 +3306,7 @@ buttonm {
   top: 5%;
   left: -100px;
 }
+
 .mag-glow-orb--2 {
   width: 400px;
   height: 400px;
@@ -3324,16 +3337,28 @@ buttonm {
 .mag-hero::after {
   content: '';
   position: absolute;
-  top: 0; left: -100%; width: 50%; height: 100%;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
   background: linear-gradient(90deg, transparent, rgba(var(--csi-accent-rgb), 0.06), transparent);
   transform: skewX(-20deg);
   animation: mag-sweep 7s infinite linear;
   pointer-events: none;
 }
+
 @keyframes mag-sweep {
-  0% { left: -100%; }
-  20% { left: 200%; }
-  100% { left: 200%; }
+  0% {
+    left: -100%;
+  }
+
+  20% {
+    left: 200%;
+  }
+
+  100% {
+    left: 200%;
+  }
 }
 
 /* ---- Magazine Flipbook Container (Right) ---- */
@@ -3346,6 +3371,7 @@ buttonm {
   justify-self: center;
   max-width: 100%;
 }
+
 .mag-cover__glow {
   position: absolute;
   inset: -20px;
@@ -3354,9 +3380,17 @@ buttonm {
   z-index: 0;
   animation: mag-pulse 4s ease-in-out infinite alternate;
 }
+
 @keyframes mag-pulse {
-  0%   { opacity: 0.5; transform: scale(1); }
-  100% { opacity: 1;   transform: scale(1.05); }
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 /* The flipbook box itself */
@@ -3385,6 +3419,7 @@ buttonm {
   gap: 18px;
   padding: 24px;
 }
+
 .fb-load-spin {
   width: 40px;
   height: 40px;
@@ -3393,7 +3428,13 @@ buttonm {
   border-radius: 50%;
   animation: fb-spin 0.7s linear infinite;
 }
-@keyframes fb-spin { to { transform: rotate(360deg); } }
+
+@keyframes fb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .fb-load-label {
   font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
@@ -3401,6 +3442,7 @@ buttonm {
   margin: 0;
   text-align: center;
 }
+
 .fb-load-track {
   width: 200px;
   max-width: 80%;
@@ -3409,6 +3451,7 @@ buttonm {
   border-radius: 4px;
   overflow: hidden;
 }
+
 .fb-load-bar {
   height: 100%;
   width: 0%;
@@ -3441,6 +3484,7 @@ buttonm {
   background: #ffffff;
   overflow: hidden;
 }
+
 .fb-page-img {
   width: 100%;
   height: 100%;
@@ -3477,6 +3521,7 @@ buttonm {
   -webkit-backdrop-filter: blur(8px);
   padding: 0;
 }
+
 .fb-arrow:hover {
   background: rgba(var(--csi-accent-rgb), 0.15);
   border-color: rgba(var(--csi-accent-rgb), 0.5);
@@ -3511,6 +3556,7 @@ buttonm {
   text-align: left;
   margin-bottom: 0;
 }
+
 .mag-header__badge {
   display: inline-flex;
   align-items: center;
@@ -3525,21 +3571,25 @@ buttonm {
   padding: 6px 16px 6px 12px;
   border-left: 2px solid var(--csi-accent);
 }
+
 .mag-header__label {
   color: #ffffff !important;
 }
+
 .mag-header__dot {
   width: 6px;
   height: 6px;
   background: var(--csi-accent);
   box-shadow: 0 0 10px var(--csi-accent);
 }
+
 .mag-header__title {
   display: flex;
   flex-direction: column;
   margin: 0;
   gap: 4px;
 }
+
 .mag-title-main {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(3.2rem, 5.5vw, 5.2rem);
@@ -3551,6 +3601,7 @@ buttonm {
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
 }
+
 .mag-title-sub {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
@@ -3560,6 +3611,7 @@ buttonm {
   margin-top: 8px;
   margin-left: 2px;
 }
+
 .mag-header__sub {
   font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
@@ -3567,7 +3619,7 @@ buttonm {
   color: #94a3b8;
   margin: 24px 0 0 0;
   letter-spacing: 0.03em;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 24px;
 }
 
@@ -3577,10 +3629,12 @@ buttonm {
   flex-direction: column;
   gap: 32px;
 }
+
 .mag-desc-item {
   position: relative;
   padding-left: 20px;
 }
+
 .mag-desc-item::before {
   content: '';
   position: absolute;
@@ -3590,14 +3644,17 @@ buttonm {
   width: 2px;
   border-radius: 2px;
 }
+
 .mag-desc-item--cyan::before {
   background: var(--csi-accent);
   box-shadow: 0 0 12px rgba(var(--csi-accent-rgb), 0.4);
 }
+
 .mag-desc-item--gold::before {
   background: #dee995;
   box-shadow: 0 0 12px rgba(222, 233, 149, 0.4);
 }
+
 .mag-desc-item__title {
   font-family: 'Space Grotesk', monospace;
   font-size: 0.85rem;
@@ -3606,8 +3663,14 @@ buttonm {
   margin: 0 0 10px 0;
   text-transform: uppercase;
 }
-.mag-desc-item--cyan .mag-desc-item__title { color: var(--csi-accent); }
-.mag-desc-item--gold .mag-desc-item__title { color: #dee995; }
+
+.mag-desc-item--cyan .mag-desc-item__title {
+  color: var(--csi-accent);
+}
+
+.mag-desc-item--gold .mag-desc-item__title {
+  color: #dee995;
+}
 
 .mag-desc-item__text {
   font-family: 'Outfit', sans-serif;
@@ -3617,6 +3680,7 @@ buttonm {
   margin: 0;
   font-weight: 300;
 }
+
 .mag-highlight {
   color: #ffffff;
   font-weight: 500;
@@ -3629,24 +3693,35 @@ buttonm {
     padding: 32px 24px;
     gap: 36px;
   }
+
   .mag-flipbook-container {
     width: 100%;
     max-width: 420px;
     height: clamp(380px, 60vh, 520px);
   }
-  .mag-glow-orb--1 { width: 250px; height: 250px; }
-  .mag-glow-orb--2 { width: 200px; height: 200px; }
+
+  .mag-glow-orb--1 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .mag-glow-orb--2 {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @media (max-width: 560px) {
   .mag-section {
     padding: 80px 16px 40px;
   }
+
   .mag-hero {
     padding: 24px 20px;
     gap: 28px;
     border-radius: 20px;
   }
+
   .mag-flipbook-container {
     width: 100%;
     max-width: 340px;
@@ -3727,6 +3802,9 @@ buttonm {
   font-weight: 400 !important;
   color: #94a3b8 !important;
   line-height: 1.7 !important;
+  transform: translateX(1px);
+
+
 }
 
 /* Open Terminal Frame (Borderless & Integrated) */
@@ -3897,9 +3975,12 @@ buttonm {
 }
 
 @keyframes sponsor-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
@@ -4103,6 +4184,7 @@ footer {
    ============================================================ */
 
 @media (max-width: 768px) {
+
   html,
   body,
   .bg {
@@ -4187,7 +4269,8 @@ footer {
 /* 1. TOP LOGO POSITION: Tweak 'bottom' to move up/down */
 .hero-csi-logo-wrap {
   position: absolute;
-  bottom: calc(100% - 5px); /* Increase (e.g. 100% + 15px) to move further UP, decrease to bring closer */
+  bottom: calc(100% - 5px);
+  /* Increase (e.g. 100% + 15px) to move further UP, decrease to bring closer */
   left: 85.5%;
   transform: translateX(-50%);
   display: flex;
@@ -4201,7 +4284,8 @@ footer {
 
 /* 2. TOP LOGO SIZE & DOT MATRIX / PIXEL STYLING */
 .hero-csi-top-logo {
-  width: 80px; /* Change width (e.g. 60px, 75px, 90px) */
+  width: 80px;
+  /* Change width (e.g. 60px, 75px, 90px) */
   height: auto;
   max-width: 120px;
   object-fit: contain;
@@ -4211,7 +4295,8 @@ footer {
   /* Dot Matrix LED Mask - cuts image into clean matrix dots matching the CSI text */
   -webkit-mask-image: radial-gradient(circle 1.35px at center, #000 80%, transparent 95%);
   mask-image: radial-gradient(circle 1.35px at center, #000 80%, transparent 95%);
-  -webkit-mask-size: 3.5px 3.5px; /* Tweak dot density here (e.g. 2.8px for smaller dots, 4.5px for larger dots) */
+  -webkit-mask-size: 3.5px 3.5px;
+  /* Tweak dot density here (e.g. 2.8px for smaller dots, 4.5px for larger dots) */
   mask-size: 3.5px 3.5px;
   filter: drop-shadow(0 0 0px #ffffff) drop-shadow(0 0 0px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 0px rgba(255, 255, 255, 0.75));
   cursor: pointer;
@@ -4265,7 +4350,8 @@ footer {
 /* 3. SIES GST POSITION: Tweak 'top' to move up/down */
 .hero-csi-subtext-wrap {
   position: absolute;
-  top: calc(100% + 14px); /* Increase (e.g. 100% + 10px) to move further DOWN, decrease to bring closer */
+  top: calc(100% + 14px);
+  /* Increase (e.g. 100% + 10px) to move further DOWN, decrease to bring closer */
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -4274,16 +4360,16 @@ footer {
   transition: opacity 0.25s ease;
 }
 
-/* 4. SIES GST SIZE & FONT: Tweak 'font-size' and 'letter-spacing' */
+/* 4. SIES GST SIZE & FONT: Bold Futuristic Cyber Font */
 .hero-csi-subtitle {
-  font-family: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace !important;
-  font-size: clamp(2.5rem, 1.8vw, 2rem); /* Change text size here */
-  font-weight: 700;
-  letter-spacing: 0.35em; /* Spacing between letters */
-  color: #94a3b8;
+  font-family: 'Orbitron', 'Space Grotesk', 'Montserrat', sans-serif !important;
+  font-size: clamp(1.4rem, 2.3vw, 2.2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.26em !important;
+  color: #f1f5f9 !important;
   text-transform: uppercase;
-  padding-left: 0.35em;
-  text-shadow: 0 0 12px rgba(var(--csi-accent-rgb), 0.3);
+  padding-left: 0.26em;
+  text-shadow: 0 0 16px rgba(var(--csi-accent-rgb), 0.55);
 }
 
 /* ============================================================
@@ -4294,6 +4380,7 @@ footer {
    - Fast AOS Scroll Reveal
    ============================================================ */
 @media (max-width: 768px) {
+
   /* 1. Global Viewport Safety */
   html,
   body {
@@ -4487,11 +4574,12 @@ footer {
   }
 
   .hero-csi-subtitle {
-    font-family: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace !important;
-    font-size: clamp(1.28rem, 5.4vw, 1.75rem) !important;
+    font-family: 'Orbitron', 'Space Grotesk', 'Montserrat', sans-serif !important;
+    font-size: clamp(1.18rem, 5.2vw, 1.65rem) !important;
     font-weight: 800 !important;
-    letter-spacing: 0.25em !important;
-    margin-right: -0.25em !important; /* Perfect optical offset cancellation */
+    letter-spacing: 0.2em !important;
+    margin-right: -0.2em !important;
+    /* Perfect optical offset cancellation */
     padding: 0 !important;
     margin-left: 0 !important;
     display: inline-block !important;
@@ -4672,18 +4760,41 @@ footer {
   /* 9. Events Section & Cards */
   .events-filter-bar {
     width: 100% !important;
-    padding: 8px 12px !important;
-    margin: 1.25rem 0 !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    border-radius: 8px !important;
+    padding: 0 0 0.25rem 0 !important;
+    margin: 1.25rem 0 1.75rem !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     box-sizing: border-box !important;
   }
 
+  .filter-btn-group {
+    gap: 1.5rem !important;
+  }
+
   .filter-chip-btn {
-    font-size: 0.74rem !important;
-    padding: 6px 10px !important;
+    font-size: 0.82rem !important;
+    padding: 0.4rem 0.15rem 0.55rem !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  .filter-chip-btn.active {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
+
+  .log-show-more-card {
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   .events-3col-grid {
@@ -4794,9 +4905,9 @@ footer {
   }
 
   .hero-csi-subtitle {
-    font-size: clamp(1.18rem, 5vw, 1.55rem) !important;
-    letter-spacing: 0.22em !important;
-    margin-right: -0.22em !important;
+    font-size: clamp(1.08rem, 4.8vw, 1.45rem) !important;
+    letter-spacing: 0.18em !important;
+    margin-right: -0.18em !important;
     padding: 0 !important;
   }
 

@@ -303,9 +303,7 @@
           <h3 class="story-heading mb-0">
             Engineering High-Impact <span class="highlight-cyan">Technical Experiences</span>
           </h3>
-          <p class="modern-body-text mb-0 text-md-end" style="max-width: 420px;">
-            Hover or tap the cards below to reveal event dossiers, photos, and direct access.
-          </p>
+          
         </div>
 
         <!-- TOP INTERACTIVE DISPLAY WINDOW -->
@@ -502,25 +500,19 @@
           <h1 class="events-main-title">SYSTEM <span class="highlight-cyan">EVENTS</span></h1>
           <p class="events-main-desc">EXPLORE WHAT WE BUILD, HOST &amp; EXPERIENCE.</p>
         </div>
-        <div class="system-status-metadata">
-          <span>TOTAL LOGS: <strong>14</strong></span>
-          <span>SECURITY: <strong class="val-cyan">TLS_ACTIVE</strong></span>
-          <span>NETWORK: <strong class="val-green">ONLINE</strong></span>
-        </div>
-      </div>
     </div>
 
     <!-- Filter Bar matching Reference -->
-    <div class="events-filter-bar" data-aos="fade-up">
-      <div class="filter-btn-group">
-        <button class="filter-chip-btn active" onclick="filterEvents('events', this)">
+    <div class="events-filter-bar">
+      <div class="filter-btn-group" id="filterBtnGroup">
+        <button class="filter-chip-btn active" id="filterBtnEvents" onclick="filterEvents('events', this)">
           EVENTS <span class="chip-count">(6)</span>
         </button>
-        <button class="filter-chip-btn" onclick="filterEvents('workshops', this)">
+        <button class="filter-chip-btn" id="filterBtnWorkshops" onclick="filterEvents('workshops', this)">
           WORKSHOPS <span class="chip-count">(8)</span>
         </button>
+        <div class="filter-tab-indicator" id="filterTabIndicator"></div>
       </div>
-      <div class="terminal-query-tag">QUERY: <strong>STATUS_RESOLVED</strong></div>
     </div>
 
     <!-- ============================================================
@@ -532,7 +524,6 @@
       <article id="innovations" class="log-event-card" data-category="event flagship" data-aos="fade-up">
         <div class="log-card-media" onclick="openEventGallery('innovation-2026')">
           <img src="assets/events/innovation-2026/innovation-2026-pic-1.jpg" alt="Innovation 2026 Presentation" class="log-card-img" loading="lazy" />
-          <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
           <span class="badge-photo-count"><i class="ri-image-line"></i> 10 Photos</span>
         </div>
         <div class="log-card-body">
@@ -552,7 +543,6 @@
       <article id="enigma" class="log-event-card" data-category="event flagship hackathon" data-aos="fade-up" data-aos-delay="100">
         <div class="log-card-media" onclick="openEventGallery('enigma-4')">
           <img src="assets/events/enigma-4/enigma-4-pic-1.jpg" alt="Enigma 4.0: Chronix Hackathon" class="log-card-img" loading="lazy" />
-          <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
           <span class="badge-photo-count"><i class="ri-image-line"></i> 4 Photos</span>
         </div>
         <div class="log-card-body">
@@ -572,7 +562,6 @@
       <article class="log-event-card" data-category="event hackathon" data-aos="fade-up">
         <div class="log-card-media" onclick="openEventGallery('synapse-1')">
           <img src="assets/events/synapse-1/synapse-1-pic-1.jpg" alt="Synapse 1.0 Simulation Experience" class="log-card-img" loading="lazy" />
-          <span class="badge-category featured-badge">FEATURED EVENT</span>
           <span class="badge-photo-count"><i class="ri-image-line"></i> 5 Photos</span>
         </div>
         <div class="log-card-body">
@@ -797,6 +786,28 @@
         </div>
       </article>
 
+      <!-- INTERACTIVE SHOW MORE ARCHIVED EVENTS TRIGGER CARD (4th Card in Grid) -->
+      <article id="events-show-more-card" class="log-event-card log-show-more-card" role="button" tabindex="0" onclick="toggleMoreEvents()" aria-label="Show more archived events">
+        <div class="log-card-media show-more-card-media">
+          <div class="show-more-radar-bg"></div>
+          <div class="show-more-icon-center">
+            <i class="ri-add-line"></i>
+          </div>
+          <span class="badge-category archive-badge">ARCHIVES // LOGS</span>
+          <span class="badge-photo-count show-more-badge-count"><i class="ri-database-2-line"></i> 11+ Files</span>
+        </div>
+        <div class="log-card-body">
+          <h3 class="log-card-title show-more-title">EXPLORE MORE</h3>
+          <p class="log-card-desc show-more-desc">
+            Discover our complete archive of technical hackathons, hands-on workshops, and national innovation showcases.
+          </p>
+          <div class="log-card-footer">
+            <button class="btn-log-action show-more-btn-pill" onclick="event.stopPropagation(); toggleMoreEvents();">
+              <i class="ri-arrow-down-line show-more-btn-icon"></i> <span class="show-more-count-label">[ + SHOW MORE EVENTS ]</span>
+            </button>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -896,7 +907,7 @@
           <!-- ASSOCIATE SPONSORS -->
           <div class="sponsors-tier-group tier-associate-sponsors-top">
             <div class="tier-label-wrapper">
-              <span class="tier-label"><span class="accent-slash">//</span> _ASSOCIATE SPONSOR</span>
+              <span class="tier-label"><span class="accent-slash">//</span> ASSOCIATE SPONSOR</span>
             </div>
             <div class="sponsors-logo-grid tier-associate-sponsor-grid">
               <a href="https://www.interviewbuddy.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="InterviewBuddy">
@@ -912,7 +923,7 @@
           <!-- PREVIOUS SPONSORS -->
           <div class="sponsors-tier-group tier-previous-sponsors">
             <div class="tier-label-wrapper">
-              <span class="tier-label"><span class="accent-slash">//</span> _PREVIOUS SPONSORS</span>
+              <span class="tier-label"><span class="accent-slash">//</span> PREVIOUS SPONSORS</span>
             </div>
             <div class="sponsors-logo-grid tier-previous-sponsor-grid">
               <a href="https://seedglobaleducation.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SEED Global Education">
@@ -928,7 +939,7 @@
               </a>
 
               <a href="https://www.redbull.com/in-en" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Red Bull">
-                <img src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" />
+                <img src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" height="20px" width="20px" />
               </a>
 
               <a href="https://smaaash.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SMAAASH">
@@ -958,7 +969,8 @@
         <h2 class="cyber-about-hero-title">
           CONTACT.DAT
         </h2>
-        <p class="cyber-about-hero-subtitle">
+        <p class="cyber-about-hero-subtitle" style="transform: translateX(0px);
+">
           Have a question, an idea, or want to collaborate?<br />
           Reach out to us!
         </p>
