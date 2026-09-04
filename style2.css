@@ -11,19 +11,17 @@
   --csi-accent-glow: rgba(var(--csi-accent-rgb), 0.30);   /* Soft subtle glow */
 }
 
-body {
-  font-family: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
-  background-color: #000000;
-  background-image: url('images/cyber-dots-bg.svg');
-  background-size: 120px 120px;
-  background-attachment: fixed;
-  width: 100%;
-  min-height: 100vh;
-  /* min-width: fit-content; */
-}
-
 html,
 body {
+  font-family: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
+  background-color: #000000 !important;
+  background-image: url('images/cyber-dots-bg.svg') !important;
+  background-size: 120px 120px !important;
+  background-position: 0 0 !important;
+  background-attachment: fixed !important;
+  background-repeat: repeat !important;
+  width: 100%;
+  min-height: 100vh;
   overflow-x: clip;
 }
 
@@ -1414,7 +1412,9 @@ buttonm {
   background-color: #000000;
   background-image: url('images/cyber-dots-bg.svg');
   background-size: 120px 120px;
-  background-position: center;
+  background-position: 0 0;
+  background-attachment: fixed;
+  background-repeat: repeat;
   z-index: 20;
   will-change: transform;
 }
@@ -1805,10 +1805,8 @@ buttonm {
 .terminal-about-section {
   position: relative;
   z-index: 10;
-  background-color: #000000;
-  background-image: url('images/cyber-dots-bg.svg');
-  background-size: 120px 120px;
-  background-attachment: fixed;
+  background-color: transparent !important;
+  background-image: none !important;
   padding: 140px 0 160px;
   color: #e2e8f0;
   overflow: hidden;
@@ -3667,10 +3665,8 @@ buttonm {
 .terminal-sponsors-section {
   position: relative;
   z-index: 10;
-  background-color: #000000;
-  background-image: url('images/cyber-dots-bg.svg');
-  background-size: 120px 120px;
-  background-attachment: fixed;
+  background-color: transparent !important;
+  background-image: none !important;
   padding: 100px 0 40px;
   color: #e2e8f0;
   overflow: hidden;
@@ -4072,6 +4068,33 @@ buttonm {
   }
 }
 
+
+/* ============================================================
+   GLOBAL UNIFIED BACKGROUND SYSTEM
+   All content sections are 100% transparent so the single,
+   seamless body dot grid flows uninterrupted through the entire page.
+   ============================================================ */
+.terminal-about-section,
+.about-story-block,
+.about-spotlight-block,
+#what-we-do,
+.mag-section,
+#magzine,
+.modern-content-section,
+#highlights,
+#impact,
+.events-section,
+#event,
+.terminal-sponsors-section,
+#sponsors,
+.terminal-contact-section,
+#contact,
+.modern-cyber-footer,
+footer {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
 /* ============================================================
    PHONE MEDIA QUERIES (<= 768px and <= 480px)
    - Smaller background dots
@@ -4080,13 +4103,43 @@ buttonm {
    ============================================================ */
 
 @media (max-width: 768px) {
+  html,
   body,
-  .bg,
-  .terminal-stage,
-  .terminal-about-section,
-  .terminal-sponsors-section,
-  .terminal-contact-section {
+  .bg {
+    background-color: #000000 !important;
+    background-image: url('images/cyber-dots-bg.svg') !important;
     background-size: 55px 55px !important;
+    background-position: 0 0 !important;
+    background-attachment: fixed !important;
+    background-repeat: repeat !important;
+  }
+
+  .hero-sticky-stage {
+    background-size: 55px 55px !important;
+    background-position: 0 0 !important;
+    background-attachment: fixed !important;
+  }
+
+  /* Keep all sections fully transparent on mobile so the 55px body dots shine through uniformly */
+  .terminal-about-section,
+  .about-story-block,
+  .about-spotlight-block,
+  #what-we-do,
+  .mag-section,
+  #magzine,
+  .modern-content-section,
+  #highlights,
+  #impact,
+  .events-section,
+  #event,
+  .terminal-sponsors-section,
+  #sponsors,
+  .terminal-contact-section,
+  #contact,
+  .modern-cyber-footer,
+  footer {
+    background-color: transparent !important;
+    background-image: none !important;
   }
 }
 
@@ -4257,6 +4310,8 @@ buttonm {
   .terminal-what-we-do-container,
   .events-section,
   .events-top-header,
+  .mag-section,
+  #magzine,
   .mag-editorial-container,
   .sponsors-container,
   .terminal-sponsors-container,
@@ -4287,9 +4342,12 @@ buttonm {
 
   .mag-section,
   #magzine {
-    margin: 20px auto 0 !important;
-    padding: 28px 0 24px !important;
+    margin: 1.5rem auto 0 !important;
+    padding: 28px 20px 24px !important;
     min-height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .events-section,
@@ -4555,13 +4613,46 @@ buttonm {
     font-size: 0.74rem !important;
   }
 
-  /* 8. Magazine Section */
+  /* 8. Magazine Section — Card With Ample Left & Right Margin */
   .mag-hero {
+    display: flex !important;
     flex-direction: column !important;
     gap: 1.5rem !important;
-    padding: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+    background: rgba(8, 14, 28, 0.72) !important;
+    border: 1px solid rgba(var(--csi-accent-rgb), 0.35) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(var(--csi-accent-rgb), 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .mag-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .mag-flipbook-container {
+    width: 100% !important;
+    max-width: 270px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1.414 !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .mag-flipbook-box {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
   }
 
   .mag-desc-item {
@@ -4735,5 +4826,20 @@ buttonm {
   .tier-associate-sponsor-grid,
   .tier-previous-sponsor-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Magazine Section Extra Compact on Small Mobile */
+  .mag-section,
+  #magzine {
+    padding: 24px 16px !important;
+  }
+
+  .mag-hero {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .mag-flipbook-container {
+    max-width: 240px !important;
   }
 }

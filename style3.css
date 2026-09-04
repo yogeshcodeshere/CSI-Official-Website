@@ -40,6 +40,8 @@
   color: var(--csi-text-bright);
   position: relative;
   z-index: 2;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
 /* Top Section Header matching Reference Image */
