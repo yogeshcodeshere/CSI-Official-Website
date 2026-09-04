@@ -10,7 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="shortcut icon" href="./assets/CSI (WHITE) LOGO.png" type="image/x-icon">
@@ -124,18 +124,26 @@
                 <div class="terminal-hero-center">
 
                   <!-- Pure Massive Centered CSI with Interactive LED Letters -->
-                  <h1 class="terminal-main-csi-pure">
-                    <span class="led-letter active" id="led-c" data-letter="C" title="">C</span><span
-                      class="led-letter active" id="led-s" data-letter="S" title="">S</span><span
-                      class="led-letter active" id="led-i" data-letter="I" title="">I</span>
-                  </h1>
+                  <div class="hero-csi-anchor" id="hero-csi-anchor">
+                    <div class="hero-csi-logo-wrap" id="hero-csi-logo">
+                      <img src="images/csi-emblem.svg" alt="CSI Emblem" class="hero-csi-top-logo" width="90px" />
+                    </div>
+                    <h1 class="terminal-main-csi-pure">
+                      <span class="led-letter active" id="led-c" data-letter="C" title="">C</span><span
+                        class="led-letter active" id="led-s" data-letter="S" title="">S</span><span
+                        class="led-letter active" id="led-i" data-letter="I" title="">I</span>
+                    </h1>
+                    <div class="hero-csi-subtext-wrap" id="hero-csi-subtext">
+                      <span class="hero-csi-subtitle">SIES GST</span>
+                    </div>
+                  </div>
 
                 </div>
 
-                <!-- Minimal Scroll / Click To Enter Indicator at Bottom of Screen -->
+                <!-- Minimal Scroll / Enter Down Arrow Indicator (Only on zoomed out screen) -->
                 <div class="terminal-scroll-hint" id="terminal-enter-trigger" role="button" tabindex="0"
                   title="Click or scroll to enter">
-                  <span class="hint-arrow">&darr;</span> <span class="hint-text">SCROLL TO ENTER</span>
+                  <span class="hint-arrow">&darr;</span>
                 </div>
               </div>
 
@@ -161,8 +169,6 @@
       <!-- Section Header -->
       <div class="cyber-about-header" data-aos="fade-up">
         <div class="cyber-section-index">
-          <span class="index-badge">01</span>
-          <span class="index-line"></span>
           <span class="index-label">ABOUT US &bull; SIES GST CHAPTER</span>
         </div>
         <h2 class="cyber-about-hero-title">
@@ -203,7 +209,7 @@
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
             <div class="story-label-wrapper">
-              <span class="story-label">// 01 &bull; WHO ARE WE</span>
+              <span class="story-label">// WHO ARE WE</span>
             </div>
             <h3 class="story-heading">
               India’s Largest Tech Network, <br class="d-none d-md-inline" />
@@ -243,7 +249,6 @@
               <!-- Card 1: Modern Glass Emblem Showcase -->
               <div class="col-md-6">
                 <div class="csi-emblem-showcase-card h-100">
-                  <div class="emblem-card-glow"></div>
                   <div class="emblem-card-inner text-center">
                     <div class="emblem-icon-wrapper">
                       <img src="images/csi-emblem.svg" alt="CSI Emblem" class="csi-emblem-svg" />
@@ -292,7 +297,7 @@
       <!-- 3. WHAT WE DO (TOP WINDOW DISPLAY + HORIZONTAL CARDS DOCK) -->
       <div class="about-spotlight-block" id="what-we-do" data-aos="fade-up">
         <div class="story-label-wrapper">
-          <span class="story-label">// 02 &bull; WHAT WE DO</span>
+          <span class="story-label">// WHAT WE DO</span>
         </div>
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
           <h3 class="story-heading mb-0">
@@ -370,13 +375,10 @@
             <div class="dock-active-indicator"></div>
           </div>
 
-          <!-- Card 3: Megabyte -->
-        
-
-          <!-- Card 4: Hackathons -->
+          <!-- Card 3: Hackathons -->
           <div class="dock-card-item" data-spotlight="hackathons" tabindex="0">
             <div class="dock-card-top">
-              <span class="dock-num">04</span>
+              <span class="dock-num">03</span>
               <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
             </div>
             <h5 class="dock-title">HACKATHONS</h5>
@@ -384,10 +386,10 @@
             <div class="dock-active-indicator"></div>
           </div>
 
-          <!-- Card 5: Tech Workshops -->
+          <!-- Card 4: Tech Workshops -->
           <div class="dock-card-item" data-spotlight="workshops" tabindex="0">
             <div class="dock-card-top">
-              <span class="dock-num">05</span>
+              <span class="dock-num">04</span>
               <span class="dock-arrow"><i class="ri-arrow-right-up-line"></i></span>
             </div>
             <h5 class="dock-title">WORKSHOPS</h5>
@@ -457,8 +459,6 @@
     <div class="container modern-section-container">
       <div class="modern-section-header" data-aos="fade-up">
         <div class="modern-section-tag">
-          <span class="section-tag-num">03</span>
-          <span class="section-tag-divider"></span>
           <span class="section-tag-name">MOMENTS &amp; ARCHIVES</span>
         </div>
         <h2 class="modern-section-title">CHAPTER HIGHLIGHTS</h2>
@@ -513,20 +513,11 @@
     <!-- Filter Bar matching Reference -->
     <div class="events-filter-bar" data-aos="fade-up">
       <div class="filter-btn-group">
-        <button class="filter-chip-btn active" onclick="filterEvents('all', this)">
-          ALL <span class="chip-count">(14)</span>
+        <button class="filter-chip-btn active" onclick="filterEvents('events', this)">
+          EVENTS <span class="chip-count">(6)</span>
         </button>
-        <button class="filter-chip-btn" onclick="filterEvents('flagship', this)">
-          FLAGSHIP <span class="chip-count">(3)</span>
-        </button>
-        <button class="filter-chip-btn" onclick="filterEvents('hackathon', this)">
-          HACKATHONS <span class="chip-count">(2)</span>
-        </button>
-        <button class="filter-chip-btn" onclick="filterEvents('workshop', this)">
+        <button class="filter-chip-btn" onclick="filterEvents('workshops', this)">
           WORKSHOPS <span class="chip-count">(8)</span>
-        </button>
-        <button class="filter-chip-btn" onclick="filterEvents('seminar', this)">
-          SEMINARS <span class="chip-count">(2)</span>
         </button>
       </div>
       <div class="terminal-query-tag">QUERY: <strong>STATUS_RESOLVED</strong></div>
@@ -538,7 +529,7 @@
     <div class="events-3col-grid">
 
       <!-- 01: INNOVATION 2026 -->
-      <article id="innovations" class="log-event-card" data-category="flagship" data-aos="fade-up">
+      <article id="innovations" class="log-event-card" data-category="event flagship" data-aos="fade-up">
         <div class="log-card-media" onclick="openEventGallery('innovation-2026')">
           <img src="assets/events/innovation-2026/innovation-2026-pic-1.jpg" alt="Innovation 2026 Presentation" class="log-card-img" loading="lazy" />
           <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
@@ -558,7 +549,7 @@
       </article>
 
       <!-- 02: ENIGMA 4.0: CHRONIX -->
-      <article id="enigma" class="log-event-card" data-category="flagship hackathon" data-aos="fade-up" data-aos-delay="100">
+      <article id="enigma" class="log-event-card" data-category="event flagship hackathon" data-aos="fade-up" data-aos-delay="100">
         <div class="log-card-media" onclick="openEventGallery('enigma-4')">
           <img src="assets/events/enigma-4/enigma-4-pic-1.jpg" alt="Enigma 4.0: Chronix Hackathon" class="log-card-img" loading="lazy" />
           <span class="badge-category flagship-badge">FLAGSHIP EVENT</span>
@@ -578,7 +569,7 @@
       </article>
 
       <!-- 03: SYNAPSE 1.0 -->
-      <article class="log-event-card" data-category="hackathon" data-aos="fade-up">
+      <article class="log-event-card" data-category="event hackathon" data-aos="fade-up">
         <div class="log-card-media" onclick="openEventGallery('synapse-1')">
           <img src="assets/events/synapse-1/synapse-1-pic-1.jpg" alt="Synapse 1.0 Simulation Experience" class="log-card-img" loading="lazy" />
           <span class="badge-category featured-badge">FEATURED EVENT</span>
@@ -598,7 +589,7 @@
       </article>
 
       <!-- 04: INNOVATION 2023 -->
-      <article class="log-event-card" data-category="flagship" data-aos="fade-up" data-aos-delay="100">
+      <article class="log-event-card" data-category="event flagship" data-aos="fade-up" data-aos-delay="100">
         <div class="log-card-media" onclick="openEventGallery('innovation-2023')">
           <img src="assets/events/innovation-2023/innovation-2023-pic-1.jpg" alt="Innovations 2023 Competition" class="log-card-img" loading="lazy" />
           <span class="badge-photo-count"><i class="ri-image-line"></i> 11 Photos</span>
@@ -769,7 +760,7 @@
       </article>
 
       <!-- 13: PLACEMENT GUIDANCE -->
-      <article class="log-event-card" data-category="seminar" data-aos="fade-up">
+      <article class="log-event-card" data-category="event seminar" data-aos="fade-up">
         <div class="log-card-media" onclick="openEventGallery('placement-guidance')">
           <img src="assets/events/placement-guidance/placement-guidance-pic-1.png" alt="Placement Guidance Workshop" class="log-card-img" loading="lazy" />
           <span class="badge-photo-count"><i class="ri-image-line"></i> 1 Photo</span>
@@ -788,7 +779,7 @@
       </article>
 
       <!-- 14: CSI OUTREACH PROGRAM -->
-      <article id="outreach" class="log-event-card" data-category="seminar" data-aos="fade-up" data-aos-delay="100">
+      <article id="outreach" class="log-event-card" data-category="event seminar" data-aos="fade-up" data-aos-delay="100">
         <div class="log-card-media" onclick="openEventGallery('csi-outreach')">
           <img src="assets/events/csi-outreach/csi-outreach-pic-1.jpg" alt="CSI Outreach Program" class="log-card-img" loading="lazy" />
           <span class="badge-photo-count"><i class="ri-image-line"></i> 3 Photos</span>
@@ -817,8 +808,6 @@
     <div class="container modern-section-container">
       <div class="modern-section-header text-center mx-auto" data-aos="fade-up">
         <div class="modern-section-tag justify-content-center">
-          <span class="section-tag-num">05</span>
-          <span class="section-tag-divider"></span>
           <span class="section-tag-name">OUR SCALE &amp; REACH</span>
         </div>
         <h2 class="modern-section-title">COMMUNITY IMPACT</h2>
@@ -868,8 +857,6 @@
       <!-- Minimalist Editorial Section Header -->
       <div class="cyber-about-header" data-aos="fade-up">
         <div class="cyber-section-index">
-          <span class="index-badge">09</span>
-          <span class="index-line"></span>
           <span class="index-label">PARTNERSHIP NETWORK</span>
         </div>
         <h2 class="cyber-about-hero-title">
@@ -885,16 +872,16 @@
           <svg class="sponsors-horizon-arc" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
             <defs>
               <linearGradient id="horizonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
-                <stop offset="20%" stop-color="#00f0ff" stop-opacity="0.35" />
-                <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.8" />
-                <stop offset="80%" stop-color="#00f0ff" stop-opacity="0.35" />
-                <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+                <stop offset="0%" stop-color="#495796" stop-opacity="0" />
+                <stop offset="20%" stop-color="#495796" stop-opacity="0.35" />
+                <stop offset="50%" stop-color="#495796" stop-opacity="0.8" />
+                <stop offset="80%" stop-color="#495796" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#495796" stop-opacity="0" />
               </linearGradient>
               <linearGradient id="horizonGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
-                <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.25" />
-                <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+                <stop offset="0%" stop-color="#495796" stop-opacity="0" />
+                <stop offset="50%" stop-color="#495796" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#495796" stop-opacity="0" />
               </linearGradient>
             </defs>
             <path d="M 0 110 Q 500 10 1000 110" fill="none" stroke="url(#horizonGlow)" stroke-width="8" />
@@ -966,8 +953,6 @@
       <!-- Minimalist Editorial Section Header (Matching SPONSORS.DAT) -->
       <div class="cyber-about-header" data-aos="fade-up">
         <div class="cyber-section-index">
-          <span class="index-badge">10</span>
-          <span class="index-line"></span>
           <span class="index-label">GET IN TOUCH</span>
         </div>
         <h2 class="cyber-about-hero-title">

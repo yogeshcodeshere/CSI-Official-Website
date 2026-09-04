@@ -40,7 +40,7 @@
 .bg {
   background-color: #000000;
   background-image: url('images/cyber-dots-bg.svg');
-  background-size: 120px 120px;
+  background-size: 100px 100px;
   background-attachment: fixed;
 }
 
@@ -48,7 +48,7 @@
 
 
 .team {
-  background-color: #1f2641;
+  background-color: #0a0b0e;
   width: 60vw;
   position: relative;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -75,8 +75,8 @@
 }
 
 .select-clicked {
-  border: 2px #26489a solid;
-  box-shadow: 0 0 0.8rem #26489a;
+  border: 2px #495796 solid;
+  box-shadow: 0 0 0.8rem #495796;
 }
 
 .select:hover {
@@ -128,7 +128,7 @@
 
 .active {
   background: #23242a;
-  color: #dee995;
+  color: #6777b7;
 }
 
 .menu-open {
@@ -144,8 +144,8 @@
   position: absolute;
   top: 6%;
   left: 3%;
-  background-color: #dee995;
-  color: #13182a;
+  background-color: #6777b7;
+  color: #0a0b0e;
   border-radius: 0.5rem;
   font-weight: 700;
   font-size: larger;
@@ -159,7 +159,7 @@
 
 .goback a {
   text-decoration: none;
-  color: #13182a;
+  color: #0a0b0e;
 }
 
 /*   
@@ -221,7 +221,7 @@
 }
 
 .team_member {
-  background-color: #13182a;
+  background-color: #0a0b0e;
   padding: 2rem;
   border: 1px solid transparent;
   transition: ease 0.3s;
@@ -271,14 +271,14 @@
   right: 12%;
   /* display: flex; */
   flex-direction: column;
-  background-color: #dee995;
+  background-color: #6777b7;
   border-radius: 1rem 1rem 0 0;
   box-shadow: -2rem 0 2rem rgba(0, 0, 0, 0.3);
 }
 
 .team_member-socials svg {
   text-decoration: none !important;
-  color: #13182a;
+  color: #0a0b0e;
   margin-top: 5px;
 }
 

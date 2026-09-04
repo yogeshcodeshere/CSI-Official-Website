@@ -15,7 +15,7 @@
   color: #ffffff;
   padding: 80px 0 30px;
   overflow: hidden;
-  border-top: 1px solid rgba(73, 87, 150, 0.2);
+  border-top: 1px solid rgba(var(--csi-accent-rgb), 0.2);
 }
 
 .footer-container {
@@ -54,7 +54,7 @@
   height: 40px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  border: 1px solid rgba(var(--csi-accent-rgb), 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,11 +64,11 @@
 }
 
 .footer-social-btn:hover {
-  background: rgba(0, 240, 255, 0.18);
-  border-color: rgba(0, 240, 255, 0.6);
-  color: #00f0ff;
+  background: rgba(var(--csi-accent-rgb), 0.18);
+  border-color: rgba(var(--csi-accent-rgb), 0.6);
+  color: var(--csi-accent);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(var(--csi-accent-rgb), 0.25);
 }
 
 /* Navigation Columns (Right) */
@@ -131,16 +131,16 @@
   letter-spacing: 0.08em;
   padding: 2px 7px;
   border-radius: 9999px;
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.35);
-  color: #00f0ff;
+  background: rgba(var(--csi-accent-rgb), 0.1);
+  border: 1px solid rgba(var(--csi-accent-rgb), 0.35);
+  color: var(--csi-accent);
   text-transform: uppercase;
 }
 
 .footer-link-badge.badge-cyan {
-  background: rgba(0, 240, 255, 0.15);
-  border-color: rgba(0, 240, 255, 0.5);
-  color: #00f0ff;
+  background: rgba(var(--csi-accent-rgb), 0.15);
+  border-color: rgba(var(--csi-accent-rgb), 0.5);
+  color: var(--csi-accent);
 }
 
 /* ── Giant Outlined Watermark Typography ──────────────────────────────── */
@@ -161,16 +161,56 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35);
   white-space: nowrap;
   display: inline-block;
   line-height: 1;
-  transition: -webkit-text-stroke 0.4s ease, filter 0.4s ease;
+  transition: -webkit-text-stroke 0.3s ease, filter 0.3s ease;
+  animation: footer-watermark-flicker 5.5s infinite linear;
+}
+
+@keyframes footer-watermark-flicker {
+  0%, 18.999%, 23%, 31.999%, 34%, 69.999%, 73%, 100% {
+    opacity: 0.9;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+    filter: drop-shadow(0 0 10px rgba(var(--csi-accent-rgb), 0.4));
+  }
+  19%, 21% {
+    opacity: 0.15;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+    filter: none;
+  }
+  21.5% {
+    opacity: 1;
+    -webkit-text-stroke: 1.8px rgba(255, 255, 255, 0.7);
+    filter: drop-shadow(0 0 18px rgba(var(--csi-accent-rgb), 0.75)) drop-shadow(0 0 2px #ffffff);
+  }
+  22% {
+    opacity: 0.22;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    filter: none;
+  }
+  32%, 33% {
+    opacity: 0.28;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+    filter: none;
+  }
+  70%, 72% {
+    opacity: 0.12;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+    filter: none;
+  }
+  71% {
+    opacity: 0.95;
+    -webkit-text-stroke: 1.8px rgba(255, 255, 255, 0.65);
+    filter: drop-shadow(0 0 15px rgba(var(--csi-accent-rgb), 0.6)) drop-shadow(0 0 1px #ffffff);
+  }
 }
 
 .footer-watermark-text:hover {
-  -webkit-text-stroke: 1.5px rgba(0, 240, 255, 0.6);
-  filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.25));
+  -webkit-text-stroke: 1.8px rgba(255, 255, 255, 0.85);
+  filter: drop-shadow(0 0 28px rgba(var(--csi-accent-rgb), 0.85)) drop-shadow(0 0 4px #ffffff);
+  opacity: 1;
 }
 
 /* ── Bottom Sub-Footer Credits & Legal Bar ────────────────────────────── */
@@ -214,7 +254,7 @@
 }
 
 .footer-legal-link:hover {
-  color: #00f0ff;
+  color: var(--csi-accent);
 }
 
 /* ── Responsive Media Queries ─────────────────────────────────────────── */

@@ -345,20 +345,49 @@ function closeEventLightbox() {
   }
 }
 
-// Event Filter Tabs Logic
+// Event Filter Tabs Logic (2 Categories: Events & Workshops)
 function filterEvents(category, btn) {
   document.querySelectorAll(".filter-chip-btn").forEach(b => b.classList.remove("active"));
-  if (btn) btn.classList.add("active");
+  if (btn) {
+    btn.classList.add("active");
+  } else {
+    // If no btn passed, find button matching category
+    const matchingBtn = document.querySelector(`.filter-chip-btn[onclick*="'${category}'"]`);
+    if (matchingBtn) matchingBtn.classList.add("active");
+  }
 
   const cards = document.querySelectorAll(".log-event-card");
   cards.forEach(card => {
     const cardCat = (card.getAttribute("data-category") || "").toLowerCase();
-    if (category === "all" || cardCat.includes(category.toLowerCase())) {
+    let isMatch = false;
+
+    if (category === "workshops" || category === "workshop") {
+      isMatch = cardCat.includes("workshop");
+    } else if (category === "events" || category === "event") {
+      isMatch = cardCat.includes("event") || cardCat.includes("flagship") || cardCat.includes("hackathon") || cardCat.includes("seminar");
+    } else if (category === "all") {
+      isMatch = true;
+    } else {
+      isMatch = cardCat.includes(category.toLowerCase());
+    }
+
+    if (isMatch) {
       card.style.display = "flex";
+      // Prevent AOS or transitions from keeping card invisible
+      card.style.opacity = "1";
+      card.style.visibility = "visible";
+      card.style.transform = "none";
+      card.classList.add("aos-animate");
     } else {
       card.style.display = "none";
+      card.style.opacity = "0";
+      card.style.visibility = "hidden";
     }
   });
+
+  if (typeof AOS !== "undefined") {
+    AOS.refresh();
+  }
 }
 
 // Initialize Lightbox Modal Event Listeners
@@ -532,6 +561,10 @@ function initLightboxListeners() {
           enterTrigger.classList.remove('scroll-hint-hidden');
         }
       }
+      const heroLogo = document.getElementById('hero-csi-logo');
+      const heroSubtext = document.getElementById('hero-csi-subtext');
+      if (heroLogo) heroLogo.style.opacity = '1';
+      if (heroSubtext) heroSubtext.style.opacity = '1';
       return;
     }
 
@@ -588,6 +621,12 @@ function initLightboxListeners() {
       }
     }
 
+    // Keep CSI top logo and SIES GST subtitle visible even when monitor is zoomed in
+    const heroLogo = document.getElementById('hero-csi-logo');
+    const heroSubtext = document.getElementById('hero-csi-subtext');
+    if (heroLogo && !heroLogo.classList.contains('off')) heroLogo.style.opacity = '1';
+    if (heroSubtext) heroSubtext.style.opacity = '1';
+
     // Nav handoff: ONLY when monitor screen is ENTIRELY zoomed in (progress >= 0.98), reveal mainNav sliding down from top
     if (progress >= 0.98) {
       screenInner.classList.remove('unzoomed-locked');
@@ -625,24 +664,59 @@ function initLightboxListeners() {
 ==================================================*/
 function initLedToggleLetters() {
   const ledLetters = document.querySelectorAll('.led-letter');
+  const topLogo = document.querySelector('.hero-csi-top-logo');
+  const logoWrap = document.querySelector('.hero-csi-logo-wrap');
+  const logoTargets = [topLogo, logoWrap].filter(Boolean);
+
   ledLetters.forEach(function (letter) {
     letter.addEventListener('click', function (e) {
       e.stopPropagation();
+      const isI = letter.id === 'led-i' || letter.getAttribute('data-letter') === 'I';
+
       if (this.classList.contains('active')) {
         this.classList.remove('active');
         this.classList.add('flickering-off');
+        if (isI) {
+          logoTargets.forEach(el => {
+            el.classList.remove('active');
+            el.classList.add('flickering-off');
+          });
+        }
         const self = this;
         setTimeout(function () {
           self.classList.remove('flickering-off');
           self.classList.add('off');
+          if (isI) {
+            logoTargets.forEach(el => {
+              el.classList.remove('flickering-off');
+              el.classList.add('off');
+            });
+          }
         }, 220);
       } else {
         this.classList.remove('off');
         this.classList.remove('flickering-off');
         this.classList.add('active');
+        if (isI) {
+          logoTargets.forEach(el => {
+            el.classList.remove('off');
+            el.classList.remove('flickering-off');
+            el.classList.add('active');
+          });
+        }
       }
     });
   });
+
+  // Clicking top logo toggles letter 'I' & logo together
+  const clickableLogo = topLogo || logoWrap;
+  if (clickableLogo) {
+    clickableLogo.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const ledI = document.getElementById('led-i');
+      if (ledI) ledI.click();
+    });
+  }
 }
 
 /*==================================================
@@ -823,14 +897,14 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
-        // Faint subtle dots: smaller and refined on phone
+        // Faint subtle dots: 10-20% brighter and harmonized with slate-indigo #495796
         const isPhone = width <= 768;
         if (glowFactor > 0.03) {
-          ctx.fillStyle = `rgba(147, 197, 253, ${0.22 + glowFactor * 0.22})`;
+          ctx.fillStyle = `rgba(135, 150, 210, ${0.28 + glowFactor * 0.26})`;
           const r = dot.radius + glowFactor * (isPhone ? 0.18 : 0.35);
           ctx.fillRect(dot.x - r, dot.y - r, r * 2, r * 2);
         } else {
-          ctx.fillStyle = isPhone ? 'rgba(96, 165, 250, 0.32)' : 'rgba(96, 165, 250, 0.4)';
+          ctx.fillStyle = isPhone ? 'rgba(100, 115, 175, 0.38)' : 'rgba(100, 115, 175, 0.48)';
           ctx.fillRect(dot.x - dot.radius, dot.y - dot.radius, dot.radius * 2, dot.radius * 2);
         }
       }
@@ -881,16 +955,6 @@ function initWhatWeDoSpotlight() {
       h1: 'Research on digital privacy, data sovereignty & counter-threat engineering',
       h2: 'Live presentations evaluated by industry cybersecurity specialists',
       link: '#enigma'
-    },
-    megabyte: {
-      img: 'images/magzine.jpg',
-      badge: 'FLAGSHIP PUBLICATION',
-      cat: '// STUDENT RESEARCH & EDITORIAL',
-      title: 'MEGABYTE MAGAZINE',
-      desc: 'Our annual student-curated journal spotlighting groundbreaking technical articles, AI research reviews, council milestones, and industry interviews.',
-      h1: 'Annual student research papers, domain breakthroughs & interviews',
-      h2: 'Distributed across campus libraries, engineering faculty & students',
-      link: '#magzine'
     },
     hackathons: {
       img: 'images/H (1).jpg',
@@ -983,6 +1047,7 @@ if (document.readyState === 'loading') {
     initWhatWeDoSpotlight();
     initAllDotsCanvases();
     initLightboxListeners();
+    filterEvents('events', document.querySelector('.filter-chip-btn.active'));
   });
 } else {
   initLedToggleLetters();
@@ -991,6 +1056,7 @@ if (document.readyState === 'loading') {
   initWhatWeDoSpotlight();
   initAllDotsCanvases();
   initLightboxListeners();
+  filterEvents('events', document.querySelector('.filter-chip-btn.active'));
 }
 
 // ==================================================
@@ -1024,9 +1090,28 @@ function flickerCSI() {
 
       letter.classList.add('flickering-off');
 
+      // If this is letter 'I', match the flickering effect with the top CSI logo!
+      const isI = letter.id === 'led-i' || letter.getAttribute('data-letter') === 'I';
+      if (isI) {
+        const topLogo = document.querySelector('.hero-csi-top-logo');
+        const logoWrap = document.querySelector('.hero-csi-logo-wrap');
+        const logoElements = [topLogo, logoWrap].filter(Boolean);
+        logoElements.forEach(el => {
+          el.classList.remove('flickering-off');
+          void el.offsetWidth;
+          el.classList.add('flickering-off');
+        });
+      }
+
       // Clean up after animation
       setTimeout(() => {
         letter.classList.remove('flickering-off');
+        if (isI) {
+          const topLogo = document.querySelector('.hero-csi-top-logo');
+          const logoWrap = document.querySelector('.hero-csi-logo-wrap');
+          const logoElements = [topLogo, logoWrap].filter(Boolean);
+          logoElements.forEach(el => el.classList.remove('flickering-off'));
+        }
       }, 250);
 
     }, index * 70);

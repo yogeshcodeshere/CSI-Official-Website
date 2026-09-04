@@ -9,19 +9,24 @@
   --card-width: 280px;
   --card-height: 400px;
   --card-radius: 20px;
-  --glass-bg: rgba(15, 23, 42, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(10, 11, 14, 0.85);
+  --glass-border: rgba(73, 87, 150, 0.28);
   --glass-blur: 20px;
-  --accent-cyan: #00e5ff;
-  --accent-gold: #dee995;
-  --accent-gradient: linear-gradient(135deg, #00e5ff 0%, #7c4dff 50%, #dee995 100%);
+  --csi-accent: #495796;
+  --csi-accent-light: #6777b7;
+  --csi-accent-rgb: 73, 87, 150;
+  --csi-accent-light-rgb: 103, 119, 183;
+  --accent-cyan: #495796;
+  --accent-light: #6777b7;
+  --accent-gold: #6777b7;
+  --accent-gradient: linear-gradient(135deg, #495796 0%, #6777b7 50%, #8796d2 100%);
   --text-primary: #f0f4ff;
   --text-secondary: rgba(159, 165, 181, 0.9);
-  --deep-space: #0a0e1a;
-  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 229, 255, 0.06);
-  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 229, 255, 0.15);
-  --font-display: 'JetBrains Mono', 'Space Mono', monospace;
-  --font-body: 'JetBrains Mono', 'Fira Code', monospace;
+  --deep-space: #000000;
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(73, 87, 150, 0.15);
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(73, 87, 150, 0.35);
+  --font-display: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
+  --font-body: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace;
 }
 
 /* ---- Google Fonts injection (JetBrains Mono for terminal vibe) ---- */
@@ -34,15 +39,18 @@
 
 /* Tighter page background with premium tech grid */
 .bg {
-  background-color: #030712 !important;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    radial-gradient(circle at center top, rgba(13, 31, 60, 0.5) 0%, rgba(3, 7, 18, 0.9) 100%) !important;
-  background-size: 40px 40px, 40px 40px, 100% 100% !important;
+  background-color: #000000 !important;
+  background-image: url('images/cyber-dots-bg.svg') !important;
+  background-size: 100px 100px !important;
   background-position: center top !important;
   background-attachment: fixed !important;
   min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .bg {
+    background-size: 55px 55px !important;
+  }
 }
 
 /* ---- Section — kill extra padding ---- */
@@ -73,10 +81,10 @@
   overflow: hidden !important;
 }
 .goback:hover {
-  background: rgba(0, 229, 255, 0.08) !important;
-  border-color: rgba(0, 229, 255, 0.2) !important;
+  background: rgba(var(--csi-accent-rgb), 0.15) !important;
+  border-color: rgba(var(--csi-accent-rgb), 0.4) !important;
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+  box-shadow: 0 0 20px rgba(var(--csi-accent-rgb), 0.25);
 }
 .goback a {
   color: inherit !important;
@@ -96,7 +104,7 @@
   transition: color 0.3s ease;
 }
 .goback:hover svg {
-  color: var(--accent-cyan) !important;
+  color: var(--accent-light) !important;
 }
 
 /* ---- Title — CENTERED, MASSIVE on desktop, breathing room below ---- */
@@ -111,14 +119,14 @@
 .title {
   font-family: var(--font-display) !important;
   font-weight: 700 !important;
-  font-size: 4rem !important;
-  letter-spacing: -0.04em !important;
+  font-size: clamp(2.5rem, 6vw, 4rem) !important;
+  letter-spacing: 0.08em !important;
   color: var(--text-primary) !important;
+  text-transform: uppercase !important;
   position: relative;
   display: inline-block;
   margin-bottom: 0 !important;
   text-align: center !important;
-  text-shadow: 0 4px 30px rgba(255, 255, 255, 0.1) !important;
 }
 
 .title::after {
@@ -131,7 +139,7 @@
   height: 4px;
   background: var(--accent-gradient);
   border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(var(--csi-accent-rgb), 0.4);
 }
 
 /* ---- Navigation System — Premium Glass Pills ---- */
@@ -151,7 +159,7 @@
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 300px;
-  background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.05) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(var(--csi-accent-rgb), 0.08) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
 }
@@ -196,13 +204,13 @@
 
 .team-nav li.active {
   color: #ffffff !important;
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(124, 77, 255, 0.15) 100%) !important;
-  border-color: rgba(0, 229, 255, 0.4) !important;
+  background: linear-gradient(135deg, rgba(var(--csi-accent-rgb), 0.3) 0%, rgba(var(--csi-accent-light-rgb), 0.2) 100%) !important;
+  border-color: rgba(var(--csi-accent-light-rgb), 0.8) !important;
   transform: translateY(-2px);
   box-shadow: 
-    0 12px 32px rgba(0, 229, 255, 0.15),
-    inset 0 0 0 1px rgba(0, 229, 255, 0.2) !important;
-  text-shadow: 0 2px 10px rgba(0, 229, 255, 0.4) !important;
+    0 12px 32px rgba(var(--csi-accent-rgb), 0.3),
+    inset 0 0 0 1px rgba(var(--csi-accent-rgb), 0.4) !important;
+  text-shadow: 0 2px 10px rgba(var(--csi-accent-light-rgb), 0.8) !important;
 }
 
 /* Subtle inner glow sweep on the active pill */
@@ -540,12 +548,12 @@
     radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.3), transparent),
     radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.2), transparent),
     radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.35), transparent),
-    radial-gradient(1.5px 1.5px at 10% 80%, rgba(0,229,255,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 10% 80%, rgba(var(--csi-accent-rgb), 0.4), transparent),
     radial-gradient(1px 1px at 70% 85%, rgba(255,255,255,0.25), transparent),
     radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1px 1px at 90% 15%, rgba(222,233,149,0.3), transparent),
+    radial-gradient(1px 1px at 90% 15%, rgba(var(--csi-accent-light-rgb), 0.35), transparent),
     radial-gradient(1px 1px at 30% 55%, rgba(255,255,255,0.2), transparent),
-    radial-gradient(1.5px 1.5px at 85% 75%, rgba(0,229,255,0.2), transparent);
+    radial-gradient(1.5px 1.5px at 85% 75%, rgba(var(--csi-accent-rgb), 0.4), transparent);
   pointer-events: none;
   z-index: 0;
   animation: twinkle 4s ease-in-out infinite alternate;
@@ -669,11 +677,11 @@
 }
 
 .back-socials a:hover {
-  background: rgba(0, 229, 255, 0.12);
-  border-color: rgba(0, 229, 255, 0.3);
+  background: rgba(var(--csi-accent-rgb), 0.25);
+  border-color: rgba(var(--csi-accent-rgb), 0.4);
   color: var(--accent-cyan);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 229, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(var(--csi-accent-rgb), 0.3);
 }
 
 .back-socials a svg {
