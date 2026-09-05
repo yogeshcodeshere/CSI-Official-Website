@@ -51,15 +51,28 @@
     if (roundedP >= 100) {
       isFinished = true;
       setTimeout(() => {
-        preloader.classList.add('fade-out');
-        document.body.classList.add('csi-loaded');
-        if (window.lenis && typeof window.lenis.start === 'function') {
-          window.lenis.start();
-        }
-        setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 550);
-      }, 200);
+        // Step 1: Hide grain and edge pseudo-elements to reduce composite layer weight
+        preloader.classList.add('hide-grain');
+        
+        requestAnimationFrame(() => {
+          // Step 2: Trigger GPU-accelerated curtain lift
+          preloader.classList.add('curtain-up');
+          preloader.classList.add('fade-out');
+          
+          // Step 3: ONLY after animation finishes, unlock the body scroll and trigger layout recalcs. 
+          // Doing this during animation causes massive stutter.
+          setTimeout(() => {
+            document.body.classList.add('csi-loaded');
+            if (window.lenis && typeof window.lenis.start === 'function') {
+              window.lenis.start();
+            }
+            preloader.style.display = 'none';
+            if (preloader.parentNode) {
+              preloader.parentNode.removeChild(preloader);
+            }
+          }, 750); // wait for 0.72s transition
+        });
+      }, 160);
       return;
     }
 
