@@ -130,6 +130,14 @@
     meta.innerHTML = `<span>${catLabel}</span><span class="meta-dot"></span><span>2026–27</span>`;
     backContent.appendChild(meta);
 
+    // Quote (if present)
+    if (data.quote) {
+      const quoteEl = document.createElement('p');
+      quoteEl.className = 'back-quote';
+      quoteEl.textContent = data.quote;
+      backContent.appendChild(quoteEl);
+    }
+
     // Social links
     const socials = document.createElement('div');
     socials.className = 'back-socials';
@@ -194,9 +202,17 @@
       const infoDiv = article.querySelector('.team_member-info');
       const socialsDiv = article.querySelector('.team_member-socials');
 
+      const name = infoDiv ? (infoDiv.querySelector('h4')?.textContent?.trim() || 'Team Member') : 'Team Member';
+      const quoteEl = article.querySelector('.team_member-quote, blockquote, .back-quote');
+      let quote = article.getAttribute('data-quote') || (quoteEl ? quoteEl.textContent.trim() : '');
+      if (!quote && name.toLowerCase().includes('yogesh tanwar')) {
+        quote = '“Throughout Heaven and Earth, I alone am the honored one”';
+      }
+
       const data = {
-        name: infoDiv ? (infoDiv.querySelector('h4')?.textContent?.trim() || 'Team Member') : 'Team Member',
+        name: name,
         position: infoDiv ? (infoDiv.querySelector('p')?.textContent?.trim() || '') : '',
+        quote: quote,
         image: imgEl ? imgEl.getAttribute('src') : '',
         category: category,
         socials: extractSocials(socialsDiv)
