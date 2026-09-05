@@ -1,3 +1,94 @@
+/* ================================================================
+   CLEAN MINIMALIST PRELOADER: Bottom-to-Top White Fill
+   ================================================================ */
+(function initCyberPreloader() {
+  const preloader = document.getElementById('csi-preloader');
+  if (!preloader) return;
+
+  if (!document.documentElement.classList.contains('show-csi-loader')) {
+    preloader.style.display = 'none';
+    if (preloader.parentNode) {
+      preloader.parentNode.removeChild(preloader);
+    }
+    document.body.classList.add('csi-loaded');
+    if (window.lenis && typeof window.lenis.start === 'function') {
+      window.lenis.start();
+    }
+    return;
+  }
+
+  let currentP = 0;
+  let targetP = 15;
+  let isLoaded = false;
+  let isFinished = false;
+  const startTime = Date.now();
+  const minDuration = 1200; // smooth 1.2s fill
+
+  function tick() {
+    if (isFinished) return;
+
+    const elapsed = Date.now() - startTime;
+    const timeProgress = Math.min(100, (elapsed / minDuration) * 100);
+
+    if (!isLoaded) {
+      if (targetP < 88) {
+        targetP += 0.5;
+      }
+    } else {
+      targetP = 100;
+    }
+
+    const effectiveTarget = isLoaded ? Math.min(targetP, timeProgress) : Math.min(targetP, 92);
+    currentP += (effectiveTarget - currentP) * 0.15;
+
+    if (isLoaded && elapsed >= minDuration && (100 - currentP) < 0.6) {
+      currentP = 100;
+    }
+
+    const roundedP = Math.min(100, Math.max(0, currentP));
+    preloader.style.setProperty('--loader-p', `${roundedP.toFixed(1)}%`);
+
+    if (roundedP >= 100) {
+      isFinished = true;
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        document.body.classList.add('csi-loaded');
+        if (window.lenis && typeof window.lenis.start === 'function') {
+          window.lenis.start();
+        }
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 550);
+      }, 200);
+      return;
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    targetP = Math.max(targetP, 60);
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      targetP = Math.max(targetP, 65);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    isLoaded = true;
+  } else {
+    window.addEventListener('load', () => {
+      isLoaded = true;
+    });
+  }
+
+  setTimeout(() => {
+    isLoaded = true;
+  }, 2500);
+
+  requestAnimationFrame(tick);
+})();
+
 /*==================================================
   PREMIUM SMOOTH INERTIA SCROLL CONTROLLER (LENIS)
 ==================================================*/
@@ -1028,64 +1119,111 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
 
   createDots();
 
+  // --- Visibility-gated render loop: pauses when canvas is offscreen ---
+  let isVisible = false;
+  let rafId = null;
+
   function render() {
-    if (!document.hidden) {
-      ctx.save();
-      ctx.scale(dpr, dpr);
-      ctx.clearRect(0, 0, width, height);
+    if (!isVisible || document.hidden) {
+      rafId = null;
+      return;
+    }
 
-      const R = repulsionRadius;
-      const Rsq = R * R;
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < dots.length; i++) {
-        const dot = dots[i];
-        let targetX = dot.originX;
-        let targetY = dot.originY;
-        let glowFactor = 0;
+    const R = repulsionRadius;
+    const Rsq = R * R;
 
-        if (mouse.active) {
-          const dx = dot.originX - mouse.x;
-          const dy = dot.originY - mouse.y;
-          const distSq = dx * dx + dy * dy;
+    for (let i = 0; i < dots.length; i++) {
+      const dot = dots[i];
+      let targetX = dot.originX;
+      let targetY = dot.originY;
+      let glowFactor = 0;
 
-          if (distSq < Rsq && distSq > 0) {
-            const dist = Math.sqrt(distSq);
-            const force = 1 - dist / R;
-            const push = force * force * maxDisplacement;
-            const angle = Math.atan2(dy, dx);
-            targetX = dot.originX + Math.cos(angle) * push;
-            targetY = dot.originY + Math.sin(angle) * push;
-            glowFactor = force;
-          }
-        }
+      if (mouse.active) {
+        const dx = dot.originX - mouse.x;
+        const dy = dot.originY - mouse.y;
+        const distSq = dx * dx + dy * dy;
 
-        // Smooth subtle spring physics
-        const ax = (targetX - dot.x) * springK;
-        const ay = (targetY - dot.y) * springK;
-        dot.vx = (dot.vx + ax) * friction;
-        dot.vy = (dot.vy + ay) * friction;
-        dot.x += dot.vx;
-        dot.y += dot.vy;
-
-        // Faint subtle dots: 10-20% brighter and harmonized with slate-indigo #495796
-        const isPhone = width <= 768;
-        if (glowFactor > 0.03) {
-          ctx.fillStyle = `rgba(135, 150, 210, ${0.28 + glowFactor * 0.26})`;
-          const r = dot.radius + glowFactor * (isPhone ? 0.18 : 0.35);
-          ctx.fillRect(dot.x - r, dot.y - r, r * 2, r * 2);
-        } else {
-          ctx.fillStyle = isPhone ? 'rgba(100, 115, 175, 0.38)' : 'rgba(100, 115, 175, 0.48)';
-          ctx.fillRect(dot.x - dot.radius, dot.y - dot.radius, dot.radius * 2, dot.radius * 2);
+        if (distSq < Rsq && distSq > 0) {
+          const dist = Math.sqrt(distSq);
+          const force = 1 - dist / R;
+          const push = force * force * maxDisplacement;
+          const angle = Math.atan2(dy, dx);
+          targetX = dot.originX + Math.cos(angle) * push;
+          targetY = dot.originY + Math.sin(angle) * push;
+          glowFactor = force;
         }
       }
 
-      ctx.restore();
+      // Smooth subtle spring physics
+      const ax = (targetX - dot.x) * springK;
+      const ay = (targetY - dot.y) * springK;
+      dot.vx = (dot.vx + ax) * friction;
+      dot.vy = (dot.vy + ay) * friction;
+      dot.x += dot.vx;
+      dot.y += dot.vy;
+
+      // Faint subtle dots: 10-20% brighter and harmonized with slate-indigo #495796
+      const isPhone = width <= 768;
+      if (glowFactor > 0.03) {
+        ctx.fillStyle = `rgba(135, 150, 210, ${0.28 + glowFactor * 0.26})`;
+        const r = dot.radius + glowFactor * (isPhone ? 0.18 : 0.35);
+        ctx.fillRect(dot.x - r, dot.y - r, r * 2, r * 2);
+      } else {
+        ctx.fillStyle = isPhone ? 'rgba(100, 115, 175, 0.38)' : 'rgba(100, 115, 175, 0.48)';
+        ctx.fillRect(dot.x - dot.radius, dot.y - dot.radius, dot.radius * 2, dot.radius * 2);
+      }
     }
 
-    requestAnimationFrame(render);
+    ctx.restore();
+
+    rafId = requestAnimationFrame(render);
   }
 
-  requestAnimationFrame(render);
+  function startLoop() {
+    if (rafId === null) {
+      rafId = requestAnimationFrame(render);
+    }
+  }
+
+  function stopLoop() {
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  // Use IntersectionObserver to only run the loop when canvas is in viewport
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          isVisible = true;
+          startLoop();
+        } else {
+          isVisible = false;
+          stopLoop();
+        }
+      });
+    }, { threshold: 0 });
+    observer.observe(canvas);
+  } else {
+    // Fallback: always run (old browsers)
+    isVisible = true;
+    startLoop();
+  }
+
+  // Also pause/resume on tab visibility change
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      stopLoop();
+    } else if (isVisible) {
+      startLoop();
+    }
+  });
 }
 
 function initNavLogoPan() {

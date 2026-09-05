@@ -23,7 +23,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="style2.css?v=bluenav6" />
+  <link rel="stylesheet" href="style2.css?v=marquee2" />
   <link rel="stylesheet" href="style3.css?v=glass2" />
   <link rel="stylesheet" href="contact-preview.css?v=glass2" />
   <link rel="stylesheet" href="footer-preview.css" />
@@ -35,10 +35,49 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js" defer></script>
-  <script src="https://www.w3schools.com/lib/w3.js" defer></script>
+  <!-- Preloader Gatekeeper: Strictly visible ONLY on home reload or direct landing; never on team/section navigation -->
+  <script>
+    (function () {
+      var isReload = false;
+      try {
+        var nav = performance.getEntriesByType('navigation');
+        if (nav && nav.length > 0) {
+          isReload = (nav[0].type === 'reload');
+        } else if (window.performance && window.performance.navigation) {
+          isReload = (window.performance.navigation.type === 1);
+        }
+      } catch (e) {}
+
+      var ref = document.referrer || '';
+      var isFromTeam = ref.indexOf('team.html') !== -1 || ref.indexOf('team') !== -1;
+      var isInternalNav = isFromTeam || (sessionStorage.getItem('csi_nav_from_team') === '1');
+      var hasSectionHash = window.location.hash && window.location.hash !== '#top' && window.location.hash !== '';
+
+      if (isReload) {
+        try { sessionStorage.removeItem('csi_nav_from_team'); } catch (e) {}
+        if (!hasSectionHash) {
+          document.documentElement.classList.add('show-csi-loader');
+        }
+      } else if (!isInternalNav && !hasSectionHash && (!ref || ref.indexOf(window.location.host) === -1)) {
+        document.documentElement.classList.add('show-csi-loader');
+      }
+    })();
+  </script>
 </head>
 
 <body id="top">
+  <!-- ================================================================
+       MINIMALIST BLACK PRELOADER: Bottom-to-Top White Fill
+       ================================================================ -->
+  <div id="csi-preloader" class="csi-preloader" aria-hidden="false">
+    <div class="csi-preloader-logo-wrap">
+      <!-- Dim base PNG with original colors -->
+      <img src="assets/CSI new Tans White-Photoroom.png?v=original-colors" alt="CSI Logo" class="csi-preloader-img csi-preloader-dim" />
+      <!-- Solid fill PNG with original colors (fills bottom to top) -->
+      <img src="assets/CSI new Tans White-Photoroom.png?v=original-colors" alt="CSI Logo" class="csi-preloader-img csi-preloader-fill" id="csiLoaderFill" />
+    </div>
+  </div>
+
   <!-- MAIN WINDOW NAVBAR (Centered Navigation on Desktop, Sticky Cyber Nav with Brand & Animated Hamburger on Mobile) -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top main-window-nav terminal-nav-unified" id="main-window-nav">
     <div class="container-fluid d-flex justify-content-between justify-content-lg-center align-items-center px-3 px-md-4">
@@ -836,31 +875,90 @@
             </div>
           </div>
 
-          <!-- PREVIOUS SPONSORS -->
+          <!-- PREVIOUS SPONSORS (Continuous Infinite Marquee Loop) -->
           <div class="sponsors-tier-group tier-previous-sponsors">
             <div class="tier-label-wrapper">
               <span class="tier-label"><span class="accent-slash">//</span> PREVIOUS SPONSORS</span>
             </div>
-            <div class="sponsors-logo-grid tier-previous-sponsor-grid">
-              <a href="https://seedglobaleducation.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SEED Global Education">
-                <img decoding="async" src="images/seed-logo.svg" alt="SEED Global Education Logo" class="sponsor-logo-img" loading="lazy" />
-              </a>
+            
+            <div class="sponsors-marquee-container" aria-label="Previous Sponsors Marquee">
+              <div class="sponsors-marquee-track">
+                <!-- Group 1 -->
+                <div class="sponsors-marquee-group">
+                  <a href="https://seedglobaleducation.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SEED Global Education">
+                    <img decoding="async" src="images/seed-logo.svg" alt="SEED Global Education Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://imperial-overseas.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Imperial Overseas Educational Consultants">
+                    <img decoding="async" src="images/imperial-logo.svg" alt="Imperial Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://mindflixholidays.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Mindflix Holidays">
+                    <img decoding="async" src="images/mindflix-logo.svg" alt="Mindflix Holidays Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://www.redbull.com/in-en" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Red Bull">
+                    <img decoding="async" src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://smaaash.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SMAAASH">
+                    <img decoding="async" src="images/smash-logo.svg" alt="SMAAASH Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                </div>
 
-              <a href="https://imperial-overseas.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Imperial Overseas Educational Consultants">
-                <img decoding="async" src="images/imperial-logo.svg" alt="Imperial Logo" class="sponsor-logo-img" loading="lazy" />
-              </a>
+                <!-- Group 2 (Duplicate for Seamless Infinite Loop) -->
+                <div class="sponsors-marquee-group" aria-hidden="true">
+                  <a href="https://seedglobaleducation.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SEED Global Education" tabindex="-1">
+                    <img decoding="async" src="images/seed-logo.svg" alt="SEED Global Education Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://imperial-overseas.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Imperial Overseas Educational Consultants" tabindex="-1">
+                    <img decoding="async" src="images/imperial-logo.svg" alt="Imperial Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://mindflixholidays.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Mindflix Holidays" tabindex="-1">
+                    <img decoding="async" src="images/mindflix-logo.svg" alt="Mindflix Holidays Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://www.redbull.com/in-en" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Red Bull" tabindex="-1">
+                    <img decoding="async" src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://smaaash.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SMAAASH" tabindex="-1">
+                    <img decoding="async" src="images/smash-logo.svg" alt="SMAAASH Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                </div>
 
-              <a href="https://mindflixholidays.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Mindflix Holidays">
-                <img decoding="async" src="images/mindflix-logo.svg" alt="Mindflix Holidays Logo" class="sponsor-logo-img" loading="lazy" />
-              </a>
+                <!-- Group 3 (Duplicate for Ultra-wide / 4K seamless scroll) -->
+                <div class="sponsors-marquee-group" aria-hidden="true">
+                  <a href="https://seedglobaleducation.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SEED Global Education" tabindex="-1">
+                    <img decoding="async" src="images/seed-logo.svg" alt="SEED Global Education Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://imperial-overseas.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Imperial Overseas Educational Consultants" tabindex="-1">
+                    <img decoding="async" src="images/imperial-logo.svg" alt="Imperial Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://mindflixholidays.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Mindflix Holidays" tabindex="-1">
+                    <img decoding="async" src="images/mindflix-logo.svg" alt="Mindflix Holidays Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://www.redbull.com/in-en" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Red Bull" tabindex="-1">
+                    <img decoding="async" src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://smaaash.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SMAAASH" tabindex="-1">
+                    <img decoding="async" src="images/smash-logo.svg" alt="SMAAASH Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                </div>
 
-              <a href="https://www.redbull.com/in-en" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Red Bull">
-                <img decoding="async" src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" height="20px" width="20px" loading="lazy" />
-              </a>
-
-              <a href="https://smaaash.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SMAAASH">
-                <img decoding="async" src="images/smash-logo.svg" alt="SMAAASH Logo" class="sponsor-logo-img" loading="lazy" />
-              </a>
+                <!-- Group 4 (Duplicate for Ultra-wide / 4K seamless scroll) -->
+                <div class="sponsors-marquee-group" aria-hidden="true">
+                  <a href="https://seedglobaleducation.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SEED Global Education" tabindex="-1">
+                    <img decoding="async" src="images/seed-logo.svg" alt="SEED Global Education Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://imperial-overseas.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Imperial Overseas Educational Consultants" tabindex="-1">
+                    <img decoding="async" src="images/imperial-logo.svg" alt="Imperial Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://mindflixholidays.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Mindflix Holidays" tabindex="-1">
+                    <img decoding="async" src="images/mindflix-logo.svg" alt="Mindflix Holidays Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://www.redbull.com/in-en" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="Red Bull" tabindex="-1">
+                    <img decoding="async" src="images/redbull-logo.png" alt="Red Bull Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                  <a href="https://smaaash.in/" target="_blank" rel="noopener noreferrer" class="sponsor-logo-item" title="SMAAASH" tabindex="-1">
+                    <img decoding="async" src="images/smash-logo.svg" alt="SMAAASH Logo" class="sponsor-logo-img" loading="lazy" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1141,7 +1239,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" defer></script>
   <script src="lenis.min.js" defer></script>
   <script src="flipbook.js" defer></script>
-  <script src="main.js?v=bluenav6" defer></script>
+  <script src="main.js?v=minimalwhite1" defer></script>
   <script src="./particles.js" defer></script>
   <script src="./app.js" defer></script>
   <script>

@@ -1,3 +1,4 @@
+
 const btns = document.querySelectorAll(".bt");
 const storeProducts = document.querySelectorAll(".store-product");
 const teamDesc = document.querySelector(".team-desc");
@@ -141,6 +142,14 @@ if (teamNavToggler && teamNavCollapse) {
       if (!mainNav.contains(e.target)) {
         closeTeamMenu();
       }
+    }
+  });
+
+  // Flag internal navigation when returning to index.html
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="index.html"]');
+    if (link) {
+      try { sessionStorage.setItem('csi_nav_from_team', '1'); } catch (err) {}
     }
   });
 }

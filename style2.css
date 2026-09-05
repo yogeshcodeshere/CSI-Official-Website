@@ -4445,6 +4445,11 @@ buttonm {
   max-width: 1240px;
 }
 
+#sponsors .cyber-about-header,
+.terminal-sponsors-section .cyber-about-header {
+  margin-bottom: 8px !important;
+}
+
 #sponsors .cyber-about-hero-title,
 .terminal-sponsors-section .cyber-about-hero-title {
   font-family: 'JetBrains Mono', 'Space Mono', 'Consolas', monospace !important;
@@ -4557,13 +4562,14 @@ buttonm {
   color: var(--csi-accent);
 }
 
-/* Decorative Horizon Arc Canvas */
+/* Decorative Horizon Arc Canvas - Tight & Sleek */
 .sponsors-visual-canvas {
   position: relative;
   width: 100%;
-  height: 65px;
+  height: 24px;
   overflow: hidden;
   pointer-events: none;
+  margin-bottom: 2px;
 }
 
 .sponsors-horizon-arc {
@@ -4573,18 +4579,18 @@ buttonm {
   width: 100%;
   height: 100%;
   display: block;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 /* Showcase Body */
 .sponsors-showcase-content {
-  padding: 20px 0 36px;
+  padding: 4px 0 28px;
   position: relative;
   z-index: 2;
 }
 
 .sponsors-tier-group {
-  margin-bottom: 38px;
+  margin-bottom: 42px;
 }
 
 .sponsors-tier-group:last-child {
@@ -4592,7 +4598,7 @@ buttonm {
 }
 
 .tier-label-wrapper {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 #sponsors .tier-label,
@@ -4620,37 +4626,61 @@ buttonm {
   justify-content: center !important;
 }
 
-/* ASSOCIATE SPONSORS: 2-column side-by-side grid */
+/* ============================================================
+   ASSOCIATE SPONSORS: 2-column layout with MASSIVE high-impact logos
+   ============================================================ */
 .tier-associate-sponsor-grid {
-  grid-template-columns: repeat(2, minmax(180px, 250px)) !important;
-  gap: 24px 44px !important;
+  grid-template-columns: repeat(2, minmax(320px, 480px)) !important;
+  gap: 32px 64px !important;
   justify-content: center !important;
   margin: 0 auto !important;
+  max-width: 1100px !important;
 }
 
-/* PREVIOUS SPONSORS: 5-column desktop grid for the 5 sponsors */
-.tier-previous-sponsor-grid {
-  grid-template-columns: repeat(5, minmax(140px, 190px)) !important;
-  gap: 20px 24px !important;
+.tier-associate-sponsor-grid .sponsor-logo-item {
+  height: 160px !important;
+  padding: 18px 32px !important;
+  display: flex !important;
+  align-items: center !important;
   justify-content: center !important;
-  margin: 0 auto !important;
-  max-width: 1060px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease !important;
+  animation: sponsor-float 5s ease-in-out infinite;
 }
 
-/* Clickable Logo Item Link Wrapper */
+.tier-associate-sponsor-grid .sponsor-logo-item:hover {
+  transform: translateY(-6px) scale(1.08) !important;
+  filter: drop-shadow(0 0 28px rgba(var(--csi-accent-rgb), 0.65)) !important;
+  animation-play-state: paused;
+}
+
+.tier-associate-sponsor-grid .sponsor-logo-img {
+  max-width: 420px !important;
+  max-height: 130px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+  filter: brightness(1) opacity(0.96) !important;
+  transition: filter 0.25s ease, transform 0.25s ease !important;
+}
+
+.tier-associate-sponsor-grid .sponsor-logo-item:hover .sponsor-logo-img {
+  filter: brightness(1.25) opacity(1) !important;
+}
+
+/* Base Clickable Logo Item Link Wrapper */
 .sponsor-logo-item {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 10px 14px !important;
-  width: 100% !important;
-  height: 92px !important;
   text-decoration: none !important;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
-  animation: sponsor-float 4.5s ease-in-out infinite;
 }
 
 .sponsor-logo-item:nth-child(2n) {
@@ -4666,7 +4696,6 @@ buttonm {
 }
 
 @keyframes sponsor-float {
-
   0%,
   100% {
     transform: translateY(0);
@@ -4677,28 +4706,84 @@ buttonm {
   }
 }
 
-.sponsor-logo-item:hover {
-  transform: translateY(-5px) scale(1.08) !important;
-  filter: drop-shadow(0 0 18px rgba(var(--csi-accent-rgb), 0.55)) !important;
+/* ============================================================
+   PREVIOUS SPONSORS: Continuous Infinite Marquee Loop (Large Logos)
+   ============================================================ */
+.sponsors-marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 16px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+}
+
+.sponsors-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.sponsors-marquee-track:hover {
   animation-play-state: paused;
 }
 
-/* Actual Logo Image Element Sizing */
-.terminal-sponsors-section .sponsor-logo-img,
-.sponsor-logo-img {
-  max-width: 215px !important;
-  max-height: 72px !important;
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.sponsors-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding-right: 60px; /* Must equal gap for perfectly seamless loop */
+  flex-shrink: 0;
+}
+
+.sponsors-marquee-group .sponsor-logo-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 115px !important;
+  width: auto !important;
+  min-width: 220px !important;
+  max-width: 320px !important;
+  padding: 12px 24px !important;
+  flex-shrink: 0 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  animation: none !important; /* No vertical bobbing in marquee */
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
+}
+
+.sponsors-marquee-group .sponsor-logo-item:hover {
+  transform: scale(1.12) !important;
+  filter: drop-shadow(0 0 22px rgba(var(--csi-accent-rgb), 0.6)) !important;
+}
+
+.sponsors-marquee-group .sponsor-logo-img {
+  max-width: 260px !important;
+  max-height: 88px !important;
   width: auto !important;
   height: auto !important;
   object-fit: contain !important;
   display: block !important;
   margin: 0 auto !important;
-  filter: brightness(1) opacity(0.95) !important;
+  filter: brightness(0.95) opacity(0.92) !important;
   transition: filter 0.25s ease !important;
 }
 
-.sponsor-logo-item:hover .sponsor-logo-img {
-  filter: brightness(1.2) opacity(1) !important;
+.sponsors-marquee-group .sponsor-logo-item:hover .sponsor-logo-img {
+  filter: brightness(1.22) opacity(1) !important;
 }
 
 /* CTA Footer Wrapper */
@@ -4767,67 +4852,102 @@ buttonm {
 /* Media Queries for Sponsors Section */
 @media (max-width: 991px) {
   .terminal-sponsors-section {
-    padding: 85px 0 100px;
+    padding: 50px 0 60px;
+  }
+
+  .terminal-sponsors-section .cyber-about-header {
+    margin-bottom: 8px !important;
   }
 
   .sponsors-showcase-content {
-    padding: 16px 0 24px;
+    padding: 8px 0 24px;
   }
 
   .tier-associate-sponsor-grid {
-    grid-template-columns: repeat(2, minmax(150px, 210px)) !important;
-    gap: 20px 32px !important;
+    grid-template-columns: repeat(2, minmax(240px, 360px)) !important;
+    gap: 24px 36px !important;
   }
 
-  .tier-previous-sponsor-grid {
-    grid-template-columns: repeat(2, minmax(150px, 210px)) !important;
-    gap: 24px 28px !important;
+  .tier-associate-sponsor-grid .sponsor-logo-item {
+    height: 130px !important;
+    padding: 14px 22px !important;
   }
 
-  .sponsor-logo-item {
-    height: 68px !important;
-    padding: 8px 12px !important;
+  .tier-associate-sponsor-grid .sponsor-logo-img {
+    max-width: 320px !important;
+    max-height: 100px !important;
   }
 
-  .terminal-sponsors-section .sponsor-logo-img,
-  .sponsor-logo-img {
-    max-width: 155px !important;
-    max-height: 48px !important;
+  .sponsors-marquee-track {
+    animation-duration: 22s;
+  }
+
+  .sponsors-marquee-group {
+    gap: 44px;
+    padding-right: 44px;
+  }
+
+  .sponsors-marquee-group .sponsor-logo-item {
+    height: 95px !important;
+    min-width: 180px !important;
+    max-width: 260px !important;
+    padding: 10px 18px !important;
+  }
+
+  .sponsors-marquee-group .sponsor-logo-img {
+    max-width: 210px !important;
+    max-height: 72px !important;
   }
 }
 
 @media (max-width: 767px) {
   .terminal-sponsors-section {
-    padding: 70px 0 85px;
+    padding: 40px 0 50px;
   }
 
   .terminal-sponsors-section .cyber-about-header {
-    margin-bottom: 35px !important;
+    margin-bottom: 6px !important;
   }
 
   .sponsors-showcase-content {
-    padding: 12px 0 20px;
+    padding: 6px 0 20px;
   }
 
   .tier-associate-sponsor-grid {
-    grid-template-columns: repeat(2, minmax(130px, 180px)) !important;
-    gap: 16px 20px !important;
+    grid-template-columns: 1fr !important;
+    max-width: 380px !important;
+    gap: 18px !important;
   }
 
-  .tier-previous-sponsor-grid {
-    grid-template-columns: repeat(2, minmax(130px, 180px)) !important;
-    gap: 20px 20px !important;
+  .tier-associate-sponsor-grid .sponsor-logo-item {
+    height: 125px !important;
+    padding: 12px 20px !important;
   }
 
-  .sponsor-logo-item {
-    height: 62px !important;
-    padding: 6px 10px !important;
+  .tier-associate-sponsor-grid .sponsor-logo-img {
+    max-width: 300px !important;
+    max-height: 95px !important;
   }
 
-  .terminal-sponsors-section .sponsor-logo-img,
-  .sponsor-logo-img {
-    max-width: 135px !important;
-    max-height: 42px !important;
+  .sponsors-marquee-track {
+    animation-duration: 18s;
+  }
+
+  .sponsors-marquee-group {
+    gap: 32px;
+    padding-right: 32px;
+  }
+
+  .sponsors-marquee-group .sponsor-logo-item {
+    height: 85px !important;
+    min-width: 150px !important;
+    max-width: 220px !important;
+    padding: 8px 14px !important;
+  }
+
+  .sponsors-marquee-group .sponsor-logo-img {
+    max-width: 175px !important;
+    max-height: 62px !important;
   }
 
   .sponsors-cta-wrapper {
@@ -5624,28 +5744,28 @@ footer {
     line-height: 1.55 !important;
   }
 
-  /* 11. Sponsors Terminal Showcase */
+  /* 11. Sponsors Terminal Showcase - Maintain High Impact Size on Mobile */
   .sponsors-terminal-frame {
-    padding: 16px 12px !important;
+    padding: 8px 4px !important;
     border-radius: 8px !important;
     box-sizing: border-box !important;
   }
 
-  .tier-associate-sponsor-grid,
-  .tier-previous-sponsor-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
+  .tier-associate-sponsor-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 360px !important;
+    gap: 16px !important;
+    margin: 0 auto !important;
   }
 
-  .sponsor-logo-item {
-    padding: 10px 8px !important;
-    height: 58px !important;
-    border-radius: 6px !important;
+  .tier-associate-sponsor-grid .sponsor-logo-item {
+    height: 125px !important;
+    padding: 12px 20px !important;
   }
 
-  .sponsor-logo-img {
-    max-height: 30px !important;
-    max-width: 105px !important;
+  .tier-associate-sponsor-grid .sponsor-logo-img {
+    max-height: 95px !important;
+    max-width: 300px !important;
   }
 
   /* 12. Contact Form & Footer */
@@ -5730,5 +5850,73 @@ footer {
     width: 100% !important;
     max-width: min(96vw, 390px) !important;
     height: clamp(390px, 68vh, 540px) !important;
+  }
+}
+
+/* ==================================================
+   CLEAN MINIMALIST PRELOADER (PURE BLACK + BOTTOM-TO-TOP WHITE FILL)
+================================================== */
+.csi-preloader {
+  display: none;
+}
+
+html.show-csi-loader .csi-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000000 !important;
+  background-color: #000000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.5s ease;
+}
+
+.csi-preloader.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.csi-preloader-logo-wrap {
+  position: relative;
+  width: min(220px, 58vw);
+  aspect-ratio: 544 / 304;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.csi-preloader-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Layer 1: Dim White Base PNG */
+.csi-preloader-dim {
+  opacity: 0.22;
+}
+
+/* Layer 2: Pure Solid White Fill (Bottom to Top) with Very Subtle Soft Glow */
+.csi-preloader-fill {
+  opacity: 1;
+  clip-path: inset(calc(100% - var(--loader-p, 0%)) 0 0 0);
+  -webkit-clip-path: inset(calc(100% - var(--loader-p, 0%)) 0 0 0);
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.35));
+  will-change: clip-path, filter;
+}
+
+@media (max-width: 768px) {
+  .csi-preloader-logo-wrap {
+    width: min(170px, 55vw);
   }
 }
