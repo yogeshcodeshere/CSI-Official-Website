@@ -9,7 +9,7 @@
   // Team category labels for the back-face meta display
   const categoryLabels = {
     Faculty: 'Faculty',
-    Heads: 'Core Council',
+    Heads: 'Core',
     App: 'Technical',
     Admin: 'Social Media',
     ML: 'Marketing',
@@ -210,7 +210,6 @@
     });
   }
 
-  // Mobile tap-to-flip handler — works via CSS media query, not JS width check
   function setupMobileTap() {
     document.addEventListener('click', function (e) {
       // If clicking a social link on the back face, let it navigate — don't flip
@@ -219,7 +218,12 @@
       }
 
       const card = e.target.closest('.flip-card');
-      if (!card) return;
+      if (!card) {
+        document.querySelectorAll('.flip-card.flipped').forEach(c => {
+          c.classList.remove('flipped');
+        });
+        return;
+      }
 
       // Only use tap-to-flip on touch/small screens (CSS handles the rest)
       // Check if hover flip is disabled (mobile CSS sets transform:none on hover)
@@ -232,6 +236,13 @@
         if (c !== card) c.classList.remove('flipped');
       });
       card.classList.toggle('flipped');
+    });
+
+    // Also unflip on mouseleave to prevent getting stuck
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('mouseleave', function() {
+        this.classList.remove('flipped');
+      });
     });
   }
 
@@ -280,7 +291,7 @@
 
     // 2. Keep flipped for 1.8 seconds, then flip back to OG state
     setTimeout(() => {
-      if (cardToFlip && (!cardToFlip.matches || !cardToFlip.matches(':hover'))) {
+      if (cardToFlip) {
         cardToFlip.classList.remove('flipped');
       }
     }, 1800);
