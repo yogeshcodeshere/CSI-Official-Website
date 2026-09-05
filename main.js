@@ -611,6 +611,26 @@ function initLightboxListeners() {
   };
 
   function updateLayout() {
+    if (window.innerWidth <= 991) {
+      // Mobile: Clear any desktop viewport styles so mobile CSS rules have 100% control
+      screenViewport.style.left = '';
+      screenViewport.style.top = '';
+      screenViewport.style.width = '';
+      screenViewport.style.height = '';
+      screenViewport.style.borderRadius = '';
+      screenInner.style.transform = '';
+      screenInner.style.transformOrigin = '';
+      stageBox.style.transform = '';
+      stageBox.style.transformOrigin = '';
+      stickyStage.style.transform = '';
+      stickyStage.style.visibility = 'visible';
+      screenInner.classList.remove('unzoomed-locked');
+      if (mainNav) {
+        mainNav.classList.add('nav-visible');
+      }
+      return;
+    }
+
     const Vw = window.innerWidth;
     const Vh = window.innerHeight;
     const V_aspect = Vw / Vh;
@@ -652,18 +672,6 @@ function initLightboxListeners() {
     screenViewport.style.top = `${scrTop}px`;
     screenViewport.style.width = `${scrWidth}px`;
     screenViewport.style.height = `${scrHeight}px`;
-
-    if (window.innerWidth <= 991) {
-      // Mobile: Direct CSI LED screen without desktop zoom gimmick
-      screenInner.style.transform = '';
-      screenInner.style.transformOrigin = '';
-      stageBox.style.transform = '';
-      screenInner.classList.remove('unzoomed-locked');
-      if (mainNav) {
-        mainNav.classList.add('nav-visible');
-      }
-      return;
-    }
 
     // Scale the inside website content to match desktop proportions inside monitor
     const innerScaleX = scrWidth / Vw;
@@ -956,6 +964,9 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
         const ox = i * currentSpacing + rand1 * (currentSpacing * 0.35);
         const oy = j * currentSpacing + rand2 * (currentSpacing * 0.35);
 
+        // Do not generate dots in top-right navbar/hamburger area on mobile/tablet
+        if (width <= 991 && ox >= width - 140 && oy <= 95) continue;
+
         dots.push({
           originX: ox,
           originY: oy,
@@ -970,6 +981,14 @@ function setupInteractiveDotCanvas(canvasId, stageElement, isGlobalWindow) {
   }
 
   function onPointerMove(e) {
+    // Silence dot interaction near mobile hamburger button in top-right corner
+    if (window.innerWidth <= 991 && e.clientY <= 95 && e.clientX >= window.innerWidth - 140) {
+      mouse.active = false;
+      mouse.x = -9999;
+      mouse.y = -9999;
+      return;
+    }
+
     if (isGlobalWindow) {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -1335,7 +1354,7 @@ function scheduleCSIFlicker() {
 scheduleCSIFlicker();
 
 /* ================================================================
-   MOBILE CYBER NAVBAR: Auto-collapse on link click & outside click
+   MOBILE CYBER NAVBAR: Bulletproof Hamburger & Auto-collapse
    ================================================================ */
 (function initMobileNav() {
   const mainNavCollapse = document.getElementById('navbarNavMain');
@@ -1344,19 +1363,76 @@ scheduleCSIFlicker();
 
   if (!mainNavCollapse || !mainNavToggler) return;
 
-  function closeMobileNav() {
-    if (mainNavCollapse.classList.contains('show')) {
-      if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
-        const bsCollapse = bootstrap.Collapse.getInstance(mainNavCollapse) || new bootstrap.Collapse(mainNavCollapse, { toggle: false });
-        bsCollapse.hide();
-      } else {
-        mainNavCollapse.classList.remove('show');
+  let lastToggleTime = 0;
+  function toggleMobileNav(e) {
+    const now = Date.now();
+    if (now - lastToggleTime < 400) {
+      if (e) {
+        if (e.cancelable) e.preventDefault();
+        e.stopPropagation();
       }
+      return;
+    }
+    lastToggleTime = now;
+
+    if (e) {
+      if (e.cancelable && e.type !== 'pointerdown') e.preventDefault();
+      e.stopPropagation();
+    }
+    const isCurrentlyOpen = mainNavCollapse.classList.contains('show');
+    const willOpen = !isCurrentlyOpen;
+
+    if (willOpen) {
+      mainNavCollapse.classList.add('show');
+      mainNavToggler.classList.remove('collapsed');
+      mainNavToggler.setAttribute('aria-expanded', 'true');
+      if (mainNav) mainNav.classList.add('has-menu-open');
+    } else {
+      mainNavCollapse.classList.remove('show');
       mainNavToggler.classList.add('collapsed');
       mainNavToggler.setAttribute('aria-expanded', 'false');
       if (mainNav) mainNav.classList.remove('has-menu-open');
     }
   }
+
+  function closeMobileNav() {
+    if (Date.now() - lastToggleTime < 400) return;
+    if (mainNavCollapse.classList.contains('show')) {
+      mainNavCollapse.classList.remove('show');
+      mainNavToggler.classList.add('collapsed');
+      mainNavToggler.setAttribute('aria-expanded', 'false');
+      if (mainNav) mainNav.classList.remove('has-menu-open');
+    }
+  }
+
+  // Bind pointerdown and click with deduplication to prevent double-toggle on tap/release
+  let handledByPointer = false;
+  mainNavToggler.addEventListener('pointerdown', function (e) {
+    if (e.button === 0 || e.pointerType === 'touch') {
+      handledByPointer = true;
+      toggleMobileNav(e);
+      setTimeout(function () { handledByPointer = false; }, 500);
+    }
+  });
+  mainNavToggler.addEventListener('click', function (e) {
+    if (handledByPointer) {
+      if (e.cancelable) e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    toggleMobileNav(e);
+  });
+
+  // Intercept any tap on the entire right side of the navbar header (all the way to the right screen edge)
+  mainNav.addEventListener('pointerdown', function (e) {
+    if (window.innerWidth <= 991) {
+      if (e.target.closest('#mainNavToggler, .cyber-hamburger-btn')) return;
+      const rect = mainNav.getBoundingClientRect();
+      if (e.clientY <= (rect.top + 60) && e.clientX >= (window.innerWidth - 110)) {
+        toggleMobileNav(e);
+      }
+    }
+  });
 
   // Close when clicking any nav link
   mainNavCollapse.querySelectorAll('.nav-link').forEach(function (link) {
@@ -1370,23 +1446,19 @@ scheduleCSIFlicker();
   // Close when clicking outside
   document.addEventListener('click', function (e) {
     if (window.innerWidth <= 991 && mainNavCollapse.classList.contains('show')) {
+      if (Date.now() - lastToggleTime < 400) return;
+      if (e.target.closest('#mainNavToggler, .cyber-hamburger-btn')) return;
       if (mainNav && !mainNav.contains(e.target)) {
         closeMobileNav();
       }
     }
   });
 
-  // Listen to Bootstrap collapse events to keep hamburger animation in sync & manage glassmorphism
-  mainNavCollapse.addEventListener('show.bs.collapse', function () {
-    mainNavToggler.classList.remove('collapsed');
-    mainNavToggler.setAttribute('aria-expanded', 'true');
-    if (mainNav) mainNav.classList.add('has-menu-open');
-  });
-
-  mainNavCollapse.addEventListener('hide.bs.collapse', function () {
-    mainNavToggler.classList.add('collapsed');
-    mainNavToggler.setAttribute('aria-expanded', 'false');
-    if (mainNav) mainNav.classList.remove('has-menu-open');
+  // Close on Escape key for accessibility
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && mainNavCollapse.classList.contains('show')) {
+      closeMobileNav();
+    }
   });
 })();
 
