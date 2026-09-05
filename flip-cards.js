@@ -177,7 +177,9 @@
       socials.appendChild(a);
     }
 
-    backContent.appendChild(socials);
+    if (socials.children.length > 0) {
+      backContent.appendChild(socials);
+    }
     back.appendChild(backContent);
     inner.appendChild(back);
 
