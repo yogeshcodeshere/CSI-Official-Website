@@ -403,10 +403,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background: rgba(2, 4, 10, 0.94);
   backdrop-filter: blur(28px) saturate(190%);
   -webkit-backdrop-filter: blur(28px) saturate(190%);
-  z-index: 99999;
+  z-index: 99999999 !important; /* Extremely high z-index to stay above mobile navbar */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -425,8 +426,10 @@
 .lightbox-dialog {
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   max-width: 100vw;
   max-height: 100vh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
