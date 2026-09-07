@@ -144,28 +144,58 @@ html {
   color: aliceblue;
 }
 
-.goback {
+/* ==========================================================================
+   TOP-LEFT BACK BUTTON
+   ========================================================================== */
+.membership-top-bar {
   position: absolute;
-  top: 6%;
-  left: 3%;
-  background-color: #6777b7;
-  color: #0a0b0e;
-  border-radius: 0.5rem;
+  top: 1.75rem;
+  left: 2rem;
+  z-index: 100;
+}
+
+.membership-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(6, 12, 30, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #ffffff !important;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
   font-weight: 700;
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  padding: 0.3% 0.7%;
+  letter-spacing: 0.05em;
+  padding: 0.55rem 1.15rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.goback svg {
-  margin-right: 8px;
-  margin-bottom: 4px;
+.membership-back-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
 }
 
-.goback a {
-  text-decoration: none;
-  color: #0a0b0e;
+.membership-back-btn:hover {
+  background: rgba(12, 22, 52, 0.9);
+  border-color: #38bdf8;
+  color: #38bdf8 !important;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+}
+
+.membership-back-btn:hover i {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 600px) {
+  .membership-top-bar {
+    top: 1.25rem;
+    left: 1.25rem;
+  }
 }
 
 /*   

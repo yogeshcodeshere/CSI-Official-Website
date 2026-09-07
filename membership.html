@@ -1,62 +1,619 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSI Membership</title>
-    <link rel="stylesheet" href="./styles_membership.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSI Membership | CSI SIESGST</title>
+
+  <!-- Preconnect hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <link rel="icon" type="image/svg+xml" href="images/csi-emblem.svg" />
+  <link rel="shortcut icon" href="images/csi-emblem.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS CDNs & Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="styles_membership.css?v=cyber1" />
 </head>
 
-<body>
-    <div id="navbar">
-        <img src="./assets/CSI (WHITE) LOGO.png" alt="">
-        <p>Membership</p>
-        <button><a href="./index.html">Go Back</a></button>
-    </div>
-    <div id="CSI-info">
-        <div>
-            <p class="headers">What is CSI-MemberShip?</p>
-            <div>
-                <img id="v2" class="imgm" src="images/membership.gif" alt="CSI Membership Overview" width="82%" height="40%">
-                <p>The Computer Society of India (CSI) is a premier professional body for IT professionals and
-                    enthusiasts in India. Established in 1965, CSI aims to promote the exchange of knowledge and ideas
-                    between IT professionals, academia, and students to enhance India's technological landscape. CSI
-                    membership is an opportunity for individuals, especially students, to become part of this
-                    prestigious community and gain numerous benefits that support their professional growth and
-                    learning.
-                    CSI membership offers a variety of advantages to students, ranging from access to resources,
-                    networking opportunities, and professional development. As a member, you become part of a larger
-                    ecosystem where technology and innovation thrive. Here's a breakdown of what CSI membership entails:
-                </p>
-            </div>
+<body id="top">
+
+  <!-- ================================================================
+       TOP-LEFT BACK BUTTON
+       ================================================================ -->
+  <div class="membership-top-bar">
+    <a href="index.html" class="membership-back-btn" title="Back to CSI Home" aria-label="Back to CSI Home">
+      <i class="ri-arrow-left-line"></i>
+      <span>Back</span>
+    </a>
+  </div>
+
+  <!-- ================================================================
+       HERO BANNER SECTION
+       ================================================================ -->
+  <section class="membership-hero" id="hero">
+    <div class="custom-container">
+
+      <!-- Main Heading -->
+      <h1 class="hero-main-title" data-aos="fade-up" data-aos-delay="100">
+        ELEVATE YOUR <span class="gradient-text">TECH FRONTIER</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Join the Computer Society of India (SIES GST Student Chapter). Gain unrestricted access to premier technical workshops, flagship hackathons, verified digital credentials, and a national network of innovators.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="300">
+        <a href="#tiers" class="btn-cyber-primary">
+          <span>ENROLL FOR MEMBERSHIP</span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="#benefits" class="btn-cyber-outline">
+          <i class="ri-shield-star-line"></i>
+          <span>EXPLORE PRIVILEGES</span>
+        </a>
+      </div>
+
+      <!-- Live Stats Metrics -->
+      <div class="stats-strip-grid" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat-metric-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Active Members</div>
         </div>
-    </div>
-    <div id="Benefits">
-        <div class="benefits-list">
-            <p class="headers">Membership Benefits</p>
-            <div class="benefit-container grid">
-                <!-- Benefits Section Remains the Same -->
-                <div class="year-benefit">
-                    <h3>Benefits</h3>
-                    <ul>
-                        <h2>Unlock a universe of knowledge:</h2>
-                        <li><i class="ri-video-line"></i> Complimentary access to all CSI Mumbai and CSI SIESGST seminars and workshops. Dive into cutting-edge topics and elevate your expertise!</li>
-                        <h2>Tech Connect:</h2>
-                        <li><i class="ri-link-m"></i> Forge powerful connections at our annual tech networking events! Engage with industry leaders, innovators, and fellow tech enthusiasts to expand your professional network.</li>
-                        <h2>Badge of Honor:</h2>
-                        <li><i class="ri-award-line"></i> Showcase your affiliation with pride! Earn the official CSI SIESGST digital badge to enhance your online profiles and stand out at events.</li>
-                        <h2>Knowledge Vault:</h2>
-                        <li><i class="ri-book-line"></i> Gain exclusive access to a treasure trove of journals, research, and resources through your CSI Mumbai Chapter membership. Stay ahead of the curve in your field!</li>
-                        <h2>Savings Surge:</h2>
-                        <li><i class="ri-money-dollar-circle-line"></i> Supercharge your skills with exclusive discounts on technical courses and certifications. Invest in your future without breaking the bank!</li>
-                        <h2>Youngling Guidance:</h2>
-                        <li><i class="ri-contacts-line"></i> Navigate your career with expert guidance from mentors in AI, cybersecurity, and web development. Gain insights that propel your professional journey forward!</li>
-                        <h2>Scribe Sorcerer:</h2>
-                        <li><i class="ri-pencil-line"></i> Shine bright as a featured contributor in CSI SIESGST's digital magazine THE MEGABYTE! Showcase your exceptional work and inspire others in the tech community.</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="stat-metric-card">
+          <div class="stat-number">40+</div>
+          <div class="stat-label">Annual Sessions</div>
         </div>
+        <div class="stat-metric-card">
+          <div class="stat-number">₹50K+</div>
+          <div class="stat-label">Hackathon Prizes</div>
+        </div>
+        <div class="stat-metric-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Hands-On Learning</div>
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <!-- ================================================================
+       WHAT IS CSI MEMBERSHIP (OVERVIEW SECTION)
+       ================================================================ -->
+  <section class="overview-section" id="overview">
+    <div class="custom-container">
+      <div class="overview-card-container">
+        
+        <!-- Left: Holographic Media Card -->
+        <div class="holo-media-card" data-aos="fade-right">
+          <div class="holo-bracket-tl"></div>
+          <div class="holo-bracket-br"></div>
+          <div class="holo-media-inner">
+            <img src="images/membership.gif" alt="CSI SIESGST Membership Overview" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Right: Text & Value Propositions -->
+        <div class="overview-text-block" data-aos="fade-left">
+          <span class="section-label">// SOCIETY_OVERVIEW</span>
+          <h2 class="section-title">WHAT IS CSI MEMBERSHIP?</h2>
+          <p>
+            The <strong>Computer Society of India (CSI)</strong> is the premier professional body for IT specialists, researchers, and students across India. Established in 1965, CSI fosters the exchange of cutting-edge knowledge, innovative research, and technical camaraderie.
+          </p>
+          <p>
+            At <strong>SIES GST</strong>, the CSI Student Chapter represents an elite hub where ambitious engineers transform classroom theory into high-impact industry applications. Becoming a registered CSI member unlocks unparalleled access to our technical ecosystem.
+          </p>
+
+          <!-- 3 Highlight Features -->
+          <div class="overview-features-list">
+            <div class="overview-feature-item">
+              <div class="feature-icon-box">
+                <i class="ri-shield-check-line"></i>
+              </div>
+              <div class="feature-content">
+                <h4>National Accreditation</h4>
+                <p>Recognized student chapter affiliation backed by the Computer Society of India national council.</p>
+              </div>
+            </div>
+
+            <div class="overview-feature-item">
+              <div class="feature-icon-box">
+                <i class="ri-git-merge-line"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Industry & Project Bridge</h4>
+                <p>Hands-on development sprints in AI, Cloud, Cybersecurity, and Web3 guided by seasoned practitioners.</p>
+              </div>
+            </div>
+
+            <div class="overview-feature-item">
+              <div class="feature-icon-box">
+                <i class="ri-team-line"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Elite Alumni & Mentor Network</h4>
+                <p>Direct peer connections with seniors, alumni placed at top tech enterprises, and faculty experts.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       PERKS & BENEFITS MATRIX (8 CARDS)
+       ================================================================ -->
+  <section class="benefits-section" id="benefits">
+    <div class="custom-container">
+      <div class="text-center" data-aos="fade-up">
+        <span class="section-label">// PRIVILEGES & REWARDS</span>
+        <h2 class="section-title">UNRIVALED MEMBERSHIP BENEFITS</h2>
+        <p style="max-width: 680px; margin: 0 auto; color: #94a3b8;">
+          Everything you need to accelerate your engineering career, elevate your resume, and master emerging technologies.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        
+        <!-- Card 1 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-slideshow-3-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 01 ]</span>
+          </div>
+          <h3 class="benefit-title">Universe of Knowledge</h3>
+          <p class="benefit-desc">
+            Complimentary and priority access to all CSI Mumbai and CSI SIESGST seminars, bootcamps, and workshops. Dive into cutting-edge domains without paywalls.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Free Workshop Access
+          </span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-community-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 02 ]</span>
+          </div>
+          <h3 class="benefit-title">Tech Connect</h3>
+          <p class="benefit-desc">
+            Forge high-value connections at our annual technical mixers! Engage directly with tech leaders, entrepreneurs, and fellow passionate coders.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Exclusive Mixers & Roundtables
+          </span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-medal-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 03 ]</span>
+          </div>
+          <h3 class="benefit-title">Badge of Honor</h3>
+          <p class="benefit-desc">
+            Showcase your affiliation with pride! Earn the official CSI SIESGST verified digital badge & certificates to elevate your LinkedIn and GitHub portfolios.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Verifiable Digital Credential
+          </span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-book-read-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 04 ]</span>
+          </div>
+          <h3 class="benefit-title">Knowledge Vault</h3>
+          <p class="benefit-desc">
+            Unlock exclusive archives of technical research, journals, session recordings, and repository templates curated by the CSI Mumbai Chapter.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Journal & Research Archives
+          </span>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-coupon-3-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 05 ]</span>
+          </div>
+          <h3 class="benefit-title">Savings Surge</h3>
+          <p class="benefit-desc">
+            Enjoy heavy subsidies and exclusive discounts on flagship hackathon entries (Innovations, Enigma), global certification vouchers, and tech summits.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Subsidized Hackathon Tickets
+          </span>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-compass-3-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 06 ]</span>
+          </div>
+          <h3 class="benefit-title">Youngling Mentorship</h3>
+          <p class="benefit-desc">
+            Accelerate your trajectory with personalized 1-on-1 mentorship from seniors and alumni excelling in AI/ML, Full Stack, Cloud Architecture, and Cyber Defense.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> 1:1 Guided Roadmaps
+          </span>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-article-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 07 ]</span>
+          </div>
+          <h3 class="benefit-title">The Megabyte Scribe</h3>
+          <p class="benefit-desc">
+            Feature your articles, research findings, and project reviews in CSI SIESGST's prestigious annual digital publication "THE MEGABYTE".
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Published Author Credit
+          </span>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="benefit-cyber-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="benefit-card-top">
+            <div class="benefit-icon-circle">
+              <i class="ri-flag-line"></i>
+            </div>
+            <span class="benefit-id-tag">[ 08 ]</span>
+          </div>
+          <h3 class="benefit-title">Council Leadership</h3>
+          <p class="benefit-desc">
+            Gain priority consideration for volunteer, organizing, and executive roles within the CSI Student Council. Build authentic executive leadership credentials.
+          </p>
+          <span class="benefit-perk-tag">
+            <i class="ri-check-line"></i> Executive Fast-Track
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       MEMBERSHIP TIERS & ENROLLMENT PASSES
+       ================================================================ -->
+  <section class="tiers-section" id="tiers">
+    <div class="custom-container">
+      <div class="text-center" data-aos="fade-up">
+        <span class="section-label">// ENROLLMENT_TIERS</span>
+        <h2 class="section-title">CHOOSE YOUR MEMBERSHIP PASS</h2>
+        <p style="max-width: 640px; margin: 0 auto; color: #94a3b8;">
+          Select the pass that fits your academic timeline. Invest in your technical development with unmatched returns.
+        </p>
+      </div>
+
+      <div class="tiers-grid">
+        
+        <!-- Tier 1: 1-Year Pass -->
+        <div class="tier-card" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <h3 class="tier-name">1-Year Pass</h3>
+            <p class="tier-audience">Ideal for freshers and sophomores getting started in tech.</p>
+            <div class="tier-price-box">
+              <span class="tier-validity">Validity: 1 Academic Year</span>
+            </div>
+            <ul class="tier-features-list">
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Free entry to all technical workshops & seminars</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Discounted access to Innovations & Enigma hackathons</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Official CSI SIESGST member credentials & digital badge</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Access to the CSI Knowledge Vault & project templates</span>
+              </li>
+            </ul>
+          </div>
+          <a href="mailto:csi-council@siesgst.ac.in?subject=CSI%201-Year%20Membership%20Inquiry" class="btn-tier-action secondary">
+            <span>APPLY FOR 1-YEAR PASS</span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+
+        <!-- Tier 2: Multi-Year Full Tenure Pass -->
+        <div class="tier-card featured" data-aos="fade-up" data-aos-delay="200">
+          <div class="tier-recommended-badge">RECOMMENDED BY COUNCIL</div>
+          <div>
+            <h3 class="tier-name">Full Tenure Pass</h3>
+            <p class="tier-audience">Maximum value covering your entire collegiate tenure.</p>
+            <div class="tier-price-box">
+              <span class="tier-validity">Validity: Full Graduation Tenure</span>
+            </div>
+            <ul class="tier-features-list">
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Permanent priority access to all flagship workshops & hackathons</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>1-on-1 industry mentorship & dedicated resume review</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Fast-track consideration for CSI Council executive roles</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Lifetime alumni network privileges upon graduation</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill"></i>
+                <span>Exclusive contributor spotlight in THE MEGABYTE magazine</span>
+              </li>
+            </ul>
+          </div>
+          <a href="mailto:csi-council@siesgst.ac.in?subject=CSI%20Full%20Tenure%20Membership%20Inquiry" class="btn-tier-action primary">
+            <span>APPLY FOR TENURE PASS</span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FREQUENTLY ASKED QUESTIONS (FAQ)
+       ================================================================ -->
+  <section class="faq-section" id="faq">
+    <div class="custom-container">
+      <div class="text-center" data-aos="fade-up">
+        <span class="section-label">// SYSTEM_FAQ</span>
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: #94a3b8;">
+          Clear answers about membership enrollment, benefits activation, and chapter access.
+        </p>
+      </div>
+
+      <div class="faq-accordion-box" data-aos="fade-up" data-aos-delay="150">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <div class="faq-question">
+            <h4>Who is eligible to join CSI SIESGST?</h4>
+            <i class="ri-arrow-down-s-line faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Any student enrolled at SIES Graduate School of Technology from any academic year (FE, SE, TE, BE) and any engineering discipline (CE, IT, ECS, AIML, IOT, ME) is eligible to join. We celebrate cross-disciplinary collaboration.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>How soon do my membership privileges activate?</h4>
+            <i class="ri-arrow-down-s-line faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Your membership privileges activate immediately upon confirmation by the student council. You will receive your official member registration ID and gain instant entry to our members-only portal and event discounts.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>How do I redeem discounts on workshops and hackathons?</h4>
+            <i class="ri-arrow-down-s-line faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Whenever registration opens for events such as Innovations, Enigma, or technical bootcamps, members enter their verified CSI Member ID at checkout to automatically apply complimentary access or steep member-only pricing.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>Can members contribute to The Megabyte magazine?</h4>
+            <i class="ri-arrow-down-s-line faq-toggle-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes! All active CSI members receive exclusive call-for-papers invitations to submit articles, technical breakdowns, interviews, and project showcases to the editorial committee of "The Megabyte".
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Support Callout Strip -->
+      <div class="support-callout-box" data-aos="fade-up" data-aos-delay="200">
+        <div class="support-content">
+          <h4>Need further assistance?</h4>
+          <p>Reach out directly to the CSI SIESGST student council executive coordinators.</p>
+        </div>
+        <div class="support-links-group">
+          <a href="mailto:csi-council@siesgst.ac.in" class="support-pill-btn">
+            <i class="ri-mail-send-line"></i>
+            <span>csi-council@siesgst.ac.in</span>
+          </a>
+          <a href="https://www.instagram.com/csisiesgst" target="_blank" rel="noopener noreferrer" class="support-pill-btn">
+            <i class="ri-instagram-line"></i>
+            <span>@csisiesgst</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       MODERN CYBER FOOTER (MATCHES INDEX & TEAM PAGES)
+       ================================================================ -->
+  <footer class="modern-cyber-footer">
+    <div class="custom-container footer-container">
+      
+      <!-- TOP GRID -->
+      <div class="row g-4 footer-top-grid">
+        
+        <!-- Col 1: Brand & Tagline -->
+        <div class="col-lg-4 col-md-12 footer-brand-col">
+          <h3 class="footer-brand-title">CSI SIESGST</h3>
+          <p class="footer-tagline">
+            The Computer Society of India Student Chapter at SIES Graduate School of Technology, Navi Mumbai. Empowering innovators, fostering research, and engineering the future.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://www.instagram.com/csisiesgst" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="https://in.linkedin.com/company/csi-siesgst" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+            <a href="https://www.facebook.com/937406819724072/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="mailto:csi-council@siesgst.ac.in" class="footer-social-btn" aria-label="Email">
+              <i class="ri-mail-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="col-lg-2 col-md-4 col-6 footer-nav-col">
+          <h4 class="footer-column-title">NAVIGATION</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="index.html#cm">About Us</a></li>
+            <li class="footer-link-item"><a href="index.html#magzine">Magazine</a></li>
+            <li class="footer-link-item"><a href="index.html#event">Events</a></li>
+            <li class="footer-link-item"><a href="team.html">Our Team</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Discover -->
+        <div class="col-lg-3 col-md-4 col-6 footer-nav-col">
+          <h4 class="footer-column-title">DISCOVER</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="membership.html">Join CSI</a></li>
+            <li class="footer-link-item"><a href="index.html#sponsors">Sponsors</a></li>
+            <li class="footer-link-item"><a href="index.html#contact">Contact Us</a></li>
+            <li class="footer-link-item"><a href="ar-vr.html">Tech Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Connect -->
+        <div class="col-lg-3 col-md-4 col-12 footer-nav-col">
+          <h4 class="footer-column-title">CONNECT</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="mailto:csi-council@siesgst.ac.in">csi-council@siesgst.ac.in</a></li>
+            <li class="footer-link-item"><a href="https://www.instagram.com/csisiesgst" target="_blank" rel="noopener noreferrer">Instagram (@csisiesgst)</a></li>
+            <li class="footer-link-item"><a href="https://in.linkedin.com/company/csi-siesgst" target="_blank" rel="noopener noreferrer">LinkedIn (csi-siesgst)</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- CENTER SECTION: Giant Outline Watermark -->
+      <div class="footer-watermark-wrapper">
+        <div class="footer-watermark-text">CSI SIESGST</div>
+      </div>
+
+      <!-- BOTTOM BAR: Legal & Copyright -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">
+          &copy; 2026 CSI SIESGST <span class="mx-2">|</span> All rights reserved
+        </p>
+        <div class="footer-legal-links">
+          <a href="index.html#terms" class="footer-legal-link">Terms of Service</a>
+          <a href="index.html#privacy" class="footer-legal-link">Privacy Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       SCRIPTS
+       ================================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS Animations
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 750,
+          once: true,
+          offset: 80,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
+        });
+      }
+    });
+
+
+
+    // FAQ Accordion Toggle
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      if (question) {
+        question.addEventListener('click', function () {
+          var isActive = item.classList.contains('active');
+          faqItems.forEach(function (otherItem) {
+            otherItem.classList.remove('active');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+
 </body>
+
 </html>
